@@ -1,0 +1,24 @@
+<view class="page" data-weui-theme="{{theme}}">
+
+<view class="page-title">{{t['selectText5']}}</view>
+<view bind:tap="handleTap">
+  <view class="demo-block">
+    <block wx:for="{{arr}}" wx:key="placement">
+      <view class="list-item">
+        <mp-select-text 
+          show-copy-btn 
+          placement="{{item.placement}}" 
+          value="{{item.value}}" 
+          data-id="{{index}}" 
+          bindcopy="onCopy"
+          on-document-tap="{{evt}}"
+        >
+        </mp-select-text>
+      </view>
+    </block>
+    <view class="list-item">
+      <mp-select-text value="{{t['selectText6']}}"></mp-select-text>
+    </view>
+  </view>
+</view>
+</view>

@@ -1,0 +1,29 @@
+<!--pages/jserror/index.wxml-->
+<view class="jserror_container">
+  <text>JSerror Page</text>
+  <view>Click the button to trigger different types of js errors</view>
+  <view class="btn-box">
+    <view class="qapm-btn" bindtap="SyntaxErrorFunc">SyntaxError</view>
+  </view>
+  <view class="btn-box">
+    <view class="qapm-btn" bindtap="ReferenceErrorFunc">ReferenceError</view>
+  </view>
+  <view class="btn-box">
+    <view class="qapm-btn" bindtap="RangeErrorFunc">RangeError</view>
+  </view>
+  <view class="btn-box">
+    <view class="qapm-btn" bindtap="TypeErrorFunc">TypeError</view>
+  </view>
+  <view class="btn-box">
+    <view class="qapm-btn" bindtap="URIErrorFunc">URIError</view>
+  </view>
+  <view class="btn-box">
+    <view class="qapm-btn" bindtap="EvalErrorFunc">EvalError</view>
+  </view>  
+  <view class="btn-box">
+    <view class="qapm-btn" bindtap="UnhandleRejection">UnhandleRejection</view>
+  </view>  
+  <view>
+    <view class="qapm-btn" bindtap="GoBack">go back</view>
+  </view>
+</view>

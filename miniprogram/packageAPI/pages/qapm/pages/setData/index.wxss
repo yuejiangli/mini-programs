@@ -1,0 +1,30 @@
+/* pages/setData/index.wxss */
+.btn-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.qapm-btn {
+  justify-content: center;
+  height: 50px;
+  text-align: center;
+  margin-top: 25px;
+  width: 50%;
+  line-height: 50px;
+  margin-left: 25%;
+  border: 1px gray solid;
+  border-radius: 4px;
+}
+
+.articleJson {
+  margin: 25px 25px;
+  word-wrap: break-word;
+}
+text {
+  font-size: 16px;
+  margin: 25px 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,29 @@
+.qapm-container {
+  margin: 0px 0 100px 0;
+}
+.btn-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.qapm-btn {
+  justify-content: center;
+  height: 50px;
+  text-align: center;
+  margin-top: 25px;
+  width: 50%;
+  line-height: 50px;
+  margin-left: 25%;
+  border: 1px gray solid;
+  border-radius: 4px;
+}
+
+text {
+  font-size: 16px;
+  margin: 25px 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

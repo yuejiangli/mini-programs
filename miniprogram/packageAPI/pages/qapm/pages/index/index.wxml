@@ -1,0 +1,22 @@
+<!--index.wxml-->
+<view class="qapm-container">
+  <view class="btn-box">
+    <view class="qapm-btn" bindtap="gotoPage" data-pagename="../jserror/index">js error</view>
+  </view>
+
+  <view class="btn-box">
+    <view class="qapm-btn" bindtap="gotoPage" data-pagename="../request/index">request</view>
+  </view>
+
+  <!-- <view class="btn-box">
+    <view class="qapm-btn" bindtap="gotoPage" data-pagename="../setData/index">setData</view>
+  </view> -->
+
+  <view class="btn-box">
+    <view class="qapm-btn" bindtap="gotoPage" data-pagename="../pageTime/index">slow page</view>
+  </view>
+
+    <view class="btn-box">
+    <view class="qapm-btn" bindtap="gotoPage" data-pagename="../crash/index">crash</view>
+  </view>
+</view>

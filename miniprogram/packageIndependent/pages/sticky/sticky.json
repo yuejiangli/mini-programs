@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "independent subpackage-sticky",
+  "usingComponents": {
+    "mp-sticky": "../../components/sticky/sticky"
+  }
+}

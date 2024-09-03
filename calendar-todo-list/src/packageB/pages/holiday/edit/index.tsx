@@ -135,9 +135,6 @@ const Edit = () => {
           value={value.subName}
           onChange={subNameChange}
         />
-        <View className={styles.tips}>
-          {t('节日简称不超过4个字符，该简称会展示在首页日历中，如果未配置简称，首页日历展示时会对过长的节日名称做截取。')}
-        </View>
         <Select
           title={`${t('开始日期')}：`}
           label={value.date ?? ''}

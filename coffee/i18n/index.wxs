@@ -1,0 +1,20 @@
+const extractPlaceholders = (str, result = [], regex = getRegExp(`{{\s*([^}]+)\s*}}`, 'g')) => {
+    const match = regex.exec(str);
+    if (match) {
+        result.push([match[0], match[1]])
+        return extractPlaceholders(str.slice(match.index + match[0].length), result, regex);
+    }
+    return result;
+};
+function t(str, options) {
+    const placeholders = extractPlaceholders(str);
+    let langStr = str;
+    if (options) {
+        placeholders.forEach(([v, k]) => {
+            langStr = langStr.replace(v, options[k]);
+        })
+    }
+    return langStr;
+}
+
+module.exports = t

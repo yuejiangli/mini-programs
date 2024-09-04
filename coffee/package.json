@@ -1,0 +1,18 @@
+{
+  "name": "coffee-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "@vant/weapp": "^1.11.6"
+  },
+  "devDependencies": {
+    "i18next-scanner": "^4.5.0"
+  },
+  "scripts": {
+    "scan": "npx i18next-scanner --config ./i18next-scanner.config.js && node ./i18nJsonToJs.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

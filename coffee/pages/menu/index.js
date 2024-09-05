@@ -1,64 +1,53 @@
-var that
+import i18n from '../../i18n/index';
+import { getProductList } from '../../service/request';
+import { getStoreInfo, getUserInfo, saveShoppingCar } from '../../service/storage';
 Page({
     data: {
+        orderType: 1,
         cartList: [],
         cartNum: 0,
         orderTotal: 0,
-        storeInfo: {
-            id: 1,
-            storeName: '星巴克高新区店',
-            address: ''
-        },
-        productListDatas: [{
-                id: 1,
-                number: 0,
-                price: 16,
-                productName: '乌龙桃子',
-                detailRemarks: '非常好喝的奶茶',
-                imgUrl: 'http://res.hualala.com/basicdoc/e7b6cb17-ae51-484a-8970-3e414054955d.jpg'
-            },
-            {
-                id: 2,
-                number: 0,
-                price: 18,
-                productName: '葡萄布丁',
-                detailRemarks: '非常好喝的奶茶',
-                imgUrl: 'http://res.hualala.com/basicdoc/e7b6cb17-ae51-484a-8970-3e414054955d.jpg'
-            },
-        ],
-        confirmButtonText: '去结算'
+        storeInfo: null,
+        productListDatas: [],
+        lang: {
+            confirmButtonText: i18n.t('去结算'),
+            orderType1: i18n.t('自提'),
+            orderType2: i18n.t('外卖'),
+        }
     },
 
     onLoad: function () {
-        if(wx.getStorageSync('userId')==''){
+        const userInfo = getUserInfo();
+        if (!userInfo) {
             wx.showToast({
-              title: '请先登录后操作',
-              icon:'none'
+                title: i18n.t('请先登录后操作'),
+                icon: 'none'
             })
-            setTimeout(()=>{
+            setTimeout(() => {
                 wx.reLaunch({
-                  url: '/pages/extendIndex/extendIndex',
+                    url: '/pages/home/index',
                 })
-            },750)
+            }, 750)
             return;
         }
-        that=this
         this.setData({
-            storeInfo: wx.getStorageSync('storeInfo'),
+            storeInfo: getStoreInfo(),
         })
         this.getCommodityInfo()
     },
 
+    // 切换订单类型
+    changeOrderType: function (e) {
+        const orderType = e.currentTarget.dataset.type
+        this.setData({
+            orderType: orderType === 1 ? 2 : 1,
+        })
+    },
+
     //加载商品
-    getCommodityInfo:function(){
-        wx.request({
-          url: 'http://localhost:8085/commodity/info',
-          success(res){
-              const data=res.data.data
-              that.setData({
-                  productListDatas:data
-              })
-          }
+    getCommodityInfo: function () {
+        this.setData({
+            productListDatas: getProductList()
         })
     },
 
@@ -121,20 +110,18 @@ Page({
 
     //跳转确认订单
     goConfirmOrder: function () {
+        wx.setStorageSync('remarks', '')
         if (this.data.cartList.length <= 0) {
             wx.showToast({
-                title: '请选择商品下单~',
+                title: i18n.t('请选择商品下单~'),
                 icon: 'none'
             })
             return;
         }
         wx.showLoading({
-            title: '正在结算',
+            title: i18n.t('正在结算'),
         })
-        wx.setStorageSync('storeInfo', this.data.storeInfo)
-        wx.setStorageSync('shoppingCar', this.data.cartList)
-        wx.setStorageSync('sumNum', this.data.cartNum)
-        wx.setStorageSync('orderTotal', this.data.orderTotal)
+        saveShoppingCar(this.data.cartList)
         setTimeout(() => {
             wx.hideLoading()
             wx.navigateTo({

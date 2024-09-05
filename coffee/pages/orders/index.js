@@ -1,4 +1,5 @@
 import i18n from '../../i18n/index';
+import { getOrderList, getUserInfo } from '../../service/storage';
 Page({
     data: {
         todayOrderList: [],
@@ -27,134 +28,34 @@ Page({
     },
 
     onLoad: function () {
-        console.log(this.data.lang)
-        // if (wx.getStorageSync('userId') == '') {
-        //     wx.showToast({
-        //         title: '请先登录后操作',
-        //         icon: 'none'
-        //     })
-        //     setTimeout(() => {
-        //         wx.reLaunch({
-        //             url: '/pages/extendIndex/extendIndex',
-        //         })
-        //     }, 750)
-        //     return;
-        // }
+        const userInfo = getUserInfo();
+        if (!userInfo) {
+            wx.showToast({
+                title: i18n.t('请先登录后操作'),
+                icon: 'none'
+            })
+            setTimeout(() => {
+                wx.reLaunch({
+                    url: '/pages/home/index',
+                })
+            }, 750)
+            return;
+        }
         this.getAllOrderInfo()
     },
 
     //获取订单信息
     getAllOrderInfo: function () {
-        const orderlist = [
-            {
-                id: 'hohoho0',
-                storeName: i18n.t('星巴克高新区店'),
-                stateName: i18n.t('制作中'),
-                orderTime: '2024-09-18 15:32:22',
-                isShowTackNumUi: true,
-                takeNumber: 168,
-                productDetail: [
-                    {
-                        imgUrl: '../../static/img/coffee/espresso/square/espresso_pic_2_square.png',
-                    }
-                ],
-                sumNum: 3,
-                orderTotal: 84,
-
-            },
-            {
-                id: 'hohoho1',
-                storeName: i18n.t('星巴克高新区店'),
-                stateName: i18n.t('待取餐'),
-                orderTime: '2024-09-18 15:33:18',
-                isShowTackNumUi: true,
-                takeNumber: 169,
-                productDetail: [
-                    {
-                        imgUrl: '../../static/img/coffee/espresso/square/espresso_pic_3_square.png',
-                    }
-                ],
-                sumNum: 2,
-                orderTotal: 94,
-            },
-            {
-                id: 'hohoho2',
-                storeName: i18n.t('星巴克高新区店'),
-                stateName: i18n.t('已完成'),
-                orderTime: '2024-08-16 13:22:15',
-                isShowTackNumUi: true,
-                takeNumber: 18,
-                productDetail: [
-                    {
-                        imgUrl: '../../static/img/coffee/black_coffee/square/black_coffee_pic_1_square.png',
-                    }
-                ],
-                sumNum: 1,
-                orderTotal: 72,
-            }
-        ];
-        const todayOrderList = [
-            {
-                id: 'hohoho0',
-                storeName: i18n.t('星巴克高新区店'),
-                stateName: i18n.t('制作中'),
-                orderTime: '2024-09-18 15:32:22',
-                isShowTackNumUi: true,
-                takeNumber: 168,
-                productDetail: [
-                    {
-                        imgUrl: 'http://res.hualala.com/basicdoc/e7b6cb17-ae51-484a-8970-3e414054955d.jpg',
-                    }
-                ],
-                sumNum: 3,
-                orderTotal: 84,
-
-            },
-            {
-                id: 'hohoho1',
-                storeName: i18n.t('星巴克高新区店'),
-                stateName: i18n.t('待取餐'),
-                orderTime: '2024-09-18 15:33:18',
-                isShowTackNumUi: true,
-                takeNumber: 169,
-                productDetail: [
-                    {
-                        imgUrl: 'http://res.hualala.com/basicdoc/e7b6cb17-ae51-484a-8970-3e414054955d.jpg',
-                    }
-                ],
-                sumNum: 2,
-                orderTotal: 124,
-
-            }
-        ];
+        const orderlist = getOrderList().map(item => ({ ...item, stateName: [i18n.t('制作中'), i18n.t('待取餐'), i18n.t('已下单')][item.status] }));
+        const todayOrderList = orderlist.filter(item => item.status !== 3)
         this.setData({
             orderlist,
             todayOrderList,
         })
-        // wx.request({
-        //     url: 'http://localhost:8085/order/info',
-        //     method:'POST',
-        //     data:{
-        //         "userId":wx.getStorageSync('userId')
-        //     },
-        //     success(res){
-        //         var todayList=[]
-        //         for(var i=0;i<res.data.data.length;i++){
-        //             const status=res.data.data[i].status
-        //             status==2?todayList.push(res.data.data[i]):null
-        //         }
-        //         this.setData({
-        //             orderlist:res.data.data,
-        //             todayOrderList:todayList
-        //         })
-        //         console.log(this.data.todayOrderList)
-        //     }
-        //   })
     },
 
     //点击切换标题
     titleClick: function (e) {
-        var type = e.currentTarget.dataset.type
         this.setData({
             current: !this.data.current
         })
@@ -164,14 +65,8 @@ Page({
     toOrderDetail: function (e) {
         const index = e.currentTarget.dataset.index
         const orderId = this.data.orderlist[index].id
-        console.log(orderId)
-        // wx.navigateTo({
-        //     url: '/subpackages/orderDetails/index?orderId=' + orderId,
-        // })
         wx.navigateTo({
             url: `/subpackages/orderDetails/index?orderId=${orderId}`,
         })
     }
-
-
 })

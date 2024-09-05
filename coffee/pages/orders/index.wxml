@@ -20,20 +20,20 @@
                             <view class="basic-style" style="margin-bottom:30rpx;" wx:if="{{orderlist!=null&&orderlist.length>0}}" wx:for="{{orderlist}}" wx:for-item="orderItem" wx:for-index="index">
                                 <view bindtap="toOrderDetail" data-index="{{index}}" class="vertical order-info-group ">
                                     <view class="flex justify-between vertical-center ">
-                                        <view class="flex justify-content-start vertical-center " style="width:75%;">
+                                        <view class="flex justify-content-start vertical-center ">
                                             <view class="themeTwoBgColor themeTextColor type-style ">
                                                 {{lang.selfPickup}}
                                             </view>
-                                            <view class="store-name textGone " style="max-width:80%;">
-                                                {{orderItem.storeName}}
-                                            </view>
                                         </view>
                                         <view class="horizontal vertical-center ">
-                                            <view style="color:#333333;font-size:24rpx;line-height:24rpx;">
+                                            <view class="textGone" style="color:#333333;font-size:24rpx;line-height:24rpx;">
                                                 {{orderItem.stateName}}
                                             </view>
                                             <image src="../../static/img/right.png" style="height:24rpx;width:24rpx;margin-left:12rpx;margin-right:-6rpx;"></image>
                                         </view>
+                                    </view>
+                                    <view class="store-name">
+                                        {{orderItem.storeInfo.storeName}}
                                     </view>
                                     <view class="order-time-text-desc ">
                                         {{lang.orderTime}}：{{orderItem.orderTime}}
@@ -95,12 +95,9 @@
                             <view class="basic-style" style="margin-bottom:30rpx;" wx:if="{{todayOrderList!=null&&todayOrderList.length>0}}" wx:for="{{todayOrderList}}" wx:for-item="orderItem" wx:for-index="index">
                                 <view bindtap="toOrderDetail" data-index="{{index}}" class="vertical order-info-group ">
                                     <view class="flex justify-between vertical-center ">
-                                        <view class="flex justify-content-start vertical-center " style="width:75%;">
+                                        <view class="flex justify-content-start vertical-center ">
                                             <view class="themeTwoBgColor themeTextColor type-style ">
                                                 {{lang.selfPickup}}
-                                            </view>
-                                            <view class="store-name textGone " style="max-width:80%;">
-                                                {{orderItem.storeName}}
                                             </view>
                                         </view>
                                         <view class="horizontal vertical-center ">
@@ -109,6 +106,9 @@
                                             </view>
                                             <image src="../../static/img/right.png" style="height:24rpx;width:24rpx;margin-left:12rpx;margin-right:-6rpx;"></image>
                                         </view>
+                                    </view>
+                                    <view class="store-name">
+                                        {{orderItem.storeInfo.storeName}}
                                     </view>
                                     <view class="order-time-text-desc ">
                                         {{lang.orderTime}}：{{orderItem.orderTime}}

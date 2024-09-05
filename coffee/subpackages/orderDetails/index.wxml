@@ -1,31 +1,40 @@
 <view class="container">
     <scroll-view class="fill-parent" scrollY="{{true}}" style="background-color:#F8F8F8;" wx:if="{{order!=null}}">
-        <view class="basic-style complete-ui-group flex justify-between vertical-center" wx:if="{{order.status==1}}">
+        <view class="basic-style complete-ui-group flex justify-between vertical-center" wx:if="{{order.status==3}}">
             <view class="vertical">
-                <view class="complete-ui-text">订单已完成</view>
-                <view class="complete-ui-desc">取餐完成，期待您的再次光顾</view>
+                <view class="complete-ui-text">{{lang.orderComplete}}</view>
+                <view class="complete-ui-desc">{{lang.pickUpComplete}}</view>
             </view>
-            <view bindtap="__e" class="center basic-style-button themeTextColor themeBorderColor" data-event-opts="{{[ [ 'tap',[ [ 'reStartCreateorder',['$0'],['order'] ] ] ] ]}}">再来一单</view>
+            <view bindtap="__e" class="center basic-style-button themeTextColor themeBorderColor" data-event-opts="{{[ [ 'tap',[ [ 'reStartCreateorder',['$0'],['order'] ] ] ] ]}}">
+                {{lang.buyAgain}}
+            </view>
         </view>
-        <view class="vertical vertical-center taking-status-gruop basic-style " wx:if="{{order.status!=1}}">
-            <view class="status-code-title">取餐码</view>
-            <view class="status-code-tack-number themeTextColor">{{''+(order.takeNumber==null||order.takeNumber>=10000?'暂无':order.takeNumber)+''}}</view>
+        <view class="vertical vertical-center taking-status-gruop basic-style " wx:if="{{order.status!=3}}">
+            <view class="status-code-title">{{lang.takeNumber}}</view>
+            <view class="status-code-tack-number themeTextColor">{{order.takeNumber}}</view>
             <view class="fill-parent-width flex justify-around">
                 <view class="vertical center" wx:for="{{orderStatusList}}" wx:for-index="__i0__" wx:for-item="orderStatusInfo">
                     <view>
                         <image class="order-status-info-img" src="{{orderStatusInfo.isThis?orderStatusInfo.imgUrl:orderStatusInfo.unImgUrl}}"></image>
                     </view>
-                    <view class="{{['order-status-info-name',orderStatusInfo.isThis?'black-color':'']}}">{{''+orderStatusInfo.statusName+''}}</view>
+                    <view class="{{['order-status-info-name',orderStatusInfo.isThis?'black-color':'']}}">
+                        {{''+orderStatusInfo.statusName+''}}
+                    </view>
                 </view>
             </view>
-            <view bindtap="__e" class="center basic-style-button themeTextColor themeBorderColor" data-event-opts="{{[ [ 'tap',[ [ 'reStartCreateorder',['$0'],['order'] ] ] ] ]}}" style="margin-top:48rpx;">再来一单</view>
+            <view bindtap="buyAgain" class="center basic-style-button themeTextColor themeBorderColor" data-event-opts="{{[ [ 'tap',[ [ 'reStartCreateorder',['$0'],['order'] ] ] ] ]}}" style="margin-top:48rpx;">
+                {{lang.buyAgain}}
+            </view>
         </view>
         <view class="vertical order-group basic-style basic-group" style="padding-top:42rpx;">
-
             <view class="flex justify-between fill-parent-width">
-                <view class="vertical" style="width:70%;">
-                    <text style="font-size:32rpx;font-weight:bold;color:#333333;">{{order.storeName}}</text>
-                    <text style="font-size:24rpx;color:#999999;margin-top:12rpx;">{{order.address}}</text>
+                <view class="vertical">
+                    <view style="font-size:32rpx;font-weight:bold;color:#333333;">
+                        {{order.storeInfo.storeName}}
+                    </view>
+                    <view style="font-size:24rpx;color:#999999;margin-top:12rpx;">
+                        {{order.storeInfo.address}}
+                    </view>
                 </view>
                 <view class="horizontal" style="margin-top:8rpx;">
                     <image bindtap="__e" data-event-opts="{{[ [ 'tap',[ [ 'callPhone',['$0'],['order.hotLine'] ] ] ] ]}}" src="../../static/img/tel.png" style="width:36rpx;height:36rpx;"></image>
@@ -39,46 +48,53 @@
                 <view class="flex justify-between" style="width:79.36%;">
                     <view class="vertical product-name-group">
                         <view style="color:#333333;">{{item.productName}}</view>
+                        <view class="item-remarks" wx:if="{{!!item.detailRemarks}}">
+                            {{item.detailRemarks}}
+                        </view>
                     </view>
                     <view class="product-price-group vertical">
-                        <text style="font-weight:bold;color:#333333;">{{'￥'+item.price}}</text>
-                        <text style="color:#999999;margin-top:20rpx;text-align:right;">{{'x'+item.number}}</text>
+                        <view style="font-weight:bold;color:#333333;">{{'￥'+item.price}}</view>
+                        <view style="color:#999999;margin-top:20rpx;text-align:right;">
+                            {{'x'+item.number}}
+                        </view>
                     </view>
                 </view>
             </view>
             <view class="fn-line" style="margin:0rpx;"></view>
             <view class="fn-line" style="margin:0rpx;margin-top:20rpx;"></view>
             <view class="flex justify-between vertical-center" style="color:#333333;padding-top:32rpx;padding-bottom:32rpx;">
-                <view style="font-size:28rpx;">合计</view>
-                <view class="textGone" style="max-width:75%;font-size:32rpx;font-weight:bold;">{{'￥'+order.orderTotal+''}}</view>
+                <view style="font-size:28rpx;">{{lang.totalMoney}}</view>
+                <view class="textGone" style="max-width:75%;font-size:32rpx;font-weight:bold;">
+                    {{'￥'+order.orderTotal+''}}
+                </view>
             </view>
         </view>
         <view class="vertical order-detail-group fill-parent-width basic-group basic-style" wx:if="{{order!=null}}">
             <view class="fill-parent-width justify-between flex vertical-center" style="margin-top:32rpx;">
-                <view class="order-detail-title">订单信息</view>
+                <view class="order-detail-title">{{lang.orderInfo}}</view>
             </view>
             <view class="fn-line"></view>
             <view class="flex justify-between fill-parent-width margin-bottom-18">
-                <text class="fn-titles">订单号：</text>
+                <text class="fn-titles">{{lang.orderCode+'：'}}</text>
                 <view style="display:flex;justify-content:flex-end;align-items:center;">
                     <text class="fn-text">{{order.orderCode}}</text>
                 </view>
             </view>
             <view class="flex justify-between fill-parent-width margin-bottom-18">
-                <text class="fn-titles">下单门店：</text>
-                <text class="fn-text">{{order.storeName}}</text>
+                <text class="fn-titles">{{lang.orderStore+'：'}}</text>
+                <text class="fn-text">{{order.storeInfo.storeName}}</text>
             </view>
             <view class="flex justify-between fill-parent-width margin-bottom-18">
-                <text class="fn-titles">取餐方式：</text>
-                <text class="fn-text">自提</text>
+                <text class="fn-titles">{{lang.pickUpType+'：'}}</text>
+                <text class="fn-text">{{lang.selfPickup}}</text>
             </view>
             <view class="flex justify-between fill-parent-width margin-bottom-18">
-                <text class="fn-titles">下单时间：</text>
+                <text class="fn-titles">{{lang.orderTime+'：'}}</text>
                 <text class="fn-text">{{order.orderTime}}</text>
             </view>
             <view class="flex justify-between fill-parent-width">
-                <text class="fn-titles">备注：</text>
-                <text class="fn-text">{{order.remark!=null?order.remark:'无'}}</text>
+                <text class="fn-titles">{{lang.remark+'：'}}</text>
+                <text class="fn-text">{{!!order.remark?order.remark:lang.no}}</text>
             </view>
         </view>
     </scroll-view>

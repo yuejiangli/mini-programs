@@ -4,6 +4,7 @@ const zh = require('./js/zh.js');
 const langs = {
   en,
   'zh-Hans': zh,
+  'zh_CN': zh,
   zh,
   id: en,
 }
@@ -29,7 +30,7 @@ function t(str, options) {
       langStr = langStr.replace(v, options[k]);
     })
   }
-  return langStr;
+  return langStr ?? str;
 }
 
 module.exports = { t }

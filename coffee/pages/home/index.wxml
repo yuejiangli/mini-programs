@@ -25,17 +25,17 @@
                         </view>
                         <view class="member-name-group">
                             <view class="member-name">
-                                <text>{{userInfo.nickName}}</text>
+                                <text>{{userInfo.userName}}</text>
                             </view>
-                            <text class="member-grade themeTwoBgColor themeTextColor">
+                            <view class="member-grade themeTwoBgColor themeTextColor">
                                 {{levelName}}
-                            </text>
+                            </view>
                         </view>
                     </view>
                     <view class="flex horizontal">
                         <view bindtap="__e" class="member-button center vertical">
                             <view class="member-button-desc">{{userInfo.memberScore}}</view>
-                            <view class="member-button-title">{{i18n.t('积分')}}</view>
+                            <view class="member-button-title">{{lang.memberScore}}</view>
                         </view>
                         <!-- <view bindtap="__e" class="member-button center vertical" data-event-opts="{{[ [ 'tap',[ [ 'goCoupon',['$event'] ] ] ] ]}}">
                             <view class="member-button-desc">{{''+(memberInfo!=null&&memberInfo.couponList!=null?memberInfo.couponList.length:0)+''}}</view>

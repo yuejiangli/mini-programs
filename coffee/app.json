@@ -6,6 +6,17 @@
         "pages/confirmOrder/index",
         "pages/menu/index"
     ],
+    "subPackages": [
+        {
+            "root": "subpackages/",
+            "independent": false,
+            "name": "subpackages",
+            "pages": [
+                "orderDetails/index",
+                "remarks/index"
+            ]
+        }
+    ],
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
@@ -37,15 +48,5 @@
                 "selectedIconPath": "static/img/tabBar/dingdan-select.png"
             }
         ]
-    },
-    "subPackages": [
-        {
-            "root": "subpackages/",
-            "independent": false,
-            "name": "subpackages",
-            "pages": [
-                "orderDetails/index"
-            ]
-        }
-    ]
+    }
 }

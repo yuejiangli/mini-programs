@@ -48,7 +48,7 @@
 
 .login-button {
   border-radius: 27rpx;
-  font-size: 20rpx;
+  font-size: 24rpx;
   font-weight: 500;
   padding: 12rpx 34rpx;
 }
@@ -75,7 +75,7 @@
 
 .login-remark {
   color: #333;
-  font-size: 20rpx;
+  font-size: 24rpx;
   font-weight: 500;
   margin-top: 12rpx;
 }
@@ -84,6 +84,9 @@
   color: #333;
   font-size: 24rpx;
   font-weight: 500;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .member-grade {
@@ -91,6 +94,11 @@
   font-size: 16rpx;
   margin-top: 8rpx;
   padding: 6rpx 16rpx;
+  display: inline-block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 100%;
 }
 
 .member-name-group {
@@ -157,7 +165,7 @@
 
 .order-button-desc {
   color: #999;
-  font-size: 20rpx;
+  font-size: 24rpx;
   font-weight: 600;
   margin-top: 10rpx;
   white-space: nowrap;
@@ -167,7 +175,7 @@
 }
 .point-shopping-mall-desc {
   color: #999;
-  font-size: 20rpx;
+  font-size: 24rpx;
   font-weight: 600;
   margin-top: 10rpx;
   margin-right: 100rpx;
@@ -179,11 +187,11 @@
 }
 
 .point-button-img {
-  bottom: 30rpx;
+  bottom: 16rpx;
   height: 100rpx;
   width: 100rpx;
   position: absolute;
-  right: 30rpx;
+  right: 16rpx;
 }
 
 .point-shopping-mall-group {
@@ -198,6 +206,9 @@
   padding: 30rpx;
   position: relative;
   width: 334rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;;
 }
 
 .point-shopping-mall-title {
@@ -208,9 +219,9 @@
 
 .point-shopping-mall-desc {
   color: #999;
-  font-size: 20rpx;
+  font-size: 24rpx;
   font-weight: 500;
-  margin-top: 2rpx;
+  margin-top: 12rpx;
 }
 
 .member-icon {

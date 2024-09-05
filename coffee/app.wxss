@@ -497,7 +497,7 @@ checkbox.white.checked .uni-checkbox-input,checkbox.white[checked] .wx-checkbox-
 }
 
 .cu-btn.sm {
-  font-size: 20rpx;
+  font-size: 24rpx;
   height: 48rpx;
   padding: 0 20rpx;
 }
@@ -600,7 +600,7 @@ button.cuIcon.lg {
 }
 
 .cu-tag.sm {
-  font-size: 20rpx;
+  font-size: 24rpx;
   height: 32rpx;
   padding: 0rpx 12rpx;
 }
@@ -651,7 +651,7 @@ button.cuIcon.lg {
 .cu-tag.badge {
   border-radius: 200rpx;
   color: #fff;
-  font-size: 20rpx;
+  font-size: 24rpx;
   height: 28rpx;
   padding: 0rpx 10rpx;
   position: absolute;
@@ -771,7 +771,7 @@ button.cuIcon.lg {
 .cu-progress text,.cu-progress view {
   align-items: center;
   display: flex;
-  font-size: 20rpx;
+  font-size: 24rpx;
 }
 
 .cu-progress text {
@@ -3385,7 +3385,7 @@ scroll-view.cu-steps .cu-item {
 }
 
 .text-xs {
-  font-size: 20rpx;
+  font-size: 24rpx;
 }
 
 .text-sm {

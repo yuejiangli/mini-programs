@@ -1,98 +1,73 @@
-var that
+import i18n from '../../i18n/index';
+import { getOrderInfo } from '../../service/storage'
+
 Page({
     data: {
-        order: {
-            id: 1,
-            stateName: '已完成',
-            status: 18,
-            takeNumber: 202,
-            storeName: '高新区店',
-            address: '在高新区',
-            orderTotal: 40,
-            orderCode: '54545455454544',
-            orderTime: '2022 06-14 22:30',
-            remarks: '不要辣椒',
-            productDetail: [{
-                imgUrl: 'http://res.hualala.com/basicdoc/e7b6cb17-ae51-484a-8970-3e414054955d.jpg',
-                productName: '乌龙桃子',
-                price: 20,
-                number: 2,
-            }]
-        },
-        isShowTakeNumber: 1,
-        isShowCompleteUi: 0,
+        order: null,
         orderStatusList: [{
+            statusCode: 0,
+            statusName: i18n.t("已下单"),
+            imgUrl: "../../static/img/yixiadan-select.png",
+            unImgUrl: "../../static/img/yixiadan.png",
+            isThis: 0
+        }, {
+            statusCode: 1,
+            statusName: i18n.t("制作中"),
+            imgUrl: "../../static/img/zhizuozhong-select.png",
+            unImgUrl: "../../static/img/zhizuozhong.png",
+            isThis: 0
+        }, {
             statusCode: 2,
-            statusName: "已下单",
-            imgUrl: "https://image.streffy.com/splus/images/p_10_1647878005520.png",
-            unImgUrl: "https://image.streffy.com/splus/images/p_10_1647877268336.png",
+            statusName: i18n.t("待取餐"),
+            imgUrl: "../../static/img/daiqucan-select.png",
+            unImgUrl: "../../static/img/daiqucan.png",
             isThis: 0
         }, {
-            statusCode: 21,
-            statusName: "制作中",
-            imgUrl: "https://image.streffy.com/splus/images/p_10_1647878013338.png",
-            unImgUrl: "https://image.streffy.com/splus/images/p_10_1647877260339.png",
-            isThis: 0
-        }, {
-            statusCode: 26,
-            statusName: "待取餐",
-            imgUrl: "https://image.streffy.com/splus/images/p_10_1647878021030.png",
-            unImgUrl: "https://image.streffy.com/splus/images/p_10_1647877254632.png",
-            isThis: 0
-        }, {
-            statusCode: 101,
-            statusName: "已完成",
-            imgUrl: "https://image.streffy.com/splus/images/p_10_1647878024818.png",
-            unImgUrl: "https://image.streffy.com/splus/images/p_10_1647877249884.png",
+            statusCode: 3,
+            statusName: i18n.t("已完成"),
+            imgUrl: "../../static/img/yiwancheng-select.png",
+            unImgUrl: "../../static/img/yiwancheng.png",
             isThis: 0
         }],
+        lang: {
+            buyAgain: i18n.t("再来一单"),
+            totalMoney: i18n.t("合计"),
+            orderInfo: i18n.t("订单信息"),
+            orderCode: i18n.t("订单号"),
+            orderStore: i18n.t("下单门店"),
+            pickUpType: i18n.t("取餐方式"),
+            selfPickup: i18n.t("自提"),
+            orderTime: i18n.t("下单时间"),
+            remark: i18n.t("备注"),
+            no: i18n.t("无"),
+            takeNumber:i18n.t("取餐码"),
+            orderComplete:i18n.t("订单已完成"),
+            pickUpComplete:i18n.t("取餐完成，期待您的再次光顾"),
+        }
     },
 
     onLoad: function (option) {
-        that=this
-        this.setData({
-            "order.id": option.orderId,
-        })
-        this.getOrderDetail()
+        this.getOrderDetail(option.orderId)
     },
 
     // 获取订单详情
-    getOrderDetail: function () {
-        wx.request({
-            url: 'http://localhost:8085/order/detail',
-            method: 'POST',
-            data: {
-                userId: wx.getStorageSync('userId'),
-                orderId: this.data.order.id
-            },
-            success(res) {
-                if(res.data.code!=200){
-                    wx.showToast({
-                      title: '获取数据失败',
-                      icon:'error'
-                    })
-                    setTimeout(()=>{
-                        wx.reLaunch({
-                            url: '/pages/order/order',
-                          })
-                    },450)
-                }
-                that.setData({
-                    order: res.data.data
+    getOrderDetail: function (orderId) {
+        const orderInfo = getOrderInfo(orderId)
+        this.setData({ order: orderInfo })
+        const orderStatusList = this.data.orderStatusList
+        for (let i = 0; i < orderStatusList.length; i++) {
+            const statusCode = orderStatusList[i].statusCode
+            const flag = "orderStatusList[" + i + "].isThis"
+            if (orderInfo.status == statusCode) {
+                this.setData({
+                    [flag]: 1,
                 })
-                console.log("+++++"+res.data.code)
-                var orderStatusList = that.data.orderStatusList
-                var order = res.data.data
-                for (var i = 0; i < orderStatusList.length; i++) {
-                    var statusCode = orderStatusList[i].statusCode
-                    var flag = "orderStatusList[" + i + "].isThis"
-                    if (order.status == statusCode) {
-                        that.setData({
-                            [flag]: 1,
-                        })
-                    }
-                }
             }
-        })
-    }
+        }
+    },
+
+    // 再来一单
+    buyAgain: function () {
+        wx.reLaunch({ url: '/pages/menu/index' })
+    },
 })

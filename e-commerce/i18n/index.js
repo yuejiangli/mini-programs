@@ -3,9 +3,9 @@ import bi from './locales/bi';
 import fr from './locales/fr';
 
 const language = {
-  en, 
+  en,
   fr,
-  bi
+  id: bi
 };
 
 class I18n {

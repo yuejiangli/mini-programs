@@ -3,7 +3,10 @@ const zh = require('./js/zh.js');
 
 const langs = {
   en,
-  'zh-Hans': zh,
+  'en-US': en,
+  'zh-Hans': zh, 
+  'zh-Hant': zh, 
+  'zh-CN': zh,
   'zh_CN': zh,
   zh,
   id: en,

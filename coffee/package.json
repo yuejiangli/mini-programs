@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
-    "@vant/weapp": "^1.11.6"
+    "vant-weapp": "^0.5.29"
   },
   "devDependencies": {
     "i18next-scanner": "^4.5.0"

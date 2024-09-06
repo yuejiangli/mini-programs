@@ -1,4 +1,4 @@
-import Dialog from '@vant/weapp/dialog/dialog';
+import Dialog from 'vant-weapp/dialog/dialog';
 import i18n from '../../i18n/index';
 import { clearAll, getUserInfo, saveUserInfo } from '../../service/storage';
 import { setTabBar } from '../../utils/i18n';

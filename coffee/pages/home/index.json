@@ -4,6 +4,6 @@
     "transparentTitle": "auto",
     "titlePenetrate": "YES",
     "usingComponents": {
-        "van-dialog": "@vant/weapp/dialog/index"
+        "van-dialog": "vant-weapp/dialog/index"
     }
 }

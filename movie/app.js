@@ -7,9 +7,12 @@ const { QMapkey, GMapKey } = require('./tcmpp.config.js')
 
 
 let qqmapsdk;
-qqmapsdk = new QQMapWX({
-  key: QMapkey
-});
+if(QMapkey) {
+  qqmapsdk = new QQMapWX({
+    key: QMapkey
+  });
+}
+
 
 App({
   onLaunch: function () {
@@ -73,7 +76,7 @@ App({
 
   tMapLocationToName(latitude, longitude) {
     return new Promise(resolve => {
-      qqmapsdk.reverseGeocoder({
+      qqmapsdk?.reverseGeocoder({
         location: {
           latitude,
           longitude

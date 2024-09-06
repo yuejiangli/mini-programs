@@ -70,8 +70,12 @@ Page({
     doLogin: function () {
         const { query: { noServer } } = wx.getEnterOptionsSync();
 
+        wx.showLoading({
+            title: i18n.t('登录中')
+        });
         if (`${noServer}` === '1') {
             this.defaultLogin();
+            wx.hideLoading()
         } else {
             wx.login({
                 success: ({ code }) => {
@@ -95,13 +99,18 @@ Page({
                                 } else {
                                     this.defaultLogin();
                                 }
+                                wx.hideLoading()
                             },
                             fail() {
                                 this.defaultLogin();
+                                wx.hideLoading()
                             }
                         })
 
                     }
+                },
+                fail() {
+                    wx.hideLoading()
                 }
             })
         }

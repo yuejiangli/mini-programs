@@ -80,5 +80,6 @@ module.exports = {
   "退出登录": "Log Out",
   "退出登录后数据将全部清除": "Logging out will clear all data",
   "退出成功": "Logout Successful",
-  "暂未开放": "Not Open Yet"
+  "暂未开放": "Not Open Yet",
+  "登录中": "Logging In"
 };

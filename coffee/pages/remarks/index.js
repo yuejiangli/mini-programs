@@ -9,6 +9,9 @@ Page({
     },
 
     onLoad:function(){
+        wx.setNavigationBarTitle({
+            title: i18n.t('订单备注')
+        })
         const remarks=wx.getStorageSync('remarks')
         this.setData({
             remarks:remarks

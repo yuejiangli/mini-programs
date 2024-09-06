@@ -3,7 +3,7 @@ import { getProductList } from '../../service/request';
 import { getStoreInfo, getUserInfo, saveShoppingCar } from '../../service/storage';
 Page({
     data: {
-        orderType: 1,
+        orderType: '1',
         cartList: [],
         cartNum: 0,
         orderTotal: 0,
@@ -16,7 +16,7 @@ Page({
         }
     },
 
-    onLoad: function () {
+    onLoad: function (options) {
         const userInfo = getUserInfo();
         if (!userInfo) {
             wx.showToast({
@@ -31,16 +31,20 @@ Page({
             return;
         }
         this.setData({
+            orderType: options.orderType,
             storeInfo: getStoreInfo(),
         })
         this.getCommodityInfo()
+        wx.setNavigationBarTitle({
+            title: i18n.t('点单')
+        })
     },
 
     // 切换订单类型
     changeOrderType: function (e) {
         const orderType = e.currentTarget.dataset.type
         this.setData({
-            orderType: orderType === 1 ? 2 : 1,
+            orderType: orderType === "1" ? "2" : "1",
         })
     },
 
@@ -53,58 +57,53 @@ Page({
 
     //添加商品
     add: function (e) {
-        const index = e.currentTarget.dataset.index
-        var productList = this.data.productListDatas
-        var cartList = this.data.cartList
-        var flag = "productListDatas[" + index + "].number"
-        var number = productList[index].number
-        number++
-        var cartNum = this.data.cartNum
-        cartNum++
-        if (number == 1) {
-            cartList.push(this.data.productListDatas[index])
+        const id = e.currentTarget.dataset.id
+        const productList = this.data.productListDatas
+        const cartList = this.data.cartList
+        if (cartList.find(v => v.id === id)) {
+            this.setData({
+                cartList: cartList.map(v => {
+                    return v.id === id ? { ...v, number: v.number + 1 } : v;
+                }),
+                productListDatas: productList.map(v => {
+                    return v.id === id ? { ...v, number: v.number + 1 } : v;
+                }),
+            })
+        } else {
+            this.setData({
+                cartList: cartList.concat({ ...productList.find(v => v.id === id), number: 1 }),
+                productListDatas: productList.map(v => {
+                    return v.id === id ? { ...v, number: v.number + 1 } : v;
+                }),
+            })
         }
-        this.setData({
-            [flag]: number,
-            cartNum: cartNum,
-            cartList: cartList
-        })
         this.countCart()
     },
 
     //减少商品
     sub: function (e) {
-        var productList = this.data.productListDatas
-        var cartList = this.data.cartList
-        const index = e.currentTarget.dataset.index
-        var flag = "productListDatas[" + index + "].number"
-        var number = productList[index].number
-        number--
-        var cartNum = this.data.cartNum
-        cartNum--
-        if (number == 0) {
-            var i = cartList.indexOf(productList[index])
-            console.log(i)
-            i != -1 ? cartList.splice(i, 1) : null
+        const id = e.currentTarget.dataset.id
+        const productList = this.data.productListDatas
+        const cartList = this.data.cartList
+        if (cartList.find(v => v.id === id)) {
+            this.setData({
+                cartList: cartList.map(v => {
+                    return v.id === id ? { ...v, number: v.number - 1 } : v;
+                }),
+                productListDatas: productList.map(v => {
+                    return v.id === id ? { ...v, number: v.number - 1 } : v;
+                }),
+            })
         }
-        this.setData({
-            [flag]: number,
-            cartNum: cartNum,
-            cartList: cartList
-        })
         this.countCart()
     },
 
     //计算商品总价
     countCart: function () {
-        var sum = 0
-        var cartList = this.data.cartList
-        console.log(cartList)
-        for (var i = 0; i < cartList.length; i++) {
-            sum = sum + cartList[i].price * cartList[i].number
-        }
+        const cartList = this.data.cartList
         this.setData({
-            orderTotal: sum
+            orderTotal: cartList.reduce((s, c) => s + c.price * c.number, 0),
+            cartNum: cartList.reduce((s, c) => s + c.number, 0),
         })
     },
 

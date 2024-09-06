@@ -36,3 +36,7 @@ export const saveOrderInfo = (orderInfo) => {
     wx.setStorageSync('orderList', [...list, orderInfo])
     return orderInfo.id;
 }
+
+export const clearAll = () => {
+    wx.clearStorageSync();
+}

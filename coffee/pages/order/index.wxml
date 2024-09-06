@@ -5,10 +5,10 @@
         </view>
     </view>
     <view class="{{['swiper-wrap-group','swiper-wrap-unRoate-height']}}">
-        <view class="vertical-center no-store-view vertical" wx:if="{{storeList==null||storeList.length==0}}">
-            <image class="collect-img" mode="widthFix" src="https://image.streffy.com/StreffyAdminImage/cbd/img/no_store.png"></image>
+        <!-- <view class="vertical-center no-store-view vertical" wx:if="{{storeList==null||storeList.length==0}}">
+            <image class="collect-img" mode="widthFix" src="../../static/img/empty.png"></image>
             <text style="margin-top:40rpx;">{{lang.empty}}~</text>
-        </view>
+        </view> -->
         <view style="margin-top:30rpx;width:92%;margin-left:4%;" wx:for="{{storeList}}" wx:for-index="index" wx:for-item="item">
             <view bindtap="toMenu" data-index="{{index}}" class="{{['store-info','flex','justify-between','',isShowToYou?'themeBorderColor':'']}}" data-event-opts="{{[ [ 'tap',[ [ 'onTakeType',['$0'],['item'] ] ] ] ]}}" style="font-size:24rpx;color:#999999;">
                 <view class="left-group vertical">
@@ -25,11 +25,11 @@
                         </view>
                     </view>
                     <view class="horizontal" style="margin-top:16rpx;">
-                        <image src="../../static/img/location.png" style="height:24rpx;width:24rpx;margin-top:5rpx;"></image>
+                        <image src="../../static/img/location.png" style="height:24rpx;width:24rpx;margin-top:2rpx;"></image>
                         <view style="margin-left:10rpx;font-size:20rpx;">{{item.address}}</view>
                     </view>
                     <view class="horizontal" style="margin-top:16rpx;" wx:if="{{item.endTime!=null&&item.endTime!=''}}">
-                        <image src="../../static/img/time.png" style="height:22rpx;width:22rpx;margin-top:4rpx;"></image>
+                        <image src="../../static/img/time.png" style="height:24rpx;width:24rpx;margin-top:2rpx;"></image>
                         <view style="margin-left:10rpx;font-size:20rpx;">
                             {{lang.businessHours+'：'+item.beginTime+'~'+item.endTime}}
                         </view>
@@ -45,7 +45,7 @@
                         {{item.distance+'km'}}
                     </text>
                     <view class="horizontal center" style="margin-top:20rpx;width:100%;display:flex;justify-content:space-evenly;">
-                        <image catchtap="__e" data-event-opts="{{[ [ 'tap',[ [ 'callPhone',['$0'],['item.HotLine'] ] ] ] ]}}" src="../../static/img/tel.png" style="width:44rpx;height:44rpx;" wx:if="{{item.hotLine!=null&&item.hotLine!=''}}"></image>
+                        <image catchtap="makePhoneCall" data-phone="{{item.hotLine}}" src="../../static/img/tel.png" style="width:44rpx;height:44rpx;" wx:if="{{item.hotLine!=null&&item.hotLine!=''}}"></image>
                     </view>
                 </view>
             </view>

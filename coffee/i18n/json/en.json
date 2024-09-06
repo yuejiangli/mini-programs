@@ -40,7 +40,6 @@
   "休息中": "Closed",
   "去点单": "Place Order",
   "请正确输入手机号": "Please enter a valid phone number",
-  "正在支付": "Processing Payment",
   "支付成功": "Payment Successful",
   "去结算": "Proceed to Checkout",
   "请仔细确认门店": "Please confirm the store carefully",
@@ -57,7 +56,6 @@
   "确认付款并下单": "Confirm Payment and Place Order",
   "共{{total}}件": "Total {{total}} items",
   "支付方式": "Payment Method",
-  "微信支付": "WeChat Pay",
   "备注": "Remarks",
   "合计": "Total",
   "￥": "$",
@@ -71,5 +69,16 @@
   "订单已完成": "Order Completed",
   "取餐完成，期待您的再次光顾": "Pickup completed, we look forward to serving you again",
   "口味、包装等要求": "Flavor, Packaging, and Other Requirements",
-  "提交": "Submit"
+  "提交": "Submit",
+  "首页": "Home",
+  "点单": "Order",
+  "订单": "Orders",
+  "确认订单": "Confirm Order",
+  "确定": "Confirm",
+  "订单备注": "Order Remarks",
+  "取消": "Cancel",
+  "退出登录": "Log Out",
+  "退出登录后数据将全部清除": "Logging out will clear all data",
+  "退出成功": "Logout Successful",
+  "暂未开放": "Not Open Yet"
 }

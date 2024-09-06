@@ -10,7 +10,7 @@
                 </view>
             </view>
             <view catchtap="changeOrderType" data-type="{{orderType}}" class="horizontal gone themeBgColor orderType-background-view" style="border:#F8F8F8 solid 2rpx;position:relative;font-size:24rpx;height:54rpx;width:176rpx;border-radius:27rpx;">
-                {{orderType===1?lang.orderType1:lang.orderType2}}
+                {{orderType==="1"?lang.orderType1:lang.orderType2}}
             </view>
         </view>
     </view>
@@ -38,13 +38,13 @@
                                 <view class="item-price">{{'￥'+Item.price}}</view>
                                 <view class="horizontal vertical-center item-add-button-group">
                                     <view class="horizontal vertical-center">
-                                        <view bindtap="sub" class="center" data-index="{{index}}" wx:if="{{Item.number!=null&&Item.number>0}}">
+                                        <view bindtap="sub" class="center" data-id="{{Item.id}}" wx:if="{{Item.number!=null&&Item.number>0}}">
                                             <image src="../../static/img/sub.png" style="height:45rpx;width:45rpx;"></image>
                                         </view>
                                         <view class="item-number" wx:if="{{Item.number!=null&&Item.number>0}}">
                                             {{Item.number}}
                                         </view>
-                                        <view bindtap="add" class="center" data-index="{{index}}">
+                                        <view bindtap="add" class="center" data-id="{{Item.id}}">
                                             <image src="../../static/img/add.png" style="height:45rpx;width:45rpx;"></image>
                                         </view>
                                     </view>

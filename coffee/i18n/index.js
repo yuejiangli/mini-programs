@@ -22,7 +22,7 @@ const extractPlaceholders = (str) => {
 };
 
 function t(str, options) {
-  const lang = langs[getApp().globalData.lang];
+  const lang = langs[getApp()?.globalData?.lang || options?.appLang];
   const placeholders = extractPlaceholders(str);
   let langStr = lang[str];
   if (options) {

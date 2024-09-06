@@ -1,10 +1,12 @@
+import Dialog from '@vant/weapp/dialog/dialog';
 import i18n from '../../i18n/index';
-import { getUserInfo, saveUserInfo } from '../../service/storage';
+import { clearAll, getUserInfo, saveUserInfo } from '../../service/storage';
+import { setTabBar } from '../../utils/i18n';
 Page({
     data: {
         userInfo: null,
-        levelName: i18n.t("初级粉丝"),
         lang: {
+            levelName: i18n.t("初级粉丝"),
             login: i18n.t('登录'),
             menu1: i18n.t('立即点单'),
             menu1Desc: i18n.t('即刻点餐，立享优惠'),
@@ -19,6 +21,10 @@ Page({
     },
 
     onLoad: function () {
+        setTabBar();
+        wx.setNavigationBarTitle({
+            title: i18n.t('首页')
+        })
         const userInfo = getUserInfo();
         if (!userInfo) {
             wx.showToast({
@@ -31,9 +37,18 @@ Page({
     },
 
     //跳转选择店铺
-    goStore: function () {
+    goStore: function (e) {
+        const orderType = e.currentTarget.dataset.type
         wx.reLaunch({
-            url: '/pages/order/index',
+            url: `/pages/order/index?orderType=${orderType}`,
+        })
+    },
+
+    // 跳转到会员中心
+    goOther: function () {
+        wx.showToast({
+            icon: 'none',
+            title: i18n.t('暂未开放'),
         })
     },
 
@@ -65,7 +80,7 @@ Page({
                             url: 'https://tcmpp.woyaojianfei.club/getUserInfo',
                             method: 'POST',
                             data: {
-                                appid: 'mpf3vd8c3d50q4ip',
+                                appid: 'mp72qkrsyxxby6pl',
                                 code: code
                             },
                             success: (res) => {
@@ -90,5 +105,21 @@ Page({
                 }
             })
         }
+    },
+
+    // 退出登录
+    logout: function () {
+        Dialog.confirm({
+            confirmButtonText: i18n.t('确定'),
+            cancelButtonText: i18n.t('取消'),
+            title: i18n.t('退出登录'),
+            message: i18n.t('退出登录后数据将全部清除'),
+        }).then(() => {
+            clearAll();
+            this.setData({ userInfo: null });
+            wx.showToast({
+                title: i18n.t('退出成功'),
+            })
+        });
     }
 })

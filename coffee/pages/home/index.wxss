@@ -9,7 +9,6 @@
 }
 
 .bg_gif {
-  background-image: url("https://image.streffy.com/StreffyAdminImage/cbd/img/hongbaobianpao.gif");
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -83,7 +82,7 @@
 .member-name {
   color: #333;
   font-size: 24rpx;
-  font-weight: 500;
+  font-weight: 600;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -91,7 +90,7 @@
 
 .member-grade {
   border-radius: 20rpx;
-  font-size: 16rpx;
+  font-size: 20rpx;
   margin-top: 8rpx;
   padding: 6rpx 16rpx;
   display: inline-block;
@@ -187,11 +186,11 @@
 }
 
 .point-button-img {
-  bottom: 16rpx;
-  height: 100rpx;
-  width: 100rpx;
+  bottom: 30rpx;
+  height: 80rpx;
+  width: 80rpx;
   position: absolute;
-  right: 16rpx;
+  right: 30rpx;
 }
 
 .point-shopping-mall-group {
@@ -208,7 +207,7 @@
   width: 334rpx;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;;
+  justify-content: space-between;
 }
 
 .point-shopping-mall-title {
@@ -245,11 +244,14 @@
 
 .member-button-title {
   color: #666;
-  font-size: 18rpx;
-  margin-top: 12rpx;
+  font-size: 20rpx;
+  margin-top: 10rpx;
 }
 
 .bottom-banner-swiper-group {
   height: 21.35%;
   width: 100%;
+}
+.van-dialog__button.van-hairline--right {
+  width: 50%;
 }

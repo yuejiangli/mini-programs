@@ -37,7 +37,7 @@
                     </view>
                 </view>
                 <view class="horizontal" style="margin-top:8rpx;">
-                    <image bindtap="__e" data-event-opts="{{[ [ 'tap',[ [ 'callPhone',['$0'],['order.hotLine'] ] ] ] ]}}" src="../../static/img/tel.png" style="width:36rpx;height:36rpx;"></image>
+                    <image bindtap="makePhoneCall" data-phone="{{order.storeInfo.hotLine}}" src="../../static/img/tel.png" style="width:36rpx;height:36rpx;"></image>
                 </view>
             </view>
             <view class="fn-line"></view>
@@ -94,7 +94,7 @@
             </view>
             <view class="flex justify-between fill-parent-width">
                 <text class="fn-titles">{{lang.remark+'：'}}</text>
-                <text class="fn-text">{{!!order.remark?order.remark:lang.no}}</text>
+                <text class="fn-text">{{!!order.remarks?order.remarks:lang.no}}</text>
             </view>
         </view>
     </scroll-view>

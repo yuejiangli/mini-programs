@@ -40,14 +40,22 @@ Page({
             orderTime: i18n.t("下单时间"),
             remark: i18n.t("备注"),
             no: i18n.t("无"),
-            takeNumber:i18n.t("取餐码"),
-            orderComplete:i18n.t("订单已完成"),
-            pickUpComplete:i18n.t("取餐完成，期待您的再次光顾"),
+            takeNumber: i18n.t("取餐码"),
+            orderComplete: i18n.t("订单已完成"),
+            pickUpComplete: i18n.t("取餐完成，期待您的再次光顾"),
         }
     },
 
     onLoad: function (option) {
+        wx.setNavigationBarTitle({
+            title: i18n.t('订单详情')
+        })
         this.getOrderDetail(option.orderId)
+    },
+    makePhoneCall(e) {
+        wx.makePhoneCall({
+            phoneNumber: e.target.dataset.phone,
+        })
     },
 
     // 获取订单详情

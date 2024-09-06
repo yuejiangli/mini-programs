@@ -2,7 +2,7 @@ import i18n from '../../i18n/index';
 import { getShoppingCar, getStoreInfo, getUserInfo, saveOrderInfo } from '../../service/storage'
 Page({
     data: {
-        phoneNumber: '17848291998',
+        phoneNumber: '',
         remarks: '',
         sumNum: 0,
         orderTotal: 0,
@@ -15,7 +15,7 @@ Page({
             cardTitle: i18n.t('请注意取餐号，及时取餐'),
             cardSubTitle: i18n.t('30分钟内饮用，口味更佳'),
             paymentMethods: i18n.t('支付方式'),
-            wechatPay: i18n.t('微信支付'),
+            wechatPay: i18n.t('支付'),
             remark: i18n.t('备注'),
             remarkDefault: i18n.t('口味、偏好等要求'),
             total: i18n.t('合计'),
@@ -34,6 +34,9 @@ Page({
     },
 
     onLoad: function () {
+        wx.setNavigationBarTitle({
+            title: i18n.t('确认订单')
+        })
         const shoppingCar = getShoppingCar()
         const storeInfo = getStoreInfo()
         this.setData({
@@ -66,16 +69,43 @@ Page({
             isShowConfirmStoreAdress: 1,
         })
     },
-
+    showPayFail: function (title, content) {
+        wx.showModal({
+            title,
+            content,
+            confirmText: i18n.t('确定'),
+            showCancel: false
+        })
+    },
+    requestPayment: function (res, orderData) {
+        const { nonceStr, package: vpve, paySign, signType, timeStamp } = res;
+        wx.requestPayment({
+            package: vpve,
+            nonceStr,
+            paySign,
+            signType,
+            timeStamp,
+            success: () => {
+                const orderId = saveOrderInfo(orderData);
+                wx.showToast({
+                    title: i18n.t('支付成功'),
+                    icon: 'success'
+                })
+                wx.reLaunch({
+                    url: `/pages/orderDetails/index?orderId=${orderId}`,
+                })
+            },
+            fail: (err) => {
+                this.showPayFail('wx.requestPayment fail', err.errMsg)
+            },
+        });
+    },
     //确认支付
     confirmtoSubmit: function () {
-        wx.showLoading({
-            title: i18n.t('正在支付'),
-        })
-
+        this.closeConfirm();
         const orderCode = `${Number(new Date())}${Math.round(Math.random() * 1000000000)}`
         const id = `orderId-${orderCode}`
-        const data = {
+        const orderData = {
             id,
             orderCode,
             orderTime: new Date().toLocaleString(),
@@ -89,18 +119,40 @@ Page({
             productDetail: this.data.shoppingCar,
             storeInfo: this.data.storeInfo
         }
-        const orderId = saveOrderInfo(data);
-        setTimeout(() => {
-            wx.showToast({
-                title: i18n.t('支付成功'),
-                icon: 'success'
+
+        const { query: { noServer } } = wx.getEnterOptionsSync();
+        if (`${noServer}` === '1') {
+            this.requestPayment({
+                package: "fake",
+                timeStamp: Math.floor(Date.now() / 1000),
+                nonceStr: "",
+                signType: "RSA",
+                paySign: "MOCK"
+            }, orderData)
+        } else {
+            wx.request({
+                url: 'https://tcmpp.woyaojianfei.club/commonOrder',
+                method: 'POST',
+                data: {
+                    appid: 'mp72qkrsyxxby6pl',
+                    attach: "Coffee pay order",
+                    body: "Coffee pay order body",
+                    total: this.data.orderTotal,
+                    id: getUserInfo().id,
+                },
+                success: (res) => {
+                    if (res.data.code === 200) {
+                        this.requestPayment(res.data, orderData)
+                    } else {
+                        this.showPayFail('wx.request fail', 'The returned code is not equal to 200')
+                    }
+                },
+                fail: () => {
+                    this.showPayFail('wx.request fail', 'The returned code is not equal to 200')
+                }
             })
-        }, 450)
-        setTimeout(() => {
-            wx.reLaunch({
-                url: `/subpackages/orderDetails/index?orderId=${orderId}`,
-            })
-        }, 750);
+        }
+
     },
 
     //关闭确认弹窗
@@ -114,7 +166,7 @@ Page({
     goRemarks: function () {
         wx.setStorageSync('remarks', this.data.remarks)
         wx.navigateTo({
-            url: '/subpackages/remarks/index',
+            url: '/pages/remarks/index',
         })
     },
 

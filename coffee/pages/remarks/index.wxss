@@ -4554,7 +4554,7 @@ scroll-view.cu-steps .cu-item {
 }
 
 .themeBgColor {
-    background-color: #0050c8;
+    background-color: #003c32;
 }
 
 .collocationTextColor {
@@ -4562,19 +4562,19 @@ scroll-view.cu-steps .cu-item {
 }
 
 .themeTextColor {
-    color: #0050c8;
+    color: #003c32;
 }
 
 .themeBorderLeftColor {
-    border-left: 6rpx solid #0050c8;
+    border-left: 6rpx solid #003c32;
 }
 
 .themeBorderColor {
-    border: 1rpx solid #0050c8;
+    border: 1rpx solid #003c32;
 }
 
 .themeBorderBottomColor {
-    border-bottom: 1rpx solid #0050c8;
+    border-bottom: 1rpx solid #003c32;
 }
 
 .couponBgColor {
@@ -4921,7 +4921,7 @@ page {
 }
 
 .boxShadowThemeColor {
-    box-shadow: 0 2rpx 32rpx 0 #0050c8;
+    box-shadow: 0 2rpx 32rpx 0 #003c32;
 }
 
 .boxShadowSevere {
@@ -5048,7 +5048,6 @@ page {
 }
 
 .checked-button {
-    background-image: url("https://image.streffy.com/StreffyAdminImage/cbd/img/gou.png");
 }
 
 .checked-button,.unChecked-button {
@@ -5059,11 +5058,9 @@ page {
 }
 
 .unChecked-button {
-    background-image: url("https://image.streffy.com/StreffyAdminImage/tianlala/button/on.png");
 }
 
 .user-icon {
-    background-image: url("https://image.streffy.com/StreffyAdminImage/cbd/img/nolog.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }

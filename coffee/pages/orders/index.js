@@ -1,5 +1,6 @@
 import i18n from '../../i18n/index';
 import { getOrderList, getUserInfo } from '../../service/storage';
+import { setTabBar } from '../../utils/i18n';
 Page({
     data: {
         todayOrderList: [],
@@ -28,6 +29,10 @@ Page({
     },
 
     onLoad: function () {
+        setTabBar();
+        wx.setNavigationBarTitle({
+            title: i18n.t('订单')
+        })
         const userInfo = getUserInfo();
         if (!userInfo) {
             wx.showToast({
@@ -41,12 +46,20 @@ Page({
             }, 750)
             return;
         }
+    },
+    onShow: function () {
         this.getAllOrderInfo()
+    },
+
+    makePhoneCall(e) {
+        wx.makePhoneCall({
+            phoneNumber: e.target.dataset.phone,
+        })
     },
 
     //获取订单信息
     getAllOrderInfo: function () {
-        const orderlist = getOrderList().map(item => ({ ...item, stateName: [i18n.t('制作中'), i18n.t('待取餐'), i18n.t('已下单')][item.status] }));
+        const orderlist = getOrderList().reverse().map(item => ({ ...item, stateName: [i18n.t('制作中'), i18n.t('待取餐'), i18n.t('已下单')][item.status] }));
         const todayOrderList = orderlist.filter(item => item.status !== 3)
         this.setData({
             orderlist,
@@ -66,7 +79,7 @@ Page({
         const index = e.currentTarget.dataset.index
         const orderId = this.data.orderlist[index].id
         wx.navigateTo({
-            url: `/subpackages/orderDetails/index?orderId=${orderId}`,
+            url: `/pages/orderDetails/index?orderId=${orderId}`,
         })
     }
 })

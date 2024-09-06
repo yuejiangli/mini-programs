@@ -1,5 +1,5 @@
 App({
     globalData: {
-        lang: wx.getSystemInfoSync().language,
-    }
+        lang: wx.getSystemInfoSync().language || 'en',
+    },
 })

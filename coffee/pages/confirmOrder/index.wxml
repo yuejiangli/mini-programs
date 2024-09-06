@@ -20,7 +20,7 @@
             </view>
             <view class="fn-tel flex justify-between vertical-center basic-style">
                 <view class="vertical-center horizontal" style="font-size:22rpx;">
-                    <view class="vertical-center" style="font-size:24rpx;color:#333333;margin-right:30rpx;">
+                    <view class="vertical-center" style="font-size:24rpx;color:#333333;margin-right:30rpx;font-weight:600;">
                         {{lang.phone}}
                     </view>
                     <input bindinput="phoneInput" maxlength="11" placeholder="{{lang.phonePlaceholder}}" style="font-size:24rpx;" type="number" value="{{phoneNumber}}"></input>
@@ -72,7 +72,7 @@
             <view class="flex justify-between" style="width:100%;padding:30rpx 0;">
                 <view class="vertical-center" style="color:#333333;font-size:28rpx;">
                     <image mode="widthFix" src="../../static/img/wechat.png" style="width:40rpx;height:40rpx;margin-right:20rpx;"></image>
-                    <view>{{lang.wechatPay}}</view>
+                    <view>{{'TCMPP'+'  '+lang.wechatPay}}</view>
                 </view>
                 <view class="vertical-center">
                     <image src="../../static/img/gou.png" style="width:38.2rpx;height:38.2rpx;"></image>
@@ -111,14 +111,12 @@
             {{lang.checkStore}}
         </view>
         <view style="padding:0rpx 10rpx;width:100%;margin-top:40rpx;">
-            <view style="text-align:left;">
-                <text style="color:#333333;font-size:28rpx;font-weight:bold;">
-                    {{storeInfo.storeName}}
-                </text>
+            <view style="text-align:left;color:#333333;font-size:28rpx;font-weight:bold;">
+                {{storeInfo.storeName}}
             </view>
             <view class="flex justify-between vertical-center" style="margin-top:20rpx;">
                 <view class="addressLeft">
-                    <text>{{storeInfo.address==undefined?'':storeInfo.address}}</text>
+                    {{storeInfo.address==undefined?'':storeInfo.address}}
                 </view>
             </view>
         </view>

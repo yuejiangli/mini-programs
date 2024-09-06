@@ -4,23 +4,14 @@
         "pages/order/index",
         "pages/orders/index",
         "pages/confirmOrder/index",
+        "pages/orderDetails/index",
+        "pages/remarks/index",
         "pages/menu/index"
-    ],
-    "subPackages": [
-        {
-            "root": "subpackages/",
-            "independent": false,
-            "name": "subpackages",
-            "pages": [
-                "orderDetails/index",
-                "remarks/index"
-            ]
-        }
     ],
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "Coffee Demo",
+        "navigationBarTitleText": "Coffee",
         "navigationBarTextStyle": "black"
     },
     "tabBar": {

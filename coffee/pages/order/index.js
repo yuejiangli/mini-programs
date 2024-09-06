@@ -2,8 +2,10 @@
 import i18n from '../../i18n/index';
 import { getStoreList } from '../../service/request'
 import { saveStoreInfo } from '../../service/storage'
+import { setTabBar } from '../../utils/i18n';
 Page({
     data: {
+        orderType: "1",
         storeList: [],
         lang: {
             selectStore: i18n.t('选择门店'),
@@ -16,7 +18,12 @@ Page({
         }
     },
 
-    onLoad: function () {
+    onLoad: function (option) {
+        this.setData({ orderType: option?.orderType || '1' })
+        setTabBar();
+        wx.setNavigationBarTitle({
+            title: i18n.t('点单')
+        })
         this.getStoreInfo()
     },
 
@@ -24,6 +31,11 @@ Page({
     getStoreInfo: function () {
         this.setData({
             storeList: getStoreList()
+        })
+    },
+    makePhoneCall(e) {
+        wx.makePhoneCall({
+            phoneNumber: e.target.dataset.phone,
         })
     },
 
@@ -34,9 +46,10 @@ Page({
         const storeInfo = {
             id: storeList[index].id,
             storeName: storeList[index].storeName,
-            address: storeList[index].address
+            address: storeList[index].address,
+            hotLine: storeList[index].hotLine,
         }
         saveStoreInfo(storeInfo)
-        wx.navigateTo({ url: '/pages/menu/index' })
+        wx.navigateTo({ url: `/pages/menu/index?orderType=${this.data.orderType}` })
     }
 })

@@ -13,7 +13,7 @@
                     <scroll-view bindscrolltoupper="__e" class="fill-parent" data-event-opts="{{[ [ 'scrolltoupper',[ ['allOrderScrollTop'] ] ] ]}}" scrollY="{{true}}">
                         <view class="fill-parent">
                             <view class="no-order-view-group center vertical" wx:if="{{orderlist==null||orderlist.length==0}}">
-                                <image mode="widthFix" src="../../static/img/empty.png" style="width:248rpx;height:288rpx;margin-top:20%;"></image>
+                                <image mode="widthFix" src="../../static/img/empty.png" style="width:248rpx;height:288rpx;margin:20% 0;"></image>
                                 <view style="margin-top:0rpx;">{{lang.historyEmpty}}</view>
                                 <view style="margin-top:10rpx;">{{lang.buy}}</view>
                             </view>
@@ -38,7 +38,7 @@
                                     <view class="order-time-text-desc ">
                                         {{lang.orderTime}}：{{orderItem.orderTime}}
                                     </view>
-                                    <view class="order-take-num-group flex justify-between vertical-center " wx:if="{{orderItem.isShowTackNumUi!=null&&orderItem.isShowTackNumUi}}">
+                                    <view class="order-take-num-group flex justify-between vertical-center ">
                                         <view class="vertical ">
                                             <view class="take-num-ui-text themeTextColor ">
                                                 {{orderItem.takeNumber==null||orderItem.takeNumber>=10000?lang.notYet:orderItem.takeNumber}}
@@ -46,8 +46,8 @@
                                             <view class="take-num-ui-desc ">{{lang.pickup}}</view>
                                         </view>
                                         <view class="horizontal ">
-                                            <image catchtap="__e" data-event-opts="{{[ [ 'tap',[ [ 'callPhone',['$0'],['orderItem.hotLine'] ] ] ] ]}}" src="../../static/img/tel.png" style="width:36rpx;height:36rpx;"></image>
-                                            <image catchtap="__e" data-event-opts="{{[ [ 'tap',[ [ 'navigationGoStore',['$0'],['orderItem'] ] ] ] ]}}" src="../../static/img/position.png" style="width:36rpx;height:36rpx;margin-left:20rpx;"></image>
+                                            <image catchtap="makePhoneCall" data-phone="{{orderItem.storeInfo.hotLine}}" src="../../static/img/tel.png" style="width:36rpx;height:36rpx;margin-left:20rpx;"></image>
+                                            <!-- <image catchtap="__e" data-event-opts="{{[ [ 'tap',[ [ 'navigationGoStore',['$0'],['orderItem'] ] ] ] ]}}" src="../../static/img/position.png" style="width:36rpx;height:36rpx;margin-left:20rpx;"></image> -->
                                         </view>
                                     </view>
                                     <view class="order-content-group flex justify-between ">
@@ -85,7 +85,7 @@
                     <scroll-view scrollY="{{true}}" style="height:100%;width:100%;background-color:#F8F8F8;">
                         <view class="fill-parent">
                             <view class="no-order-view-group center vertical" wx:if="{{todayOrderList==null||todayOrderList.length==0}}">
-                                <image mode="widthFix" src="../../static/img/empty.png" style="width:248rpx;height:288rpx;margin-top:20%;"></image>
+                                <image mode="widthFix" src="../../static/img/empty.png" style="width:248rpx;height:288rpx;margin:20% 0;"></image>
                                 <view style="margin-top:0rpx;">{{lang.todayEmpty}}</view>
                                 <view style="margin-top:10rpx;">{{lang.buy}}</view>
                                 <view bindtap="__e" class="center go-menu-button themeBgColor" data-event-opts="{{[ [ 'tap',[ [ 'goMenu',['$event'] ] ] ] ]}}" wx:if="{{false}}">
@@ -113,7 +113,7 @@
                                     <view class="order-time-text-desc ">
                                         {{lang.orderTime}}：{{orderItem.orderTime}}
                                     </view>
-                                    <view class="order-take-num-group flex justify-between vertical-center " wx:if="{{orderItem.isShowTackNumUi!=null&&orderItem.isShowTackNumUi}}">
+                                    <view class="order-take-num-group flex justify-between vertical-center ">
                                         <view class="vertical ">
                                             <view class="take-num-ui-text themeTextColor ">
                                                 {{orderItem.takeNumber==null||orderItem.takeNumber>=10000?lang.notYet:orderItem.takeNumber}}
@@ -121,8 +121,8 @@
                                             <view class="take-num-ui-desc ">{{lang.pickup}}</view>
                                         </view>
                                         <view class="horizontal ">
-                                            <image catchtap="__e" data-event-opts="{{[ [ 'tap',[ [ 'callPhone',['$0'],['orderItem.hotLine'] ] ] ] ]}}" src="../../static/img/tel.png" style="width:36rpx;height:36rpx;"></image>
-                                            <image catchtap="__e" data-event-opts="{{[ [ 'tap',[ [ 'navigationGoStore',['$0'],['orderItem'] ] ] ] ]}}" src="../../static/img/position.png" style="width:36rpx;height:36rpx;margin-left:20rpx;"></image>
+                                            <image catchtap="makePhoneCall" data-phone="{{orderItem.storeInfo.hotLine}}" src="../../static/img/tel.png" style="width:36rpx;height:36rpx;margin-left:20rpx;"></image>
+                                            <!-- <image catchtap="__e" data-event-opts="{{[ [ 'tap',[ [ 'navigationGoStore',['$0'],['orderItem'] ] ] ] ]}}" src="../../static/img/position.png" style="width:36rpx;height:36rpx;margin-left:20rpx;"></image> -->
                                         </view>
                                     </view>
                                     <view class="order-content-group flex justify-between ">

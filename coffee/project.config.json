@@ -26,7 +26,7 @@
 		"ignore": [],
 		"include": []
 	},
-	"TCMPPappid": "mpf3vd8c3d50q4ip",
+	"TCMPPappid": "mp72qkrsyxxby6pl",
 	"projectname": "coffee-demo",
 	"appid": "wx5ef0f76a36d6b0dc",
 	"libVersion": "3.5.6",
@@ -34,6 +34,7 @@
 		"tabIndent": "insertSpaces",
 		"tabSize": 2
 	},
+	"scripts": {},
 	"condition": {
 		"plugin": {
 			"current": -1,
@@ -54,13 +55,6 @@
 					"id": -1,
 					"name": "购物页面",
 					"pathName": "pages/menu/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "订单页面",
-					"pathName": "pages/orders/index",
 					"query": "",
 					"scene": null
 				}

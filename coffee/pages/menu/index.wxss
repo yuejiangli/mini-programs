@@ -481,16 +481,16 @@ button::after {
   background-color: #f9c83e;
   border-radius: 50%;
   color: #333;
-  font-size: 18rpx;
+  font-size: 24rpx;
   font-weight: 600;
-  height: 28rpx;
+  height: 40rpx;
   position: absolute;
-  width: 28rpx;
+  width: 40rpx;
 }
 
 .cart-view-num {
-  right: -4rpx;
-  top: -4rpx;
+  right: -10rpx;
+  top: -10rpx;
   z-index: 4;
 }
 

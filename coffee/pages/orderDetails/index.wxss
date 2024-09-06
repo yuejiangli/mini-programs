@@ -5353,7 +5353,6 @@ page {
 }
 
 .checked-button {
-  background-image: url("https://image.streffy.com/StreffyAdminImage/cbd/img/gou.png");
 }
 
 .checked-button,
@@ -5365,11 +5364,9 @@ page {
 }
 
 .unChecked-button {
-  background-image: url("https://image.streffy.com/StreffyAdminImage/tianlala/button/on.png");
 }
 
 .user-icon {
-  background-image: url("https://image.streffy.com/StreffyAdminImage/cbd/img/nolog.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }

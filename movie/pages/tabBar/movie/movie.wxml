@@ -11,8 +11,8 @@
 			<text class='city-entry-arrow'></text>
 		</navigator>
 		<view class='switch-hot'>
-			<view class='hot-item {{switchItem===0 ? "active" :""}}' bindtap='selectItem' data-item='{{0}}'>{{ i18n.t('正在热映', $language) }}</view>
-			<view class='hot-item {{switchItem===1 ? "active" :""}}' bindtap='selectItem' data-item='{{1}}'>{{ i18n.t('即将上映', $language) }}</view>
+			<view class='hot-item line-ellipsis {{switchItem===0 ? "active" :""}}' bindtap='selectItem' data-item='{{0}}'>{{ i18n.t('正在热映', $language) }}</view>
+			<view class='hot-item line-ellipsis {{switchItem===1 ? "active" :""}}' bindtap='selectItem' data-item='{{1}}'>{{ i18n.t('即将上映', $language) }}</view>
 		</view>
 		<navigator class='search-entry' url='../../subPages/search-page/search-page?stype=-1'>
 			<text class='iconfont icon-sousuo'></text>

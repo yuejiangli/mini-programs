@@ -1,5 +1,6 @@
 const util = require('../../../utils/util.js');
 const i18n  = require('../../../i18n/index');
+const app = getApp();
 
 Page({
   data:{
@@ -7,7 +8,7 @@ Page({
     cmts:[], //最新评论
     hcmts:[], //热门评论
     loadComplete:false, //是否加载完
-    $language: wx.getSystemInfoSync().language
+    $language: app.globalData.language
   },
   onLoad(options){
     wx.setNavigationBarTitle({
@@ -20,7 +21,7 @@ Page({
     const movieId = options.movieId
     const movieName = options.movieName
     wx.setNavigationBarTitle({
-      title: `${i18n.t('观众评论')}-${movieName}`
+      title: `${i18n.t('观众评论')}`
     })
     wx.showLoading({
       title: i18n.t('正在加载...'),

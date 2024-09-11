@@ -16,7 +16,7 @@ Page({
     timeList: [], //当天播放电影的时间段
     divideDealList: [], //影院分类零食列表
     first:true, //只在第一次提示
-    $language: wx.getSystemInfoSync().language
+    $language: app.globalData.language
   }, 
   onLoad(query) {
     wx.setNavigationBarTitle({

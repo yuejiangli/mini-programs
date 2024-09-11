@@ -1,10 +1,12 @@
 const i18n  = require('../../../i18n/index');
+const app = getApp();
+
 Page({
   data: {
     info: null, //小吃详情
     cinemaName: '',
     cinemaData:null, //影院地图详情
-    $language: wx.getSystemInfoSync().language
+    $language: app.globalData.language
   },
   onLoad(obj) {
     wx.setNavigationBarTitle({

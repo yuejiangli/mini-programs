@@ -1,5 +1,6 @@
 const util = require('../../../utils/util.js');
 const i18n  = require('../../../i18n/index');
+const app = getApp();
 
 Page({
   data:{
@@ -7,7 +8,7 @@ Page({
     isFold:false,
     comments:{},   //观众评论
     celebrities: [], // 演员列表
-    $language: wx.getSystemInfoSync().language
+    $language: app.globalData.language
   },
   onLoad(options){
     wx.setNavigationBarTitle({

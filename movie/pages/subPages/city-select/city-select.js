@@ -14,7 +14,7 @@ Page({
     inNavbar: false, //手指是否在侧边导航，主要是区别后面wx.pageScrollTo触发的滚动还是直接触发的滚动
     searchValue: '', //查询值
     result: [], //城市查询结果列表
-    $language: wx.getSystemInfoSync().language
+    $language: app.globalData.language
   },
   onLoad() {
     wx.setNavigationBarTitle({

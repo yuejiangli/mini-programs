@@ -17,7 +17,7 @@ Page({
     movieIds1: [],
     loadComplete1: false,
     loadComplete2: false, //水平滚动加载的数据是否加载完毕
-    $language: wx.getSystemInfoSync().language
+    $language: app.globalData.language
     // i18n
   },
   onLoad() {

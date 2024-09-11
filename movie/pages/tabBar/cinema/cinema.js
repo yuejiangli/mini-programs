@@ -25,7 +25,7 @@ Page({
     cityCinemaInfo: {}, //城市影院信息
     loadComplete: false, //数据是否加载完
     isShow: false, //导航下拉框是否展开
-    $language: wx.getSystemInfoSync().language
+    $language: app.globalData.language
   },
   onLoad() {
     wx.setNavigationBarTitle({

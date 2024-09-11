@@ -8,7 +8,7 @@ Page({
     placeholder: '',
     movies: {},
     cinemas: {},
-    $language: wx.getSystemInfoSync().language
+    $language: app.globalData.language
   },
   onLoad(query) {
     wx.setNavigationBarTitle({

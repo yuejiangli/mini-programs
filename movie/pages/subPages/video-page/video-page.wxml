@@ -36,7 +36,7 @@
           }}
         </view>
       </view>
-      <view class='release'>{{i18n.t(info.id + '_pubDesc')}}</view>
+      <view class='release' style="width: 82%;">{{i18n.t(info.id + '_pubDesc')}}</view>
       <view class='buy-tickets' bindtap='goTo'>
         <view wx:if='{{info.showst===3}}' class='btn'>{{ i18n.t('购票', $language) }}</view>
         <view wx:elif='{{info.showst===1}}' class='btn want-see'>{{ i18n.t('想看', $language) }}</view>

@@ -1,6 +1,7 @@
 var zh = require('./locales/zh.wxs');
 var en = require('./locales/en.wxs');
-var indonesia = require('./locales/indonesia.wxs')
+var indonesia = require('./locales/indonesia.wxs');
+var fr = require('./locales/fr.wxs');
 var language = {
   'zh-Hans': zh, 
   'zh-Hant': zh, 
@@ -9,7 +10,8 @@ var language = {
   zh: zh,
   en: en,
   'en-US': en,
-  indonesia: indonesia
+  id: indonesia,
+  fr: fr
 };
 
 var fallbackLocale = 'en';
@@ -62,5 +64,9 @@ module.exports = {
 
   getMapName: function(cinemaId, name) {
     return cinemaId + '_' + name;
+  },
+
+  getPricePerfix: function(language) {
+    return language.indexOf('zh') !== -1 ? '￥': '$'
   }
 }

@@ -7,7 +7,7 @@ Page({
     data: {
         canIUse: wx.canIUse('button.open-type.getUserInfo'),
         show: true,
-        $language: wx.getSystemInfoSync().language
+        $language: app.globalData.language
     },
     onLoad: function () {
       wx.setNavigationBarTitle({

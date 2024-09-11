@@ -20,7 +20,7 @@
      loadComplete: false,
      timer: null,
      ticketInfo: {},
-     $language: wx.getSystemInfoSync().language
+     $language: app.globalData.language
    },
    /**
     * 生命周期函数--监听页面加载

@@ -1,9 +1,10 @@
 const i18n  = require('../../../i18n/index');
+const app = getApp();
 
 Page({
   data:{
     order:null,
-    $language: wx.getSystemInfoSync().language
+    $language: app.globalData.language
   },
   onLoad(opt){
     wx.setNavigationBarTitle({

@@ -4,6 +4,7 @@ import { initReactI18next } from 'react-i18next';
 
 import en from '../i18n/en.json';
 import id from '../i18n/id.json';
+import fr from '../i18n/fr.json';
 import zh from '../i18n/zh-CN.json';
 
 // 加载翻译文件
@@ -16,6 +17,9 @@ const resources = {
     },
     id: {
         translation: id
+    },
+    fr: {
+        translation: fr
     },
 };
 

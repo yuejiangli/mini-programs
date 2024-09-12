@@ -10,7 +10,7 @@ module.exports = {
       list: ['t'],
       extensions: ['.js', '.jsx', '.ts', '.tsx']
     },
-    lngs: ['zh-CN', 'en', 'id'],
+    lngs: ['zh-CN', 'en', 'id', 'fr'],
     defaultLng: 'en',
     defaultValue: function (lng, ns, key) {
       if (lng === 'zh-CN') {

@@ -35,7 +35,7 @@
                                 {{Item.detailRemarks}}
                             </view>
                             <view class="flex justify-between vertical-center item-add-button-price-group">
-                                <view class="item-price">{{'￥'+Item.price}}</view>
+                                <view class="item-price">{{lang.money+Item.price}}</view>
                                 <view class="horizontal vertical-center item-add-button-group">
                                     <view class="horizontal vertical-center">
                                         <view bindtap="sub" class="center" data-id="{{Item.id}}" wx:if="{{Item.number!=null&&Item.number>0}}">
@@ -64,7 +64,7 @@
                 <text class="center cart-view-num" wx:if="{{cartNum>0}}">{{cartNum}}</text>
             </view>
             <view class="vertical horizontal-center" style="margin-left:30rpx;">
-                <view class="foot-view-orderTotal">{{'￥'+orderTotal}}</view>
+                <view class="foot-view-orderTotal">{{lang.money+orderTotal}}</view>
             </view>
         </view>
         <view catchtap="goConfirmOrder" class="{{['confirm-order-button','center','collocationTextColor',cartList.length >0?'themeBgColor':'grayBg']}}">

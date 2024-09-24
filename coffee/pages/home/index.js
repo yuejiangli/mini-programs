@@ -61,9 +61,11 @@ Page({
         };
         this.setData({ userInfo: defaultUser })
         saveUserInfo(defaultUser)
-        wx.showToast({
-            title: i18n.t('登录成功'),
-        })
+        setTimeout(() => {
+            wx.showToast({
+                title: i18n.t('登录成功'),
+            })
+        }, 0);
     },
 
     //登录
@@ -93,9 +95,11 @@ Page({
                                 if (userInfo.account) { // 换取用户信息成功
                                     this.setData({ userInfo })
                                     saveUserInfo(userInfo)
-                                    wx.showToast({
-                                        title: i18n.t('登录成功'),
-                                    })
+                                    setTimeout(() => {
+                                        wx.showToast({
+                                            title: i18n.t('登录成功'),
+                                        })
+                                    }, 0);
                                 } else {
                                     this.defaultLogin();
                                 }

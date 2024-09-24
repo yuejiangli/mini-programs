@@ -13,6 +13,7 @@ Page({
             confirmButtonText: i18n.t('去结算'),
             orderType1: i18n.t('自提'),
             orderType2: i18n.t('外卖'),
+            money: i18n.t('￥'),
         }
     },
 

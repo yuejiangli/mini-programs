@@ -43,6 +43,7 @@ Page({
             takeNumber: i18n.t("取餐码"),
             orderComplete: i18n.t("订单已完成"),
             pickUpComplete: i18n.t("取餐完成，期待您的再次光顾"),
+            money: i18n.t("￥"),
         }
     },
 

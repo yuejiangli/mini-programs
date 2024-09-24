@@ -53,7 +53,7 @@
                         </view>
                     </view>
                     <view class="product-price-group vertical">
-                        <view style="font-weight:bold;color:#333333;">{{'￥'+item.price}}</view>
+                        <view style="font-weight:bold;color:#333333;">{{lang.money+item.price}}</view>
                         <view style="color:#999999;margin-top:20rpx;text-align:right;">
                             {{'x'+item.number}}
                         </view>
@@ -65,7 +65,7 @@
             <view class="flex justify-between vertical-center" style="color:#333333;padding-top:32rpx;padding-bottom:32rpx;">
                 <view style="font-size:28rpx;">{{lang.totalMoney}}</view>
                 <view class="textGone" style="max-width:75%;font-size:32rpx;font-weight:bold;">
-                    {{'￥'+order.orderTotal+''}}
+                    {{lang.money+order.orderTotal+''}}
                 </view>
             </view>
         </view>

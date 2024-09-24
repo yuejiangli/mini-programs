@@ -19,11 +19,11 @@
                 </view>
             </view>
             <view class="fn-tel flex justify-between vertical-center basic-style">
-                <view class="vertical-center horizontal" style="font-size:22rpx;">
+                <view class="vertical-center horizontal" style="font-size:22rpx;width:100%">
                     <view class="vertical-center" style="font-size:24rpx;color:#333333;margin-right:30rpx;font-weight:600;">
                         {{lang.phone}}
                     </view>
-                    <input bindinput="phoneInput" maxlength="11" placeholder="{{lang.phonePlaceholder}}" style="font-size:24rpx;" type="number" value="{{phoneNumber}}"></input>
+                    <input bindinput="phoneInput" maxlength="11" placeholder="{{lang.phonePlaceholder}}" style="font-size:24rpx;flex:1;" type="number" value="{{phoneNumber}}"></input>
                 </view>
             </view>
         </view>
@@ -42,7 +42,7 @@
                     </view>
                 </view>
                 <view style="width:22%;color:#333333;font-size:28rpx;text-align:right;height:100%;">
-                    <view style="font-weight:bold;">{{'￥'+item.price+''}}</view>
+                    <view style="font-weight:bold;">{{lang.money+item.price+''}}</view>
                     <view class="flex flex-direction" style="color:#999999;margin-top:22rpx;">
                         {{'x'+item.number+''}}
                     </view>

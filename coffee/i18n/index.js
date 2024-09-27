@@ -1,5 +1,6 @@
 const en = require('./js/en.js');
 const zh = require('./js/zh.js');
+const id = require('./js/id.js');
 
 const langs = {
   en,
@@ -9,7 +10,7 @@ const langs = {
   'zh-CN': zh,
   'zh_CN': zh,
   zh,
-  id: en,
+  id,
 }
 
 const extractPlaceholders = (str) => {

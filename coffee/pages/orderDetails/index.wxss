@@ -5463,7 +5463,7 @@ page {
   font-size: 24rpx;
   height: 56rpx;
   line-height: 56rpx;
-  width: 156rpx;
+  padding: 0 24rpx;
 }
 
 .product-img {
@@ -5540,4 +5540,11 @@ page {
   overflow: hidden;
   text-overflow: ellipsis;
   margin-top: 24rpx;
+}
+.statusItem{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 25%;
 }

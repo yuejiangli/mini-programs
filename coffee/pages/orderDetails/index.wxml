@@ -13,7 +13,7 @@
             <view class="status-code-title">{{lang.takeNumber}}</view>
             <view class="status-code-tack-number themeTextColor">{{order.takeNumber}}</view>
             <view class="fill-parent-width flex justify-around">
-                <view class="vertical center" wx:for="{{orderStatusList}}" wx:for-index="__i0__" wx:for-item="orderStatusInfo">
+                <view class="vertical center statusItem" wx:for="{{orderStatusList}}" wx:for-index="__i0__" wx:for-item="orderStatusInfo">
                     <view>
                         <image class="order-status-info-img" src="{{orderStatusInfo.isThis?orderStatusInfo.imgUrl:orderStatusInfo.unImgUrl}}"></image>
                     </view>

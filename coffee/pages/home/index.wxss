@@ -104,7 +104,7 @@
   align-items: flex-start;
   margin-left: 20rpx;
   text-align: left;
-  width: 178rpx;
+  min-width: 178rpx;
 }
 
 .point-text {
@@ -130,7 +130,6 @@
 .order-button-group {
   background-color: #fff;
   border-radius: 16rpx;
-  height: 300rpx;
   margin-top: 20rpx;
 }
 
@@ -139,11 +138,12 @@
 }
 
 .order-button {
-  height: 100%;
   padding-left: 30rpx;
   padding-right: 30rpx;
   position: relative;
   width: 50%;
+  justify-content: space-between;
+  padding: 32rpx;
 }
 
 .right-line {

@@ -57,6 +57,27 @@
 					"pathName": "pages/menu/index",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "order",
+					"pathName": "pages/order/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "menu",
+					"pathName": "pages/menu/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "orders",
+					"pathName": "pages/orders/index",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

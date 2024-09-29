@@ -1,15 +1,17 @@
 const en = require('./js/en.js');
-const zh = require('./js/zh.js');
+// const zh = require('./js/zh.js');
 const id = require('./js/id.js');
-
+const fr = require('./js/fr.js');
+const zh = en;
 const langs = {
   en,
   'en-US': en,
-  'zh-Hans': zh, 
-  'zh-Hant': zh, 
+  'zh-Hans': zh,
+  'zh-Hant': zh,
   'zh-CN': zh,
   'zh_CN': zh,
-  zh,
+  zh: zh,
+  fr: fr,
   id,
 }
 

@@ -51,9 +51,9 @@
                                         </view>
                                     </view>
                                     <view class="order-content-group flex justify-between ">
-                                        <view class="horizontal " style="width:65%;">
-                                            <view style="width:100rpx;margin-right:20rpx;" wx:if="{{index<=2}}" wx:for="{{orderItem.productDetail}}" wx:for-item="foodItem">
-                                                <image class="fill-parent " src="{{foodItem.imgUrl}}" style="border-radius:8rpx;"></image>
+                                        <view class="horizontal " style="flex:1">
+                                            <view style="width:28%; margin-right:5%;" wx:if="{{index<=2}}" wx:for="{{orderItem.productDetail}}" wx:for-item="foodItem">
+                                                <image class="fill-parent "mode="widthFix" src="{{foodItem.imgUrl}}" style="border-radius:8rpx;"></image>
                                             </view>
                                         </view>
                                         <view class="vertical ">
@@ -126,8 +126,8 @@
                                         </view>
                                     </view>
                                     <view class="order-content-group flex justify-between ">
-                                        <view class="horizontal " style="width:65%;">
-                                            <view style="height:100rpx;width:100rpx;margin-right:20rpx;" wx:if="{{index<=2}}" wx:for="{{orderItem.productDetail}}" wx:for-item="foodItem">
+                                        <view class="horizontal " style="flex:1">
+                                            <view style="width:28%; height:100%;margin-right:5%;" wx:if="{{index<=2}}" wx:for="{{orderItem.productDetail}}" wx:for-item="foodItem">
                                                 <image class="fill-parent " src="{{foodItem.imgUrl}}" style="border-radius:8rpx;"></image>
                                             </view>
                                         </view>

@@ -22,19 +22,19 @@
         "list": [
             {
                 "pagePath": "pages/home/index",
-                "text": "首页",
+                "text": "Home",
                 "iconPath": "static/img/tabBar/shouye.png",
                 "selectedIconPath": "static/img/tabBar/shouye-select.png"
             },
             {
                 "pagePath": "pages/order/index",
-                "text": "点单",
+                "text": "Place order",
                 "iconPath": "static/img/tabBar/diandan.png",
                 "selectedIconPath": "static/img/tabBar/diandan-select.png"
             },
             {
                 "pagePath": "pages/orders/index",
-                "text": "订单",
+                "text": "Orders",
                 "iconPath": "static/img/tabBar/dingdan.png",
                 "selectedIconPath": "static/img/tabBar/dingdan-select.png"
             }

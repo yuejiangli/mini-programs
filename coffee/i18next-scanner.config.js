@@ -11,7 +11,7 @@ module.exports = {
       list: ['i18n.t'],
       extensions: ['.js', '.wxml']
     },
-    lngs: ['zh', 'en', 'id'],
+    lngs: ['zh', 'en', 'id','fr'],
     defaultLng: 'en',
     defaultValue: function (lng, ns, key) {
       if (lng === 'zh') {

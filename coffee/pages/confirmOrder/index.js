@@ -119,6 +119,7 @@ Page({
             productDetail: this.data.shoppingCar,
             storeInfo: this.data.storeInfo
         }
+        console.log(orderData)
 
         const { query: { noServer } } = wx.getEnterOptionsSync();
         if (`${noServer}` === '1') {

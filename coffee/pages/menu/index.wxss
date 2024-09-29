@@ -289,11 +289,11 @@ button::after {
   position: absolute;
   top: 0;
   transition: 0.3s;
-  width: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #ffffff;
+  padding: 0 20rpx;
 }
 
 .phone-text {

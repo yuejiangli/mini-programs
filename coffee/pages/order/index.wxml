@@ -18,10 +18,10 @@
                         </view> -->
                         <view>{{''+item.storeName+''}}</view>
                     </view>
-                    <view class="horizontal flex align-items-center" style="margin-top:16rpx;">
+                    <view class="horizontal flex" style="margin-top:16rpx;">
                         <view class="themeBgColor now-view center">NOW</view>
-                        <view class="themeTextColor center" style="margin-left:16rpx;font-size:20rpx;">
-                            <text>{{lang.orderNow}}</text>
+                        <view class="themeTextColor" style="margin-left:16rpx;font-size:20rpx;">
+                            {{lang.orderNow}}
                         </view>
                     </view>
                     <view class="horizontal" style="margin-top:16rpx;">
@@ -34,8 +34,10 @@
                             {{lang.businessHours+'：'+item.beginTime+'~'+item.endTime}}
                         </view>
                     </view>
-                    <view class="{{['center','',item.status==1?'storeOpens themeTextColor themeBorderColor':'storeCloses']}}">
-                        {{item.status==1?lang.operating:lang.resting}}
+                    <view>
+                        <view class="{{['center','',item.status==1?'storeOpens themeTextColor themeBorderColor':'storeCloses']}}">
+                            {{item.status==1?lang.operating:lang.resting}}
+                        </view>
                     </view>
                 </view>
                 <view class="font3 storeOrderbtn center vertical">

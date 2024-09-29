@@ -11,7 +11,7 @@
 .type-style {
   font-size: 24rpx;
   text-align: center;
-  padding: 4rpx 8rpx;
+  padding: 4rpx 20rpx;
 }
 
 .store-name {

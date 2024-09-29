@@ -1,7 +1,7 @@
 <view class="container whiteBg">
     <view class="top-view vertical">
         <view class="flex justify-between store-orderType-group" wx:if="{{storeInfo!=null}}">
-            <view class="store-name-group vertical" style="width:83%;">
+            <view class="store-name-group vertical" style="flex:1;">
                 <view class="store-name horizontal vertical-center" data-event-opts="{{[ [ 'tap',[ ['goStore'] ] ] ]}}" wx:if="{{storeInfo.storeName!=null}}">
                     <view class="textGone" style="max-width:75%;">
                         {{''+storeInfo.storeName+''}}
@@ -9,7 +9,7 @@
                     <image src="../../static/img/right.png" style="margin-left:12rpx;height:24rpx;width:24rpx;"></image>
                 </view>
             </view>
-            <view catchtap="changeOrderType" data-type="{{orderType}}" class="horizontal gone themeBgColor orderType-background-view" style="border:#F8F8F8 solid 2rpx;position:relative;font-size:24rpx;height:54rpx;width:176rpx;border-radius:27rpx;">
+            <view catchtap="changeOrderType" data-type="{{orderType}}" class="horizontal gone themeBgColor orderType-background-view" style="border:#F8F8F8 solid 2rpx;position:relative;font-size:24rpx;height:54rpx;border-radius:27rpx;">
                 {{orderType==="1"?lang.orderType1:lang.orderType2}}
             </view>
         </view>

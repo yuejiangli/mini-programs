@@ -28,7 +28,7 @@ Page({
     loadComplete: false, //数据是否加载完
     nothing: false, //是否有符合过滤的影院
     noSchedule: false, //当天是否有场次，原本时间是由后台返回的，但是缺少城市ID就没有返回，导致当天可能没有播放场次
-    $language: wx.getSystemInfoSync().language
+    $language: app.globalData.language
 
   },
   onLoad(options) {

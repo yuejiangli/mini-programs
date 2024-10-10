@@ -1,6 +1,7 @@
 import en from './locales/en'
 import zh from './locales/zh'
 import indonesia from './locales/indonesia';
+import fr from './locales/fr';
 
 class I18n {
   locale;
@@ -93,7 +94,8 @@ const language = {
     zh,
     en, 
     'en-US': en,
-    indonesia
+    id: indonesia,
+    fr
 };
 
 const i18n = {

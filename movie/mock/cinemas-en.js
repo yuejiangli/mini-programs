@@ -19,7 +19,7 @@ module.exports = {
           "referencePrice": "70",
           "sellPrice": "59",
           "shopId": 4119878,
-          "showTimes": "Latest shows: 17:05 | 20:00",
+          "showTimes": "17:05 | 20:00",
           "tag": {
             "allowRefund": 1,
             "buyout": 0,
@@ -52,7 +52,7 @@ module.exports = {
           "referencePrice": "70",
           "sellPrice": "50",
           "shopId": 1767763,
-          "showTimes": "Latest shows: 14:40 | 16:40 | 17:50",
+          "showTimes": "14:40 | 16:40 | 17:50",
           "tag": {
             "allowRefund": 1,
             "buyout": 0,
@@ -86,7 +86,7 @@ module.exports = {
           "referencePrice": "40",
           "sellPrice": "44",
           "shopId": 1767619,
-          "showTimes": "Latest shows: 16:30 | 18:35 | 21:30",
+          "showTimes": "16:30 | 18:35 | 21:30",
           "tag": {
             "allowRefund": 1,
             "buyout": 0,
@@ -120,7 +120,7 @@ module.exports = {
           "referencePrice": "80",
           "sellPrice": "51",
           "shopId": 3088969,
-          "showTimes": "Latest shows: 16:10 | 19:05",
+          "showTimes": "16:10 | 19:05",
           "tag": {
             "allowRefund": 1,
             "buyout": 0,
@@ -152,7 +152,7 @@ module.exports = {
           "referencePrice": "0",
           "sellPrice": "43",
           "shopId": 5696134,
-          "showTimes": "Latest shows: 21:00",
+          "showTimes": "21:00",
           "tag": {
             "allowRefund": 1,
             "buyout": 0,
@@ -184,7 +184,7 @@ module.exports = {
           "referencePrice": "0",
           "sellPrice": "45",
           "shopId": 77560267,
-          "showTimes": "Latest shows: 14:40 | 15:10 | 18:05",
+          "showTimes": "14:40 | 15:10 | 18:05",
           "tag": {
             "allowRefund": 1,
             "buyout": 0,
@@ -222,7 +222,7 @@ module.exports = {
           "referencePrice": "0",
           "sellPrice": "44.8",
           "shopId": 819932378,
-          "showTimes": "Latest shows: 15:35 | 18:30 | 21:25"
+          "showTimes": "15:35 | 18:30 | 21:25"
         },
         {
           "addr": "B2F, Guorui City Shopping Center, No. 18 Chongwenmenwai Street, Dongcheng District",
@@ -241,7 +241,7 @@ module.exports = {
           "referencePrice": "80",
           "sellPrice": "55",
           "shopId": 3053914,
-          "showTimes": "Latest shows: 14:30 | 15:30 | 16:40",
+          "showTimes": "14:30 | 15:30 | 16:40",
           "tag": {
             "allowRefund": 1,
             "buyout": 0,
@@ -278,7 +278,7 @@ module.exports = {
           "referencePrice": "60",
           "sellPrice": "45",
           "shopId": 1767601,
-          "showTimes": "Latest shows: 15:45 | 21:10",
+          "showTimes": "15:45 | 21:10",
           "tag": {
             "allowRefund": 1,
             "buyout": 0,
@@ -310,7 +310,7 @@ module.exports = {
           "referencePrice": "80",
           "sellPrice": "44",
           "shopId": 1879417,
-          "showTimes": "Latest shows: 14:40 | 17:35 | 20:30",
+          "showTimes": "14:40 | 17:35 | 20:30",
           "tag": {
             "allowRefund": 1,
             "buyout": 0,

@@ -6,7 +6,7 @@ Page({
   data:{
     order:null,
     first:true, //是否是第一次支付
-    $language: wx.getSystemInfoSync().language
+    $language: app.globalData.language
   },
   onLoad(opt){
     wx.setNavigationBarTitle({

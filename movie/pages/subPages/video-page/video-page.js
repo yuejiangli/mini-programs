@@ -1,5 +1,6 @@
 const util = require('../../../utils/util.js');
 const i18n  = require('../../../i18n/index');
+const app = getApp();
 
 const getRandom = util.getRandom
 Page({
@@ -7,7 +8,7 @@ Page({
     info: null,
     videoList: [], //播放列表
     current: -1, //当前播放视频索引
-    $language: wx.getSystemInfoSync().language
+    $language: app.globalData.language
   },
   onLoad(opt) {
     const paramsObj = opt.paramsStr ? JSON.parse(decodeURIComponent(opt.paramsStr)) : {};

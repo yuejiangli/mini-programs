@@ -22,8 +22,6 @@
       <text class='featrue' wx:if='{{cinema.vipDesc ||cinema.tag.vipTag}}'>{{cinema.vipDesc ||cinema.tag.vipTag}}</text>
     </view>
     <view wx:if='{{!!cinema.promotion.cardPromotionTag}}'>
-      <text class='card'></text>
-      <text class='discount-label-text'>{{cinema.promotion.cardPromotionTag}}</text>
     </view>
     <view wx:if='{{cinema.showTimes}}' class='showTimes'>{{i18n.t('近期场次：', $language)}} {{cinema.showTimes}}</view>
   </navigator>

@@ -186,16 +186,16 @@ module.exports =  {
         "flag": "0",
         "price": "69"
       },
-      // {
-      //   "id": "16879119",
-      //   "row": "2",
-      //   "col": "6",
-      //   "gRow": 2,
-      //   "gCol": 9,
-      //   "type": "0-3",
-      //   "flag": "0",
-      //   "price": "69"
-      // },
+      {
+        "id": "16879119",
+        "row": "2",
+        "col": "6",
+        "gRow": 2,
+        "gCol": 9,
+        "type": "0-2",
+        "flag": "0",
+        "price": "69"
+      },
       {
         "id": "16879122",
         "row": "2",
@@ -1259,7 +1259,7 @@ module.exports =  {
     ],
     "seatTypeList": [
       {
-        "name": "Optional",
+        "name": "可选",
         "type": "0",
         "seats": 1,
         "icon": "/assets/images/optional.png",
@@ -1267,7 +1267,7 @@ module.exports =  {
         "position": "up"
       },
       {
-        "name": "Selected",
+        "name": "已选",
         "type": "0-1",
         "seats": 1,
         "icon": "/assets/images/selected.png",
@@ -1275,7 +1275,7 @@ module.exports =  {
         "position": "up"
       },
       {
-        "name": "Sold",
+        "name": "已售",
         "type": "0-2",
         "seats": 1,
         "icon": "/assets/images/sold.png",
@@ -1307,6 +1307,14 @@ module.exports =  {
         "position": "up"
       },
       {
+        "name": "情侣首座维修",
+        "type": "1-3",
+        "seats": 1,
+        "icon": "/assets/images/c-right.png",
+        "isShow": "0",
+        "position": "up"
+      },
+      {
         "name": "情侣次座可选",
         "type": "2",
         "seats": 1,
@@ -1326,12 +1334,13 @@ module.exports =  {
         "name": "情侣次座已售",
         "type": "2-2",
         "seats": 1,
+        // "icon": "https://i.postimg.cc/P5ZgB8D6/image.png",
         "icon": "/assets/images/c-sold.png",
         "isShow": "0",
         "position": "up"
       },
       {
-        "name": "Couple",
+        "name": "情侣座",
         "type": "5",
         "seats": 2,
         "icon": "/assets/images/couple.png",

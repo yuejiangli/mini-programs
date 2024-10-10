@@ -6,7 +6,7 @@ Page({
   data: {
     city: i18n.t('正在定位...'),
     cityId: null,
-    switchItem: 0, //默认选择‘正在热映’
+    switchItem: 0, //默认选择 ‘正在热映’
     //‘正在热映’数据
     movieList0: [],
     movieIds0: [],
@@ -17,7 +17,7 @@ Page({
     movieIds1: [],
     loadComplete1: false,
     loadComplete2: false, //水平滚动加载的数据是否加载完毕
-    $language: wx.getSystemInfoSync().language
+    $language: app.globalData.language
     // i18n
   },
   onLoad() {
@@ -37,14 +37,14 @@ Page({
 
     if (app.globalData.userLocation) {
       this.setData({
-        city: app.globalData.selectCity ? app.globalData.selectCity.cityName : i18n.t('定位失败'),
-        cityId: app.globalData.selectCity ? app.globalData.selectCity.cityId : null
+        city: app.globalData.selectCity.cityName ? app.globalData.selectCity.cityName : i18n.t('定位失败'),
+        cityId: app.globalData.selectCity.cityId ? app.globalData.selectCity.cityId : null
       })
     } else {
       app.userLocationReadyCallback = () => {
         this.setData({
-          city: app.globalData.selectCity ? app.globalData.selectCity.cityName : i18n.t('定位失败'),
-          cityId: app.globalData.selectCity ? app.globalData.selectCity.cityId : null
+          city: app.globalData.selectCity.cityName ? app.globalData.selectCity.cityName : i18n.t('定位失败'),
+          cityId: app.globalData.selectCity.cityId ? app.globalData.selectCity.cityId : null
         })
       }
     }
@@ -57,8 +57,8 @@ Page({
       }
 
       this.setData({
-        city: app.globalData.selectCity.cityName,
-        cityId: app.globalData.selectCity.cityId
+        city: app.globalData.selectCity.cityName || i18n.t('定位失败'),
+        cityId: app.globalData.selectCity.cityId || null
       });
     }
 

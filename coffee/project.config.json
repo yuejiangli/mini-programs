@@ -1,0 +1,85 @@
+{
+	"projectid": "touristId_coffee-demo",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": false,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false,
+		"nodeModules": true,
+		"uploadWithSourceMap": true,
+		"uglifyFileName": true,
+		"remoteDebugLogEnable": true,
+		"prefetch": false,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"TCMPPLibVersion": "2.0.6",
+	"compileType": "miniprogram",
+	"createTime": 1725263699231,
+	"accessTime": 1725263699231,
+	"packOptions": {
+		"ignore": [],
+		"include": []
+	},
+	"TCMPPappid": "mp72qkrsyxxby6pl",
+	"projectname": "coffee-demo",
+	"appid": "wx5ef0f76a36d6b0dc",
+	"libVersion": "3.5.6",
+	"editorSetting": {
+		"tabIndent": "insertSpaces",
+		"tabSize": 2
+	},
+	"scripts": {},
+	"condition": {
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"current": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "购物页面",
+					"pathName": "pages/menu/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "order",
+					"pathName": "pages/order/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "menu",
+					"pathName": "pages/menu/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "orders",
+					"pathName": "pages/orders/index",
+					"query": "",
+					"scene": null
+				}
+			]
+		}
+	}
+}

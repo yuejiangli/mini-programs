@@ -23,6 +23,7 @@ const languageOptions = [
   { key: 'zh-CN', label: '简体中文' },
   { key: 'en', label: 'English' },
   { key: 'id', label: 'Bahasa Indonesia' },
+  { key: 'fr', label: 'Français' },
 ];
 
 const Setting = () => {

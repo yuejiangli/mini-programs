@@ -1,0 +1,159 @@
+<wxs module="trans" src="../../i18n/index.wxs"></wxs>
+<view class="container whiteBg">
+    <view class="topView horizontal">
+        <view bindtap="titleClick" class="{{['titleView','center',item.type==current?'choiceTitleTextStyle':'unChoiceTitleTextStyle']}}" wx:for="{{titelList}}">
+            {{''+item.title+''}}
+            <view class="bottomLine1" style="{{item.type==current?'width:60rpx;':'width:0%;'}}"></view>
+        </view>
+    </view>
+    <view class="content-group vertical">
+        <view class="swiper-wrap">
+            <swiper bindchange="__e" circular="{{false}}" class="fill-parent" current="{{current}}" data-event-opts="{{[ [ 'change',[ [ 'swiperChange',['$event'] ] ] ] ]}}" displayMultipleItems="1">
+                <swiper-item>
+                    <scroll-view bindscrolltoupper="__e" class="fill-parent" data-event-opts="{{[ [ 'scrolltoupper',[ ['allOrderScrollTop'] ] ] ]}}" scrollY="{{true}}">
+                        <view class="fill-parent">
+                            <view class="no-order-view-group center vertical" wx:if="{{orderlist==null||orderlist.length==0}}">
+                                <image mode="widthFix" src="../../static/img/empty.png" style="width:248rpx;height:288rpx;margin:20% 0;"></image>
+                                <view style="margin-top:0rpx;">{{lang.historyEmpty}}</view>
+                                <view style="margin-top:10rpx;">{{lang.buy}}</view>
+                            </view>
+                            <view class="basic-style" style="margin-bottom:30rpx;" wx:if="{{orderlist!=null&&orderlist.length>0}}" wx:for="{{orderlist}}" wx:for-item="orderItem" wx:for-index="index">
+                                <view bindtap="toOrderDetail" data-index="{{index}}" class="vertical order-info-group ">
+                                    <view class="flex justify-between vertical-center ">
+                                        <view class="flex justify-content-start vertical-center ">
+                                            <view class="themeTwoBgColor themeTextColor type-style ">
+                                                {{lang.selfPickup}}
+                                            </view>
+                                        </view>
+                                        <view class="horizontal vertical-center ">
+                                            <view class="textGone" style="color:#333333;font-size:24rpx;line-height:24rpx;">
+                                                {{orderItem.stateName}}
+                                            </view>
+                                            <image src="../../static/img/right.png" style="height:24rpx;width:24rpx;margin-left:12rpx;margin-right:-6rpx;"></image>
+                                        </view>
+                                    </view>
+                                    <view class="store-name">
+                                        {{orderItem.storeInfo.storeName}}
+                                    </view>
+                                    <view class="order-time-text-desc ">
+                                        {{lang.orderTime}}：{{orderItem.orderTime}}
+                                    </view>
+                                    <view class="order-take-num-group flex justify-between vertical-center ">
+                                        <view class="vertical ">
+                                            <view class="take-num-ui-text themeTextColor ">
+                                                {{orderItem.takeNumber==null||orderItem.takeNumber>=10000?lang.notYet:orderItem.takeNumber}}
+                                            </view>
+                                            <view class="take-num-ui-desc ">{{lang.pickup}}</view>
+                                        </view>
+                                        <view class="horizontal ">
+                                            <image catchtap="makePhoneCall" data-phone="{{orderItem.storeInfo.hotLine}}" src="../../static/img/tel.png" style="width:36rpx;height:36rpx;margin-left:20rpx;"></image>
+                                            <!-- <image catchtap="__e" data-event-opts="{{[ [ 'tap',[ [ 'navigationGoStore',['$0'],['orderItem'] ] ] ] ]}}" src="../../static/img/position.png" style="width:36rpx;height:36rpx;margin-left:20rpx;"></image> -->
+                                        </view>
+                                    </view>
+                                    <view class="order-content-group flex justify-between ">
+                                        <view class="horizontal " style="flex:1">
+                                            <view style="width:28%; height:100%;margin-right:5%;" wx:if="{{index<=2}}" wx:for="{{orderItem.productDetail}}" wx:for-item="foodItem">
+                                                <image class="fill-parent " mode="widthFix" src="{{foodItem.imgUrl}}" style="border-radius:8rpx;"></image>
+                                            </view>
+                                        </view>
+                                        <view class="vertical ">
+                                            <view style="text-align:right;margin-top:20rpx;font-size:24rpx;color:#999999;">
+                                                {{trans(lang.count,{count:orderItem.sumNum})}}
+                                            </view>
+                                            <view style="text-align:right;margin-top:2rpx;font-size:32rpx;color:#333333;">
+                                                {{trans(lang.countDesc,{money:orderItem.orderTotal})}}
+                                            </view>
+                                        </view>
+                                    </view>
+                                    <view class="flex justify-between " style="margin-top:30rpx;">
+                                        <view></view>
+                                        <view class="horizontal ">
+                                            <view class="themeBgColor collocationTextColor center basic-style-button " data-event-opts="{{[ [ 'tap',[ ['reStartCreateOrder'] ] ] ]}}" wx:if="{{orderItem.status==18||orderItem.status==21||orderItem.status==26||orderItem.status==101}}">
+                                                {{lang.delete}}
+                                            </view>
+                                            <view catchtap="__e" class="center basic-style-button themeTextColor themeBorderColor " data-event-opts="{{[ [ 'tap',[ ['delOrder'] ] ] ]}}" wx:if="{{orderItem.status==9999||orderItem.status==118}}">
+                                                {{lang.thanks}}
+                                            </view>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </scroll-view>
+                </swiper-item>
+                <swiper-item>
+                    <scroll-view scrollY="{{true}}" style="height:100%;width:100%;background-color:#F8F8F8;">
+                        <view class="fill-parent">
+                            <view class="no-order-view-group center vertical" wx:if="{{todayOrderList==null||todayOrderList.length==0}}">
+                                <image mode="widthFix" src="../../static/img/empty.png" style="width:248rpx;height:288rpx;margin:20% 0;"></image>
+                                <view style="margin-top:0rpx;">{{lang.todayEmpty}}</view>
+                                <view style="margin-top:10rpx;">{{lang.buy}}</view>
+                            </view>
+                            <view class="basic-style" style="margin-bottom:30rpx;" wx:if="{{todayOrderList!=null&&todayOrderList.length>0}}" wx:for="{{todayOrderList}}" wx:for-item="orderItem" wx:for-index="index">
+                                <view bindtap="toOrderDetail" data-index="{{index}}" class="vertical order-info-group ">
+                                    <view class="flex justify-between vertical-center ">
+                                        <view class="flex justify-content-start vertical-center ">
+                                            <view class="themeTwoBgColor themeTextColor type-style ">
+                                                {{lang.selfPickup}}
+                                            </view>
+                                        </view>
+                                        <view class="horizontal vertical-center ">
+                                            <view style="color:#333333;font-size:24rpx;line-height:24rpx;">
+                                                {{orderItem.stateName}}
+                                            </view>
+                                            <image src="../../static/img/right.png" style="height:24rpx;width:24rpx;margin-left:12rpx;margin-right:-6rpx;"></image>
+                                        </view>
+                                    </view>
+                                    <view class="store-name">
+                                        {{orderItem.storeInfo.storeName}}
+                                    </view>
+                                    <view class="order-time-text-desc ">
+                                        {{lang.orderTime}}：{{orderItem.orderTime}}
+                                    </view>
+                                    <view class="order-take-num-group flex justify-between vertical-center ">
+                                        <view class="vertical ">
+                                            <view class="take-num-ui-text themeTextColor ">
+                                                {{orderItem.takeNumber==null||orderItem.takeNumber>=10000?lang.notYet:orderItem.takeNumber}}
+                                            </view>
+                                            <view class="take-num-ui-desc ">{{lang.pickup}}</view>
+                                        </view>
+                                        <view class="horizontal ">
+                                            <image catchtap="makePhoneCall" data-phone="{{orderItem.storeInfo.hotLine}}" src="../../static/img/tel.png" style="width:36rpx;height:36rpx;margin-left:20rpx;"></image>
+                                            <!-- <image catchtap="__e" data-event-opts="{{[ [ 'tap',[ [ 'navigationGoStore',['$0'],['orderItem'] ] ] ] ]}}" src="../../static/img/position.png" style="width:36rpx;height:36rpx;margin-left:20rpx;"></image> -->
+                                        </view>
+                                    </view>
+                                    <view class="order-content-group flex justify-between ">
+                                        <view class="horizontal " style="flex:1">
+                                            <view style="width:28%; height:100%;margin-right:5%;" wx:if="{{index<=2}}" wx:for="{{orderItem.productDetail}}" wx:for-item="foodItem">
+                                                <image class="fill-parent " mode="widthFix" src="{{foodItem.imgUrl}}" style="border-radius:8rpx;"></image>
+                                            </view>
+                                        </view>
+                                        <view class="vertical ">
+                                            <view style="text-align:right;margin-top:20rpx;font-size:24rpx;color:#999999;">
+                                                {{trans(lang.count,{count:orderItem.sumNum})}}
+                                            </view>
+                                            <view style="text-align:right;margin-top:2rpx;font-size:24rpx;color:#666666;">
+                                                {{trans(lang.countDesc,{money:orderItem.orderTotal})}}
+                                            </view>
+                                        </view>
+                                    </view>
+                                    <view class="flex justify-between " style="margin-top:30rpx;">
+                                        <view></view>
+                                        <view class="horizontal ">
+                                            <view class="themeBgColor collocationTextColor center basic-style-button " data-event-opts="{{[ [ 'tap',[ ['reStartCreateOrder'] ] ] ]}}" wx:if="{{orderItem.status==18||orderItem.status==21||orderItem.status==26||orderItem.status==101}}">
+                                                {{lang.thanks}}
+                                            </view>
+                                            <view catchtap="__e" class="center basic-style-button themeTextColor themeBorderColor " data-event-opts="{{[ [ 'tap',[ ['delOrder'] ] ] ]}}" wx:if="{{orderItem.status==9999||orderItem.status==118}}">
+                                                {{lang.delete}}
+                                            </view>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </scroll-view>
+                </swiper-item>
+            </swiper>
+        </view>
+    </view>
+</view>

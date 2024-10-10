@@ -1,0 +1,101 @@
+<view class="container">
+    <scroll-view class="fill-parent" scrollY="{{true}}" style="background-color:#F8F8F8;" wx:if="{{order!=null}}">
+        <view class="basic-style complete-ui-group flex justify-between vertical-center" wx:if="{{order.status==3}}">
+            <view class="vertical">
+                <view class="complete-ui-text">{{lang.orderComplete}}</view>
+                <view class="complete-ui-desc">{{lang.pickUpComplete}}</view>
+            </view>
+            <view bindtap="__e" class="center basic-style-button themeTextColor themeBorderColor" data-event-opts="{{[ [ 'tap',[ [ 'reStartCreateorder',['$0'],['order'] ] ] ] ]}}">
+                {{lang.buyAgain}}
+            </view>
+        </view>
+        <view class="vertical vertical-center taking-status-gruop basic-style " wx:if="{{order.status!=3}}">
+            <view class="status-code-title">{{lang.takeNumber}}</view>
+            <view class="status-code-tack-number themeTextColor">{{order.takeNumber}}</view>
+            <view class="fill-parent-width flex justify-around">
+                <view class="vertical center statusItem" wx:for="{{orderStatusList}}" wx:for-index="__i0__" wx:for-item="orderStatusInfo">
+                    <view>
+                        <image class="order-status-info-img" src="{{orderStatusInfo.isThis?orderStatusInfo.imgUrl:orderStatusInfo.unImgUrl}}"></image>
+                    </view>
+                    <view class="{{['order-status-info-name',orderStatusInfo.isThis?'black-color':'']}}">
+                        {{''+orderStatusInfo.statusName+''}}
+                    </view>
+                </view>
+            </view>
+            <view bindtap="buyAgain" class="center basic-style-button themeTextColor themeBorderColor" data-event-opts="{{[ [ 'tap',[ [ 'reStartCreateorder',['$0'],['order'] ] ] ] ]}}" style="margin-top:48rpx;">
+                {{lang.buyAgain}}
+            </view>
+        </view>
+        <view class="vertical order-group basic-style basic-group" style="padding-top:42rpx;">
+            <view class="flex justify-between fill-parent-width">
+                <view class="vertical">
+                    <view style="font-size:32rpx;font-weight:bold;color:#333333;">
+                        {{order.storeInfo.storeName}}
+                    </view>
+                    <view style="font-size:24rpx;color:#999999;margin-top:12rpx;">
+                        {{order.storeInfo.address}}
+                    </view>
+                </view>
+                <view class="horizontal" style="margin-top:8rpx;">
+                    <image bindtap="makePhoneCall" data-phone="{{order.storeInfo.hotLine}}" src="../../static/img/tel.png" style="width:36rpx;height:36rpx;"></image>
+                </view>
+            </view>
+            <view class="fn-line"></view>
+            <view class="producet-group flex justify-between fill-parent-width" wx:for="{{order.productDetail}}">
+                <view class="product-img">
+                    <image class="fill-parent" src="{{item.imgUrl}}" style="border-radius:8rpx;"></image>
+                </view>
+                <view class="flex justify-between" style="width:79.36%;">
+                    <view class="vertical product-name-group">
+                        <view style="color:#333333;">{{item.productName}}</view>
+                        <view class="item-remarks" wx:if="{{!!item.detailRemarks}}">
+                            {{item.detailRemarks}}
+                        </view>
+                    </view>
+                    <view class="product-price-group vertical">
+                        <view style="font-weight:bold;color:#333333;">{{lang.money+item.price}}</view>
+                        <view style="color:#999999;margin-top:20rpx;text-align:right;">
+                            {{'x'+item.number}}
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="fn-line" style="margin:0rpx;"></view>
+            <view class="fn-line" style="margin:0rpx;margin-top:20rpx;"></view>
+            <view class="flex justify-between vertical-center" style="color:#333333;padding-top:32rpx;padding-bottom:32rpx;">
+                <view style="font-size:28rpx;">{{lang.totalMoney}}</view>
+                <view class="textGone" style="max-width:75%;font-size:32rpx;font-weight:bold;">
+                    {{lang.money+order.orderTotal+''}}
+                </view>
+            </view>
+        </view>
+        <view class="vertical order-detail-group fill-parent-width basic-group basic-style" wx:if="{{order!=null}}">
+            <view class="fill-parent-width justify-between flex vertical-center" style="margin-top:32rpx;">
+                <view class="order-detail-title">{{lang.orderInfo}}</view>
+            </view>
+            <view class="fn-line"></view>
+            <view class="flex justify-between fill-parent-width margin-bottom-18">
+                <text class="fn-titles">{{lang.orderCode+'：'}}</text>
+                <view style="display:flex;justify-content:flex-end;align-items:center;">
+                    <text class="fn-text">{{order.orderCode}}</text>
+                </view>
+            </view>
+            <view class="flex justify-between fill-parent-width margin-bottom-18">
+                <text class="fn-titles">{{lang.orderStore+'：'}}</text>
+                <text class="fn-text">{{order.storeInfo.storeName}}</text>
+            </view>
+            <view class="flex justify-between fill-parent-width margin-bottom-18">
+                <text class="fn-titles">{{lang.pickUpType+'：'}}</text>
+                <text class="fn-text">{{lang.selfPickup}}</text>
+            </view>
+            <view class="flex justify-between fill-parent-width margin-bottom-18">
+                <text class="fn-titles">{{lang.orderTime+'：'}}</text>
+                <text class="fn-text">{{order.orderTime}}</text>
+            </view>
+            <view class="flex justify-between fill-parent-width">
+                <text class="fn-titles">{{lang.remark+'：'}}</text>
+                <text class="fn-text">{{!!order.remarks?order.remarks:lang.no}}</text>
+            </view>
+        </view>
+    </scroll-view>
+</view>

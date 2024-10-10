@@ -1,0 +1,43 @@
+{
+    "pages": [
+        "pages/home/index",
+        "pages/order/index",
+        "pages/orders/index",
+        "pages/confirmOrder/index",
+        "pages/orderDetails/index",
+        "pages/remarks/index",
+        "pages/menu/index"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "Coffee",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#999999",
+        "selectedColor": "#003c32",
+        "borderStyle": "black",
+        "backgroundColor": "#ffffff",
+        "list": [
+            {
+                "pagePath": "pages/home/index",
+                "text": "Home",
+                "iconPath": "static/img/tabBar/shouye.png",
+                "selectedIconPath": "static/img/tabBar/shouye-select.png"
+            },
+            {
+                "pagePath": "pages/order/index",
+                "text": "Place order",
+                "iconPath": "static/img/tabBar/diandan.png",
+                "selectedIconPath": "static/img/tabBar/diandan-select.png"
+            },
+            {
+                "pagePath": "pages/orders/index",
+                "text": "Orders",
+                "iconPath": "static/img/tabBar/dingdan.png",
+                "selectedIconPath": "static/img/tabBar/dingdan-select.png"
+            }
+        ]
+    }
+}

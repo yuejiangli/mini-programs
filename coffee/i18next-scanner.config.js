@@ -1,30 +1,31 @@
 module.exports = {
   input: [
-    './src/**/*.{js,jsx,tsx,ts}',
-    '!./src/packageA/components/ec-canvas/*'
+    './**/*.{js,wxml}',
+    '!./node_modules/**/*',
+    '!./miniprogram_npm/**/'
   ],
   output: './', //输出目录
   options: {
     // debug: true,
     func: {
-      list: ['t'],
-      extensions: ['.js', '.jsx', '.ts', '.tsx']
+      list: ['i18n.t'],
+      extensions: ['.js', '.wxml']
     },
-    lngs: ['zh-CN', 'en', 'id', 'fr'],
+    lngs: ['zh', 'en', 'id','fr'],
     defaultLng: 'en',
     defaultValue: function (lng, ns, key) {
-      if (lng === 'zh-CN') {
-        console.log(key)
+      if (lng === 'zh') {
         return key;
       }
       return '';
     },
     resource: {
-      loadPath: './src/i18n/{{lng}}.json', //输入路径
-      savePath: './src/i18n/{{lng}}.json', //输出路径
+      loadPath: './i18n/json/{{lng}}.json', //输入路径
+      savePath: './i18n/json/{{lng}}.json', //输出路径
       jsonIndent: 2,
       lineEnding: '\n'
     },
+
     keepRemoved: true,
     removeUnusedKeys: true,
   },

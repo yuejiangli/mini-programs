@@ -23,7 +23,7 @@
                     <view class="vertical-center" style="font-size:24rpx;color:#333333;margin-right:30rpx;font-weight:600;">
                         {{lang.phone}}
                     </view>
-                    <input bindinput="phoneInput" maxlength="11" placeholder="{{lang.phonePlaceholder}}" style="font-size:24rpx;flex:1;" type="number" value="{{phoneNumber}}"></input>
+                    <input bindinput="phoneInput" placeholder="{{lang.phonePlaceholder}}" style="font-size:24rpx;flex:1;" type="number" value="{{phoneNumber}}"></input>
                 </view>
             </view>
         </view>

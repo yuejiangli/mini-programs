@@ -52,8 +52,8 @@
                                     </view>
                                     <view class="order-content-group flex justify-between ">
                                         <view class="horizontal " style="flex:1">
-                                            <view style="width:28%; margin-right:5%;" wx:if="{{index<=2}}" wx:for="{{orderItem.productDetail}}" wx:for-item="foodItem">
-                                                <image class="fill-parent "mode="widthFix" src="{{foodItem.imgUrl}}" style="border-radius:8rpx;"></image>
+                                            <view style="width:28%; height:100%;margin-right:5%;" wx:if="{{index<=2}}" wx:for="{{orderItem.productDetail}}" wx:for-item="foodItem">
+                                                <image class="fill-parent " mode="widthFix" src="{{foodItem.imgUrl}}" style="border-radius:8rpx;"></image>
                                             </view>
                                         </view>
                                         <view class="vertical ">
@@ -88,9 +88,6 @@
                                 <image mode="widthFix" src="../../static/img/empty.png" style="width:248rpx;height:288rpx;margin:20% 0;"></image>
                                 <view style="margin-top:0rpx;">{{lang.todayEmpty}}</view>
                                 <view style="margin-top:10rpx;">{{lang.buy}}</view>
-                                <view bindtap="__e" class="center go-menu-button themeBgColor" data-event-opts="{{[ [ 'tap',[ [ 'goMenu',['$event'] ] ] ] ]}}" wx:if="{{false}}">
-                                    <text>去下单</text>
-                                </view>
                             </view>
                             <view class="basic-style" style="margin-bottom:30rpx;" wx:if="{{todayOrderList!=null&&todayOrderList.length>0}}" wx:for="{{todayOrderList}}" wx:for-item="orderItem" wx:for-index="index">
                                 <view bindtap="toOrderDetail" data-index="{{index}}" class="vertical order-info-group ">
@@ -128,7 +125,7 @@
                                     <view class="order-content-group flex justify-between ">
                                         <view class="horizontal " style="flex:1">
                                             <view style="width:28%; height:100%;margin-right:5%;" wx:if="{{index<=2}}" wx:for="{{orderItem.productDetail}}" wx:for-item="foodItem">
-                                                <image class="fill-parent " src="{{foodItem.imgUrl}}" style="border-radius:8rpx;"></image>
+                                                <image class="fill-parent " mode="widthFix" src="{{foodItem.imgUrl}}" style="border-radius:8rpx;"></image>
                                             </view>
                                         </view>
                                         <view class="vertical ">
@@ -144,10 +141,10 @@
                                         <view></view>
                                         <view class="horizontal ">
                                             <view class="themeBgColor collocationTextColor center basic-style-button " data-event-opts="{{[ [ 'tap',[ ['reStartCreateOrder'] ] ] ]}}" wx:if="{{orderItem.status==18||orderItem.status==21||orderItem.status==26||orderItem.status==101}}">
-                                                感谢购买
+                                                {{lang.thanks}}
                                             </view>
                                             <view catchtap="__e" class="center basic-style-button themeTextColor themeBorderColor " data-event-opts="{{[ [ 'tap',[ ['delOrder'] ] ] ]}}" wx:if="{{orderItem.status==9999||orderItem.status==118}}">
-                                                删除订单
+                                                {{lang.delete}}
                                             </view>
                                         </view>
                                     </view>

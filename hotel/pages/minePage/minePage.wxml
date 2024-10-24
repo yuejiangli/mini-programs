@@ -1,0 +1,27 @@
+<!--pages/minePage/minePage.wxml-->
+<import src='template.wxml' />
+
+<view class='loginHeader'>
+     <image src='{{userHead}}' class='userHead' mode='aspectFill' bindtap='previewHead' />
+     <text class='userTitle' bindtap='loginTap'>{{userTitle}}</text>
+</view>
+
+<view class='order'>
+     <view class='item' bindtap='allOrderTap'>
+          <image src='../../res/images/ic_order_all.png' mode='widthFix' class='icon' />
+          <text class='text'>{{i18n['全部订单']}}</text>
+     </view>
+     <view class='vercialLine'>
+     </view>
+     <view class='item' bindtap='todoOrderTap'>
+          <image src='../../res/images/ic_order_book.png' mode='widthFix' class='icon' />
+          <text class='text'>{{i18n['待入住订单']}}</text>
+     </view>
+</view>
+
+<template is='settingItem' data="{{caption:i18n['我的会员'],value:i18n['普通会员'],needIcon:false}}" />
+<template is='settingItem' data="{{caption:i18n['我的积分'],value:'100' + i18n['积分'],needIcon:false}}" />
+<template is='settingItem' data="{{caption:i18n['我的优惠券'],value:'3' + i18n['张'],needIcon:false}}" />
+<view bindtap="about">
+     <template is='settingItem' data="{{caption:i18n['关于'] + 'Dreams',value:'',needIcon:true}}" />
+</view>

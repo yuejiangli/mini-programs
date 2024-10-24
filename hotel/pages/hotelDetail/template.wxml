@@ -1,0 +1,17 @@
+<template name="roomListItem">
+     <view class='roomListItem' bindtap='{{hotelItemTap}}'>
+          <image class='image' mode='scaleToFill' src='{{imageUrl}}'></image>
+
+          <view class='content'>
+               <text class='roomName'>{{roomName}}</text>
+               <text class='roomService'>{{services}}</text>
+               <view class='priceItem'>
+                    <text class='price'>{{i18n['¥']}}</text>
+                    <text class='price'>{{price}}</text>
+                    <text class='priceTip'>{{i18n['起']}}</text>
+               </view>
+          </view>
+
+          <view class='bookBtn' hover-class='bookBtnHover' bindtap='{{bookTap}}' data-index='{{index}}'>{{i18n['预订']}}</view>
+     </view>
+</template>

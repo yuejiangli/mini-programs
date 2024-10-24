@@ -13,6 +13,7 @@ Tencent Cloud mini program platform, derived from Tencent mini program technolog
 ./calendar-todo-list  -- calendar todolist mini program demo
 ./taxi  -- taxi mini program demo
 ./coffee  -- order coffee mini program demo
+./hotel  -- hotel mini program demo
 ./README.md    -- README.md
 ````
 

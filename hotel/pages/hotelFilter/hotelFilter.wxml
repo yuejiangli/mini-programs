@@ -1,0 +1,14 @@
+<!--pages/hotelFilter/hotelFilter.wxml-->
+<import src='template.wxml' />
+
+<view class='filterContent'>
+     <template is='settingItem' data="{{caption:i18n['酒店位置'],value:i18n['时代广场'],needIcon:false}}" />
+     <template is='settingItem' data="{{caption:i18n['行政区域'],value:'F1 ',needIcon:true}}" />
+     <template is='settingItem' data="{{caption:i18n['商圈'],value:i18n['时代商圈'],needIcon:true}}" />
+     <template is='settingItem' data="{{caption:i18n['地铁'],value:i18n['时代广场地铁站'],needIcon:true}}" />
+</view>
+
+<view class='filterMenu'>
+     <text class='clear' bindtap='clear'>{{i18n['清除筛选']}}</text>
+     <text class='confirm' bindtap='confirm'>{{i18n['确定']}}</text>
+</view>

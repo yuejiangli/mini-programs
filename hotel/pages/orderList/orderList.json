@@ -1,0 +1,7 @@
+{
+     "navigationBarTitleText": "",
+     "navigationBarTextStyle": "white",
+     "usingComponents": {
+          "clearInput": "../../components/clearInput/clearInput"
+     }
+}

@@ -1,5 +1,5 @@
 const util = require('../../../utils/util.js')
-const i18n  = require('../../../i18n/index');
+const i18n = require('../../../i18n/index');
 
 const app = getApp();
 Page({
@@ -34,13 +34,13 @@ Page({
     if (app.globalData.userLocation) {
       this.setData({
         city: app.globalData.selectCity ? app.globalData.selectCity.cityName : i18n.t('定位失败'),
-        cityId: app.globalData.selectCity ? app.globalData.selectCity.cityId : 57
+        cityId: app.globalData.selectCity ? app.globalData.selectCity?.cityId : 57
       })
     } else {
       app.userLocationReadyCallback = () => {
         this.setData({
           city: app.globalData.selectCity ? app.globalData.selectCity.cityName : i18n.t('定位失败'),
-          cityId: app.globalData.selectCity ? app.globalData.selectCity.cityId : 57
+          cityId: app.globalData.selectCity ? app.globalData.selectCity?.cityId : 57
         })
       }
     }
@@ -48,15 +48,15 @@ Page({
   },
   onShow() {
     if (app.globalData.selectCity) {
-      if(this.data.cityId !== app.globalData.selectCity.cityId) {
+      if (this.data.cityId !== app.globalData.selectCity?.cityId) {
         this.setData({
           cinemas: []
         });
         this.initPage();
       }
       this.setData({
-        city: app.globalData.selectCity.cityName,
-        cityId: app.globalData.selectCity ? app.globalData.selectCity.cityId : 57
+        city: app.globalData.selectCity?.cityName,
+        cityId: app.globalData.selectCity ? app.globalData.selectCity?.cityId : 57
       })
     }
   },
@@ -67,7 +67,7 @@ Page({
     })
     const _this = this;
     const { cityId } = app.globalData.selectCity || {};
-    
+
     this.getCinemas({
       ...this.data.params,
       cityId: cityId || this.data.cityId
@@ -100,7 +100,8 @@ Page({
       title: i18n.t('正在加载...')
     })
     this.setData({
-      params: { ...this.data.params,
+      params: {
+        ...this.data.params,
         ...obj
       },
       cinemas: [],
@@ -128,7 +129,8 @@ Page({
     if (this.data.loadComplete) {
       return
     }
-    const params = { ...this.data.params,
+    const params = {
+      ...this.data.params,
       offset: this.data.cinemas.length
     }
     this.getCinemas(params)

@@ -1,6 +1,6 @@
 const request = require('../../../utils/request')
 const app = getApp()
-const i18n  = require('../../../i18n/index');
+const i18n = require('../../../i18n/index');
 
 Page({
   data: {
@@ -24,8 +24,8 @@ Page({
     const tabBarText = ['电影', '影院', '我的'];
     tabBarText.map((item, index) => {
       wx.setTabBarItem({
-          index: index,
-          text: i18n.t(item),
+        index: index,
+        text: i18n.t(item),
       });
     });
     this.initPage();
@@ -37,14 +37,14 @@ Page({
 
     if (app.globalData.userLocation) {
       this.setData({
-        city: app.globalData.selectCity.cityName ? app.globalData.selectCity.cityName : i18n.t('定位失败'),
-        cityId: app.globalData.selectCity.cityId ? app.globalData.selectCity.cityId : null
+        city: app.globalData.selectCity?.cityName ? app.globalData.selectCity?.cityName : i18n.t('定位失败'),
+        cityId: app.globalData.selectCity?.cityId ? app.globalData.selectCity?.cityId : null
       })
     } else {
       app.userLocationReadyCallback = () => {
         this.setData({
-          city: app.globalData.selectCity.cityName ? app.globalData.selectCity.cityName : i18n.t('定位失败'),
-          cityId: app.globalData.selectCity.cityId ? app.globalData.selectCity.cityId : null
+          city: app.globalData.selectCity?.cityName ? app.globalData.selectCity?.cityName : i18n.t('定位失败'),
+          cityId: app.globalData.selectCity?.cityId ? app.globalData.selectCity?.cityId : null
         })
       }
     }
@@ -52,13 +52,13 @@ Page({
   },
   onShow() {
     if (app.globalData.selectCity) {
-      if(this.data.cityId !== app.globalData.selectCity.cityId) {
+      if (this.data.cityId !== app.globalData.selectCity.cityId) {
         this.firstLoad();
       }
 
       this.setData({
-        city: app.globalData.selectCity.cityName || i18n.t('定位失败'),
-        cityId: app.globalData.selectCity.cityId || null
+        city: app.globalData.selectCity?.cityName || i18n.t('定位失败'),
+        cityId: app.globalData.selectCity?.cityId || null
       });
     }
 
@@ -95,10 +95,10 @@ Page({
         } = data
         let movieList0 = this.formatImgUrl(hot);
         movieList0 = movieList0.map(item => {
-          if(!item.version && item.ver) {
-            if(item.ver.includes('IMAX')) {
+          if (!item.version && item.ver) {
+            if (item.ver.includes('IMAX')) {
               item.version = item.ver.includes('3D') ? 'v3d imax' : 'v2d imax';
-            } else if(item.ver.includes('3D')) {
+            } else if (item.ver.includes('3D')) {
               item.version = '3d';
             }
           }
@@ -117,7 +117,7 @@ Page({
         }
         wx.hideLoading();
       },
-      fail: err =>{
+      fail: err => {
         console.log(err);
         wx.hideLoading();
       }
@@ -180,14 +180,14 @@ Page({
     const [res, err] = await request({
       url: '/api/moreComing'
     })
-    if(!err){
+    if (!err) {
       const arr = list.concat(this.formatImgUrl(res || []));
 
       if (arr.length + 10 >= ids.length) {
-      this.setData({
-        [`loadComplete${item}`]: true
-      });
-    }
+        this.setData({
+          [`loadComplete${item}`]: true
+        });
+      }
       this.setData({
         [`movieList${item}`]: arr,
       })

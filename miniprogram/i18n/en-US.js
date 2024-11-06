@@ -1567,5 +1567,7 @@ export default {
   vtabs12: 'This course consists of four sections and will demonstrate to developers how to open the traffic master function, how to integrate advertising components, and suggestions for integrating different types of mini programs in stages.',
   vtabs13: 'University Competitions',
   vtabs14: '2020 China University Computer Competition',
-  vtabs15: 'WeChat Mini Program Application Development Competition'
+  vtabs15: 'WeChat Mini Program Application Development Competition',
+  '昵称': 'Nickname',
+  '请输入昵称': 'Please enter a nickname'
 };

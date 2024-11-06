@@ -44,7 +44,11 @@ const pageObject = {
   },
 
   handleGetPhoneNumber(e) {
-    log(e.detail)
+    log('getPhoneNumber===', e.detail)
+  },
+
+  handleGetEmailAddress(e) {
+    log('getEmailAddress===', e.detail)
   },
 
   handleOpenSetting(e) {

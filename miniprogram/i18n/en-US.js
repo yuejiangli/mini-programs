@@ -206,6 +206,7 @@ export default {
   button12: 'Non-clickable Button',
   button13: 'Temporary Session',
   button14: 'For Demonstration',
+  button15: 'Get User Email Address',
   checkboxComponent1: 'Default Style',
   checkboxComponent2: 'Selected',
   checkboxComponent3: 'Unselected',

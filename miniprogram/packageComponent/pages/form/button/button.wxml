@@ -28,6 +28,9 @@
       <button type="primary" open-type="getPhoneNumber" bindgetphonenumber="handleGetPhoneNumber">
         {{t['button8']}}
       </button>
+      <button type="primary" open-type="getEmailAddress" bindgetphonenumber="handleGetEmailAddress">
+        {{t['button15']}}
+      </button>
       <button wx:if="{{canIUseGetUserProfile}}" type="primary" lang="zh_CN" bindtap="handleGetUserProfile">
         {{t['button9']}}
       </button>

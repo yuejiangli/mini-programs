@@ -200,6 +200,7 @@ export default {
   button12: '不可点击的按钮',
   button13: '临时会话',
   button14: '用于演示',
+  button15: '获取用户邮箱地址',
   checkboxComponent1: '默认样式',
   checkboxComponent2: '选中',
   checkboxComponent3: '未选中',

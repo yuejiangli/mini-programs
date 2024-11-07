@@ -83,11 +83,11 @@ const pageObject = {
               showCancel: false
             })
           } else {
-            console.log('getPhoneNumber request fail', res)
+            console.log('/getPhoneNumber request fail', res)
             wx.showModal({
-              title: 'getPhoneNumber request fail',
+              title: 'code err',
               confirmText: i18n['toast6'],
-              content: msg,
+              content: msg || '/getPhoneNumber request fail',
               showCancel: false
             })
           }
@@ -96,9 +96,9 @@ const pageObject = {
           this.setData({
             isPhoneLoading: false
           })
-          console.log('getPhoneNumber request fail', err)
+          console.log('wx.request fail', err)
           wx.showModal({
-            title: 'getPhoneNumber request fail',
+            title: 'wx.request fail',
             confirmText: i18n['toast6'],
             content: err.errMsg,
             showCancel: false
@@ -145,11 +145,11 @@ const pageObject = {
               showCancel: false
             })
           } else {
-            console.log('getEmailAddress request fail', res)
+            console.log('/getEmailAddress request fail', res)
             wx.showModal({
-              title: 'getEmailAddress request fail',
+              title: 'code err',
               confirmText: i18n['toast6'],
-              content: msg,
+              content: msg || '/getEmailAddress request fail',
               showCancel: false
             })
           }
@@ -158,9 +158,9 @@ const pageObject = {
           this.setData({
             isEmailLoading: false
           })
-          console.log('getEmailAddress request fail', err)
+          console.log('wx.request fail', err)
           wx.showModal({
-            title: 'getEmailAddress request fail',
+            title: 'wx.request fail',
             confirmText: i18n['toast6'],
             content: err.errMsg,
             showCancel: false

@@ -1,10 +1,8 @@
-# Coffee Demo 示例
+# Coffee Demo Usage
 
-## 开发命令
+1、Install with npm.
 
 ```bash
-# 安装依赖
 npm install
-
-# 打开开发者工具，点击『工具』 -> 『构建 npm』即可
 ```
+2、Open the DevTools and click "Tool" -> "Build npm".

@@ -105,7 +105,7 @@ image {
   text-align: center
 }
 
-[data-weui-theme=dark] .page__ft image {
+[data-weui-theme="dark"] .page__ft image {
   -webkit-filter: invert(100) hue-rotate(180deg);
   filter: invert(100) hue-rotate(180deg)
 }

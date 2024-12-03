@@ -248,5 +248,8 @@
     "wxfdcee92a299bcaf1"
   ],
   "lazyCodeLoading": "requiredComponents",
-  "debug": false
+  "debug": false,
+  "usingComponents": {
+    "auto-text": "./auto-text/index"
+  }
 }

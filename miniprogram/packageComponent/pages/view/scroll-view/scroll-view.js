@@ -50,21 +50,17 @@ Page({
   upper(e) {
     log(e)
   },
-
   lower(e) {
     log(e)
   },
-
   scroll(e) {
     log(e)
   },
-
   scrollToTop() {
     this.setAction({
       scrollTop: 0
     })
   },
-
   tap() {
     for (let i = 0; i < order.length; ++i) {
       if (order[i] === this.data.toView) {
@@ -76,7 +72,6 @@ Page({
       }
     }
   },
-
   tapMove() {
     this.setData({
       scrollTop: this.data.scrollTop + 10

@@ -1,5 +1,6 @@
 const i18n  = require('../../../i18n/index');
 const payOrder = require('../../../utils/payment');
+const { appId } = require('../../../tcmpp.config.js');
 const app = getApp();
 
 Page({
@@ -26,7 +27,7 @@ Page({
       const { cinemaId, price, movieId, seat, hall } = this.data.order;
       //避免重复支付
       const data = {
-        appid: 'mpw83p27h5m3r7xq',
+        appid: appId,
         attach: `${i18n.t(movieId + '_nm')}, ${i18n.t(hall)} (${seat})`, // 订单附加信息
         body: `${i18n.t(cinemaId + '_nm')}-${i18n.t('电影订单')}`, // 订单描述
         total: price,

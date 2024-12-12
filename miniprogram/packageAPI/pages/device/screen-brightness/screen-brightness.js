@@ -122,9 +122,26 @@ Page({
   },
 
   setKeepScreenOn() {
+    let value = !this.data.keepScreenOn;
     wx.setKeepScreenOn({
-      keepScreenOn: !this.data.keepScreenOn
+      keepScreenOn: value,
+      success: () => {
+        wx.showToast({
+          title: 'setKeepScreenOn success'
+        });
+        this.setData({
+          keepScreenOn: value
+        });
+      },
+      fail: err => {
+        wx.showModal({
+          title: 'setKeepScreenOn failed',
+          content: err.errMsg || 'fail'
+        })
+      }
     });
+    
+   
   },
 
   getScreenBrightness() {

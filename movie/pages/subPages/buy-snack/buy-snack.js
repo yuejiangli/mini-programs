@@ -1,5 +1,6 @@
 const i18n  = require('../../../i18n/index');
 const payOrder = require('../../../utils/payment');
+const { appId } = require('../../../tcmpp.config.js');
 const app = getApp();
 
 Page({
@@ -55,7 +56,7 @@ Page({
     if (this.data.first) {
       const { cinemaId, total, title } = this.data.order;
       const data = {
-        appid: 'mpw83p27h5m3r7xq',
+        appid: appId,
         attach: i18n.t(title), // 订单附加信息
         body: `${i18n.t(cinemaId + '_nm')}-${i18n.t('小吃订单')}`, // 订单描述
         total,

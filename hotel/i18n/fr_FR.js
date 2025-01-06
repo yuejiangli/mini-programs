@@ -130,4 +130,16 @@ export default {
   "广州": "Guangzhou",
   "深圳": "Shenzhen",
   "¥": "$",
+  "个人信息": "Informations Personnelles",
+  "保存": "Enregistrer",
+  "更新用户信息成功": "Mise à jour des informations utilisateur réussie",
+  "更新用户信息失败": "Échec de la mise à jour des informations utilisateur",
+  "获取手机号码失败": "Échec de la récupération du numéro de téléphone",
+  "获取邮箱地址失败": "Échec de la récupération de l'adresse e-mail",
+  "头像": "Photo de Profil",
+  "昵称": "Surnom",
+  "请输入昵称": "Veuillez entrer un surnom",
+  "获取手机号码": "Récupérer le numéro de téléphone",
+  "邮箱": "E-mail",
+  "获取邮箱": "Récupérer l'e-mail"
 };

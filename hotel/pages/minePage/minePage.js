@@ -1,7 +1,6 @@
 // pages/minePage/minePage.js
 import { i18n } from '../../i18n/lang';
 var app = getApp();
-var isLoginSuccess = false;
 
 Page({
 
@@ -11,7 +10,9 @@ Page({
      data: {
           userTitle: i18n['点击登录'],
           userHead: '../../res/images/ic_mine_normal.png',
-          i18n
+          settingIcon: '../../res/images/setting.png',
+          i18n,
+          isLoginSuccess: false
      },
 
      /**
@@ -31,8 +32,14 @@ Page({
           // })
      },
 
+     handleSetting: function () {
+          wx.navigateTo({
+               url:  "/pages/userInfo/userInfo",
+          })
+     },
+
      loginTap: function () {
-          if(!isLoginSuccess) {
+          if(!this.data.isLoginSuccess) {
                wx.navigateTo({
                     url:  "/pages/login/login",
                })
@@ -41,16 +48,16 @@ Page({
 
      initLoginMsg: function () {
           if (app.globalData.userInfo) {
-               isLoginSuccess = true;
                this.setData({
+                    isLoginSuccess: true,
                     userHead: app.globalData.userInfo.avatarUrl,
-                    userTitle: app.globalData.userInfo.nickName
+                    userTitle: app.globalData.userInfo.nickName || app.globalData.userInfo.phoneNumber
                })
           }
      },
 
      allOrderTap: function () {
-          if(isLoginSuccess) {
+          if(this.data.isLoginSuccess) {
                wx.navigateTo({
                     url: '../orderList/orderList?type=all',
                })
@@ -62,7 +69,7 @@ Page({
      },
 
      todoOrderTap: function () {
-          if(isLoginSuccess) {
+          if(this.data.isLoginSuccess) {
                wx.navigateTo({
                     url: '../orderList/orderList?type=todo',
                })
@@ -89,9 +96,7 @@ Page({
       * 生命周期函数--监听页面显示
       */
      onShow: function () {
-          if(this.data.userTitle === i18n['点击登录']) {
-               this.initLoginMsg();
-          }
+          this.initLoginMsg();
      },
 
      /**

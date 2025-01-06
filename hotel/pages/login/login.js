@@ -112,7 +112,7 @@ Page({
   loginQuick() {
     app.globalData.userInfo = {
       avatarUrl: '../../res/images/avatar.png',
-      nickName: '185****1111'
+      phoneNumber: '185****1111'
     }
     wx.navigateBack({
       delta: 1

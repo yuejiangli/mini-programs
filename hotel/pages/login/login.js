@@ -30,7 +30,7 @@ Page({
             url: "https://tcmpp.woyaojianfei.club/getUserInfo",
             method: "POST",
             data: {
-              appid: "mpvghq4emdne60gv",
+              appid: "mpj04mtjdt4rho32",
               code: res.code
             },
             success: (res) => {

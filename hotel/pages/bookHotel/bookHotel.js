@@ -66,7 +66,7 @@ Page({
                     url: 'https://tcmpp.woyaojianfei.club/commonOrder',
                     method: 'POST',
                     data: {
-                         appid: 'mpvghq4emdne60gv',
+                         appid: 'mpj04mtjdt4rho32',
                          attach: "Book a hotel",
                          body: "Hotel pay order",
                          total: this.data.roomPrice,

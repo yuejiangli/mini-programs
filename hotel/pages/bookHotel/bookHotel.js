@@ -1,5 +1,6 @@
 // pages/bookHotel/bookHotel.js
 import { i18n } from '../../i18n/lang';
+import Config from '../../utils/configData';
 const app = getApp()
 var roomPrice;
 var hotelName;
@@ -63,10 +64,10 @@ Page({
                })
           } else {
                wx.request({
-                    url: 'https://tcmpp.woyaojianfei.club/commonOrder',
+                    url: `${Config.BASEURL}/commonOrder`,
                     method: 'POST',
                     data: {
-                         appid: 'mpj04mtjdt4rho32',
+                         appid: Config.APPID,
                          attach: "Book a hotel",
                          body: "Hotel pay order",
                          total: this.data.roomPrice,

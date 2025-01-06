@@ -1,5 +1,6 @@
 // pages/login/login.js
 import { i18n } from '../../i18n/lang';
+import Config from '../../utils/configData';
 const app = getApp()
 Page({
 
@@ -27,10 +28,10 @@ Page({
         if (res.code) {
           //发起网络请求
           wx.request({
-            url: "https://tcmpp.woyaojianfei.club/getUserInfo",
+            url: `${Config.BASEURL}/getUserInfo`,
             method: "POST",
             data: {
-              appid: "mpj04mtjdt4rho32",
+              appid: Config.APPID,
               code: res.code
             },
             success: (res) => {
@@ -46,9 +47,10 @@ Page({
                     duration: 500
                 })
                 app.globalData.userInfo = {
-                  avatarUrl: '../../res/images/avatar2.png',
+                  avatarUrl: data.avatarUrl || '../../res/images/avatar2.png',
                   nickName: data.userName,
-                  id: data.id
+                  id: data.id,
+                  token: data.token
                 }
                 setTimeout(() => {
                   wx.navigateBack({
@@ -56,11 +58,13 @@ Page({
                   })
                 }, 500)
               } else {
-                console.log('getUserInfo request fail', res)
+                const msg = res?.data?.data?.msg || '/getUserInfo request fail'
+                const errcode = res?.data?.data?.errcode || code
+                console.log('/getUserInfo request fail', res)
                 wx.showModal({
                   title: i18n['登录失败'],
                   confirmText: i18n['确定'],
-                  content: 'getUserInfo request fail',
+                  content: `/getUserInfo fail:${msg}[code:${errcode}]`,
                   showCancel: false
                 })
               }
@@ -69,7 +73,7 @@ Page({
               this.setData({
                 isLoading: false
               })
-              console.log('getUserInfo request fail', err)
+              console.log('wx.request fail', err)
               wx.showModal({
                 title: i18n['登录失败'],
                 confirmText: i18n['确定'],
@@ -86,7 +90,7 @@ Page({
           wx.showModal({
             title: i18n['登录失败'],
             confirmText: i18n['确定'],
-            content: err.errMsg,
+            content: res.errMsg,
             showCancel: false
           })
         }

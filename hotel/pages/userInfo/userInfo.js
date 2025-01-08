@@ -49,6 +49,13 @@ Page({
           }
      },
 
+     nickNameChange(e) {
+       console.log('nickNameChange===', e.detail.value)
+       this.setData({
+         nickName: e.detail.value
+       })
+     },
+
      clickGetEmailAddress() {
           wx.showLoading();
      },
@@ -177,9 +184,11 @@ Page({
             method: "POST",
             data: {
               appid: Config.APPID,
+              token: app.globalData.userInfo.token,
               userInfo: {
                    avatarUrl: this.data.userHead,
                    nickName: this.data.nickName,
+                   phone: this.data.phoneNumber
               }
             },
             success: (res) => {
@@ -194,7 +203,11 @@ Page({
                     icon: 'success',
                     duration: 500
                 })
-                app.globalData.userInfo =  Object.assign(app.globalData.userInfo || {}, { avatarUrl, nickName })
+                app.globalData.userInfo =  Object.assign(app.globalData.userInfo || {}, {
+                    avatarUrl: this.data.userHead,
+                    nickName: this.data.nickName,
+                    phoneNumber: this.data.phoneNumber
+                  })
                 setTimeout(() => {
                   wx.navigateBack({
                     delta: 1

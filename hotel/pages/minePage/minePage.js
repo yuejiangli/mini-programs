@@ -12,7 +12,8 @@ Page({
           userHead: '../../res/images/ic_mine_normal.png',
           settingIcon: '../../res/images/setting.png',
           i18n,
-          isLoginSuccess: false
+          isLoginSuccess: false,
+          loginQuick: false
      },
 
      /**
@@ -49,6 +50,7 @@ Page({
      initLoginMsg: function () {
           if (app.globalData.userInfo) {
                this.setData({
+                    loginQuick: !!app.globalData.userInfo.loginQuick,
                     isLoginSuccess: true,
                     userHead: app.globalData.userInfo.avatarUrl,
                     userTitle: app.globalData.userInfo.nickName || app.globalData.userInfo.phoneNumber

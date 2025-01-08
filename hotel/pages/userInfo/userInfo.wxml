@@ -9,7 +9,7 @@
      </view>
      <view class="settingItem">
           <text class="caption">{{i18n['昵称']}}</text>
-          <input value="{{nickName}}" type="nickname" class="value" placeholder="{{i18n['请输入昵称']}}" />
+          <input value="{{nickName}}" type="nickname" class="value" placeholder="{{i18n['请输入昵称']}}" bindchange="nickNameChange" />
      </view>
 
      <view class="settingItem">

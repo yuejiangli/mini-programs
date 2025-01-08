@@ -10,6 +10,7 @@ Page({
       */
      data: {
           userHead: '',
+          userHeadBase64: '',
           nickName: '',
           phoneNumber: '',
           emailAddress: '',
@@ -40,13 +41,28 @@ Page({
      },
 
      onChooseAvatar(e) {
-          console.log('onChooseAvatar===', e)
-          const { avatarUrl } = e.detail 
-          if(avatarUrl) {
-            this.setData({
-               userHead: avatarUrl,
-            })
-          }
+        console.log('onChooseAvatar===', e)
+        const { avatarUrl } = e.detail
+        if(avatarUrl.includes('/tmp')) {
+          const fs = wx.getFileSystemManager();
+          fs.readFile({
+            filePath: avatarUrl,
+            encoding: 'base64',
+            success: (data) => {
+              this.setData({
+                userHeadBase64: 'data:image/png;base64,' + data.data,
+              })
+            },
+            fail: (err) => {
+              console.error('readFile error===', err);
+            }
+          });
+        }
+        if(avatarUrl) {
+          this.setData({
+            userHead: avatarUrl,
+          })
+        }
      },
 
      nickNameChange(e) {
@@ -186,7 +202,7 @@ Page({
               appid: Config.APPID,
               token: app.globalData.userInfo.token,
               userInfo: {
-                   avatarUrl: this.data.userHead,
+                   avatarUrl: this.data.userHeadBase64,
                    nickName: this.data.nickName,
                    phone: this.data.phoneNumber
               }

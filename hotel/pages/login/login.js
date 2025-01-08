@@ -10,6 +10,7 @@ Page({
   data: {
     nextBtnBc: '#4a4c5b',
     isLoading: false,
+    isLoadingPhone: false,
     i18n
   },
   onLoad() {
@@ -110,13 +111,73 @@ Page({
     })
   },
   loginQuick() {
-    app.globalData.userInfo = {
-      avatarUrl: '../../res/images/avatar.png',
-      phoneNumber: '185****1111',
-      loginQuick: true
-    }
-    wx.navigateBack({
-      delta: 1
+    this.setData({
+      isLoadingPhone: true
     })
-  }
+  },
+  handleGetPhoneNumber(e) {
+    console.log('getPhoneNumber success===', e.detail)
+    const { code, errMsg } = e.detail
+    if (code) {
+        //发起网络请求
+        wx.request({
+          url: `${Config.BASEURL}/getUserPhoneDirect`,
+          method: "POST",
+          data: {
+            appid: Config.APPID,
+            code,
+          },
+          success: (res) => {
+            this.setData({
+              isLoadingPhone: false
+            })
+            console.log('getPhoneNumber request success===', res)
+            const { code = -1, data = {}, msg } = res?.data || {};
+            if (code === 200) { // 换取手机号信息成功
+              app.globalData.userInfo = {
+                avatarUrl: '../../res/images/avatar.png',
+                phoneNumber: data?.phoneNumber,
+                loginQuick: true
+              }
+              wx.navigateBack({
+                delta: 1
+              })
+            } else {
+              const msg = res?.data?.data?.msg || res?.data || '/getPhoneNumber request fail'
+              const errcode = res?.data?.data?.errcode || code
+              console.log('/getPhoneNumber request fail', res)
+              wx.showModal({
+                title: i18n['获取手机号码失败'],
+                confirmText: i18n['确定'],
+                content: `/getPhoneNumber fail:${msg}[code:${errcode}]`,
+                showCancel: false
+              })
+            }
+          },
+          fail: (err) => {
+            this.setData({
+              isLoadingPhone: false
+            })
+            console.log('wx.request fail', err)
+            wx.showModal({
+              title: 'wx.request fail',
+              confirmText: i18n['确定'],
+              content: err.errMsg,
+              showCancel: false
+            })
+          },
+        })
+      } else {
+        this.setData({
+          isLoadingPhone: false
+        })
+        console.log('getPhoneNumber does not return code', e.detail)
+        wx.showModal({
+          title: 'getPhoneNumber fail',
+          confirmText: i18n['确定'],
+          content: errMsg,
+          showCancel: false
+        })
+      }
+    },
 })

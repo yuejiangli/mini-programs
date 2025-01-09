@@ -43,5 +43,8 @@
           </view>
           <text wx:else class="value">{{emailAddress}}</text>
      </view>
-     <button class='commonBtn' hover-class='commonBtnHover' bindtap='handleSave' hover-stay-time='100' loading="{{isLoading}}">{{i18n['保存']}}</button>
+     <view class="button-container">
+          <button class='commonBtn' hover-class='commonBtnHover' bindtap='handleSave' hover-stay-time='100' loading="{{isLoading}}">{{i18n['保存']}}</button>
+          <button class='commonBtn' hover-class='commonBtnHover' bindtap='handleReset' hover-stay-time='100' loading="{{isLoadingReset}}">{{i18n['重置']}}</button>
+     </view>
 </view>

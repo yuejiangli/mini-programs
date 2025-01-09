@@ -141,5 +141,7 @@ export default {
   "请输入昵称": "Please enter a nickname",
   "获取手机号码": "Retrieve phone number",
   "邮箱": "Email",
-  "获取邮箱": "Retrieve email"
+  "获取邮箱": "Retrieve email",
+  "没有可用的消息模板": "No available message templates",
+  "重置": "Reset"
 };

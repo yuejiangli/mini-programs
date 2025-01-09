@@ -49,9 +49,12 @@ Page({
                 })
                 app.globalData.userInfo = {
                   avatarUrl: data.avatarUrl || '../../res/images/avatar2.png',
+                  account: data.account,
                   nickName: data.userName,
                   id: data.id,
-                  token: data.token
+                  token: data.token,
+                  phoneNumber: data.phone,
+                  emailAddress: data.email
                 }
                 setTimeout(() => {
                   wx.navigateBack({

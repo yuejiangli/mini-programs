@@ -141,5 +141,7 @@ export default {
   "请输入昵称": "Veuillez entrer un surnom",
   "获取手机号码": "Récupérer le numéro de téléphone",
   "邮箱": "E-mail",
-  "获取邮箱": "Récupérer l'e-mail"
+  "获取邮箱": "Récupérer l'e-mail",
+  "没有可用的消息模板": "Aucun modèle de message disponible",
+  "重置": "Réinitialiser"
 };

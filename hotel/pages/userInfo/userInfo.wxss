@@ -53,3 +53,12 @@ Page {
      flex: 1;
      text-align: right;
 }
+
+.button-container {
+     display: flex;
+     padding-left: 30rpx;
+}
+
+.button-container .commonBtn {
+     margin-right: 30rpx;
+}

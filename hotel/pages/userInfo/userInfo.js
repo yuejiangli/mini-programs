@@ -14,7 +14,8 @@ Page({
           nickName: '',
           phoneNumber: '',
           emailAddress: '',
-          isLoading: false
+          isLoading: false,
+          isLoadingReset: false
      },
 
      /**
@@ -51,6 +52,7 @@ Page({
             success: (data) => {
               this.setData({
                 userHeadBase64: 'data:image/png;base64,' + data.data,
+                userHead: 'data:image/png;base64,' + data.data
               })
             },
             fail: (err) => {
@@ -191,25 +193,42 @@ Page({
       }
     },
 
+    handleReset() {
+      this.setData({
+          isLoadingReset: true,
+          userHead: `${Config.BASEURL}/default.png`,
+          userHeadBase64: '',
+          nickName: app.globalData.userInfo.account,
+          phoneNumber: '',
+          emailAddress: '',
+      })
+      this.updateUserInfo('isLoadingReset')
+    },
+
      handleSave() {
           this.setData({
                isLoading: true
           })
-          wx.request({
+          this.updateUserInfo('isLoading')
+     },
+
+     updateUserInfo(loadingName) {
+       wx.request({
             url: `${Config.BASEURL}/updateUserInfo`,
             method: "POST",
             data: {
               appid: Config.APPID,
               token: app.globalData.userInfo.token,
               userInfo: {
-                   avatarUrl: this.data.userHeadBase64,
+                   avatarUrl: this.data.userHead,
                    nickName: this.data.nickName,
-                   phone: this.data.phoneNumber
+                   phone: this.data.phoneNumber,
+                   email: this.data.emailAddress
               }
             },
             success: (res) => {
               this.setData({
-                isLoading: false
+                [loadingName]: false
               })
               console.log('wx.request success===', res)
               const { code = -1, data = {} } = res?.data || {};
@@ -222,7 +241,8 @@ Page({
                 app.globalData.userInfo =  Object.assign(app.globalData.userInfo || {}, {
                     avatarUrl: this.data.userHead,
                     nickName: this.data.nickName,
-                    phoneNumber: this.data.phoneNumber
+                    phoneNumber: this.data.phoneNumber,
+                    emailAddress: this.data.emailAddress
                   })
                 setTimeout(() => {
                   wx.navigateBack({
@@ -243,7 +263,7 @@ Page({
             },
             fail: (err) => {
               this.setData({
-                isLoading: false
+                [loadingName]: false
               })
               console.log('wx.request fail', err)
               wx.showModal({

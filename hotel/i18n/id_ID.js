@@ -141,5 +141,7 @@ export default {
   "请输入昵称": "Silakan masukkan nama panggilan",
   "获取手机号码": "Ambil nomor telepon",
   "邮箱": "Email",
-  "获取邮箱": "Ambil email"
+  "获取邮箱": "Ambil email",
+  "没有可用的消息模板": "Tidak ada template pesan yang tersedi",
+  "重置": "Atur ulang"
 };

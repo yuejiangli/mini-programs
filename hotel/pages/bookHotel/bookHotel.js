@@ -28,7 +28,7 @@ function getCurrentFormattedTime() {
   const seconds = String(now.getSeconds()).padStart(2, '0');
 
   // 拼接成所需格式
-  return `${year}.${month}.${day} ${hours}:${minutes}:${seconds}`;
+  return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 }
 
 Page({
@@ -83,10 +83,18 @@ Page({
                     template_id,
                     page: 'pages/minePage/minePage',
                     data: {
-                         'thing1.DATA': generateOrderNumber(),
-                         'date.DATA': getCurrentFormattedTime(),
-                         'thing2.DATA': app.globalData.userInfo.nickName || app.globalData.userInfo.phoneNumber,
-                         'character_string.DATA': `${this.data.hotelName}:${this.data.roomName}:${this.data.roomPrice}_${this.data.remark}`
+                         'thing1': {
+                              value: generateOrderNumber(),
+                         },
+                         'date': {
+                              value: getCurrentFormattedTime(),
+                         },
+                         'thing2': {
+                              value: app.globalData.userInfo.nickName || app.globalData.userInfo.phoneNumber,
+                         },
+                         'character_string': {
+                              value: `${this.data.hotelName}:${this.data.roomName}:${this.data.roomPrice}_${this.data.remark}`
+                         }
                     }
                },
                success: (res) => {
@@ -202,7 +210,7 @@ Page({
                signType,
                timeStamp,
                success: () => {
-                    this.requestSubscribeMessage(['mti_EXVRdjcgOTYRcbwfYbunuFUCpPpOBNPdLzbmohR'])
+                    this.requestSubscribeMessage(['mti_xrUrGREpLnuNukTADNrxHhFvLwGNLgDsIHIGByi'])
                     wx.showLoading({
                          title: i18n['支付成功']
                     })

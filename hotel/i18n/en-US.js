@@ -143,5 +143,8 @@ export default {
   "邮箱": "Email",
   "获取邮箱": "Retrieve email",
   "没有可用的消息模板": "No available message templates",
-  "重置": "Reset"
+  "重置": "Reset",
+  "APP版本过低": "The app version is too low",
+  "为了确保您能使用最新功能，请升级到2.1.1及以上版本": "To ensure you can use the latest features, please upgrade to version 2.1.1 or above",
+  "退出登录": "Log out"
 };

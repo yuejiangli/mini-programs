@@ -143,5 +143,8 @@ export default {
   "邮箱": "E-mail",
   "获取邮箱": "Récupérer l'e-mail",
   "没有可用的消息模板": "Aucun modèle de message disponible",
-  "重置": "Réinitialiser"
+  "重置": "Réinitialiser",
+  "APP版本过低": "La version de l'application est trop ancienne",
+  "为了确保您能使用最新功能，请升级到2.1.1及以上版本": "Pour vous assurer de pouvoir utiliser les dernières fonctionnalités, veuillez mettre à jour vers la version 2.1.1 ou supérieure",
+  "退出登录": "Se déconnecter"
 };

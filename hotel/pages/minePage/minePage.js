@@ -47,6 +47,13 @@ Page({
           }
      },
 
+     logout: function() {
+          app.globalData.userInfo = null;
+          wx.reLaunch({
+               url:  "/pages/homePage/homePage",
+          })
+     },
+
      initLoginMsg: function () {
           if (app.globalData.userInfo) {
                this.setData({

@@ -123,7 +123,7 @@ export default {
   "支付成功": "Pembayaran berhasil",
   "登录成功": "Berhasil login",
   "提交中": "Mengirimkan...",
-  "授权登录": "Login resmi",
+  "APP授权登录": "Login Aplikasi yang Diberikan Izin",
   "热门": "Kota teratas",
   "北京": "Beijing",
   "上海": "Shanghai",

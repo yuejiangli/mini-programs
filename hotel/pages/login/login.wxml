@@ -1,6 +1,6 @@
 <view class="main">
    <image class='image' mode='scaleToFill' src='../../res/images/ic_hotel.png'></image>   
-   <button class='commonBtn' hover-class='commonBtnHover' bindtap='login' hover-stay-time='100' loading="{{isLoading}}">{{i18n['授权登录']}}</button>
+   <button class='commonBtn' hover-class='commonBtnHover' bindtap='login' hover-stay-time='100' loading="{{isLoading}}">{{i18n['APP授权登录']}}</button>
    <button
       open-type="getPhoneNumber"
       loading="{{isLoadingPhone}}"

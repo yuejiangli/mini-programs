@@ -123,7 +123,7 @@ export default {
   "支付成功": "Paiement réussi",
   "登录成功": "Connexion réussie",
   "提交中": "Envoi...",
-  "授权登录": "Connexion autorisée",
+  "APP授权登录": "Connexion autorisée de l'application",
   "热门": "Chaud",
   "北京": "Pékin",
   "上海": "Shanghai",

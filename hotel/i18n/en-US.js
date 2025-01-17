@@ -123,7 +123,7 @@ export default {
   "支付成功": "Payment successful",
   "登录成功": "Logged in successfully",
   "提交中": "Submitting...",
-  "授权登录": "Authorized login",
+  "APP授权登录": "App Authorization Login",
   "热门": "Top cities",
   "北京": "Beijing",
   "上海": "Shanghai",

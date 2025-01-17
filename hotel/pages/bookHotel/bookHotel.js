@@ -130,7 +130,7 @@ Page({
                     .filter(([key, value]) => value === "accept") // 过滤出值为 "accept" 的项
                     .map(([key]) => key); // 提取出键
                     if (keysWithAccept.length > 0) {
-                         this.orderSubscribe(tmplIds[0])
+                         this.orderSubscribe(keysWithAccept[0])
                     } else {
                          wx.showModal({
                               title: i18n['没有可用的消息模板'],
@@ -210,7 +210,7 @@ Page({
                signType,
                timeStamp,
                success: () => {
-                    this.requestSubscribeMessage(['mti_xrUrGREpLnuNukTADNrxHhFvLwGNLgDsIHIGByi'])
+                    this.requestSubscribeMessage(['mti_wifrQVRYyPPryBIpzDJRQPosdrVFfxxHKefshhh'])
                     wx.showLoading({
                          title: i18n['支付成功']
                     })

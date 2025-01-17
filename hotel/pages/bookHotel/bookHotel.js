@@ -81,7 +81,7 @@ Page({
                     appid: Config.APPID,
                     token: app.globalData.userInfo.token,
                     template_id,
-                    page: 'pages/minePage/minePage',
+                    page: 'pages/orderList/orderList?type=todo',
                     data: {
                          'thing1': {
                               value: generateOrderNumber(),
@@ -210,7 +210,9 @@ Page({
                signType,
                timeStamp,
                success: () => {
-                    this.requestSubscribeMessage(['mti_wifrQVRYyPPryBIpzDJRQPosdrVFfxxHKefshhh'])
+                    if(app.globalData.userInfo.token) {
+                         this.requestSubscribeMessage(['mti_wifrQVRYyPPryBIpzDJRQPosdrVFfxxHKefshhh'])
+                    }
                     wx.showLoading({
                          title: i18n['支付成功']
                     })

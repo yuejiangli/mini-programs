@@ -146,5 +146,6 @@ export default {
   "重置": "Reset",
   "APP版本过低": "The app version is too low",
   "为了确保您能使用最新功能，请升级到2.1.1及以上版本": "To ensure you can use the latest features, please upgrade to version 2.1.1 or above",
-  "退出登录": "Log out"
+  "退出登录": "Log out",
+  "仅用于演示，重启小程序后登录态清除": "For demonstration purposes only, the login state will be cleared after restarting the mini program"
 };

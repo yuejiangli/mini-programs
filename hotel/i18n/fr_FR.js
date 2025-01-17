@@ -146,5 +146,6 @@ export default {
   "重置": "Réinitialiser",
   "APP版本过低": "La version de l'application est trop ancienne",
   "为了确保您能使用最新功能，请升级到2.1.1及以上版本": "Pour vous assurer de pouvoir utiliser les dernières fonctionnalités, veuillez mettre à jour vers la version 2.1.1 ou supérieure",
-  "退出登录": "Se déconnecter"
+  "退出登录": "Se déconnecter",
+  "仅用于演示，重启小程序后登录态清除": "Uniquement à des fins de démonstration, l'état de connexion sera effacé après le redémarrage du mini programme"
 };

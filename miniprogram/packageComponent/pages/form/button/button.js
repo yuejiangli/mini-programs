@@ -1,6 +1,8 @@
 import { i18n, lang } from '../../../../i18n/lang'
 import { log } from '../../../../util/util'
 
+const APPID = 'mp45991maeap3uf5'
+const BASEURL = 'https://tcmppplus.woyaojianfei.club'
 const types = ['default', 'primary', 'warn']
 const pageObject = {
   data: {
@@ -63,10 +65,10 @@ const pageObject = {
     if (code) {
       //发起网络请求
       wx.request({
-        url: "https://tcmpp.woyaojianfei.club/getPhoneNumber",
+        url: `${BASEURL}/getUserPhoneDirect`,
         method: "POST",
         data: {
-          appid: "mpp0ndj6q1wqzy6d",
+          appid: APPID,
           code
         },
         success: (res) => {
@@ -79,15 +81,17 @@ const pageObject = {
             wx.showModal({
               title: 'PhoneNumber',
               confirmText: i18n['toast6'],
-              content: data.phone_info?.phoneNumber,
+              content: data?.phoneNumber,
               showCancel: false
             })
           } else {
+            const msg = res?.data?.data?.msg || res?.data || '/getPhoneNumber request fail'
+            const errcode = res?.data?.data?.errcode || code
             console.log('/getPhoneNumber request fail', res)
             wx.showModal({
-              title: 'code err',
+              title: 'Failed to retrieve phone number',
               confirmText: i18n['toast6'],
-              content: msg || '/getPhoneNumber request fail',
+              content: `/getPhoneNumber fail:${msg}[code:${errcode}]`,
               showCancel: false
             })
           }
@@ -125,10 +129,10 @@ const pageObject = {
     if (code) {
       //发起网络请求
       wx.request({
-        url: "https://tcmpp.woyaojianfei.club/getEmailAddress",
+        url: `${BASEURL}/getUserEmailDirect`,
         method: "POST",
         data: {
-          appid: "mpp0ndj6q1wqzy6d",
+          appid: APPID,
           code
         },
         success: (res) => {
@@ -141,15 +145,17 @@ const pageObject = {
             wx.showModal({
               title: 'EmailAddress',
               confirmText: i18n['toast6'],
-              content: data.email_info?.emailAddress,
+              content: data?.emailAddress,
               showCancel: false
             })
           } else {
+            const msg = res?.data?.data?.msg || res?.data || '/getEmailAddress request fail'
+            const errcode = res?.data?.data?.errcode || code
             console.log('/getEmailAddress request fail', res)
             wx.showModal({
-              title: 'code err',
+              title: 'Failed to retrieve email address',
               confirmText: i18n['toast6'],
-              content: msg || '/getEmailAddress request fail',
+              content: `/getEmailAddress fail:${msg}[code:${errcode}]`,
               showCancel: false
             })
           }

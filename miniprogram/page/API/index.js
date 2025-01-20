@@ -23,6 +23,9 @@ Page({
           name: i18n['copy Link'],
           url: 'copy-url/copy-url'
         }, {
+          name: i18n['login'],
+          url: 'login/login'
+        }, {
           name: i18n['Forward'],
           url: 'share/share'
         }, {

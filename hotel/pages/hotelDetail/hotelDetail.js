@@ -133,7 +133,7 @@ Page({
      },
 
      bookRoom: function (e) {
-          if(app.globalData.userInfo && app.globalData.userInfo.nickName){
+          if(app.globalData.userInfo && (app.globalData.userInfo.nickName || app.globalData.userInfo.phoneNumber)){
                var index = e.currentTarget.dataset.index;
                var room = this.data.roomArray[index];
                wx.navigateTo({

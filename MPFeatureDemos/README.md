@@ -9,6 +9,7 @@ The **MPFeatureDemos** directory contains a collection of demonstration projects
 The directory is organized as follows:
 
 - **subPackages/**: In Mini Programs, the size of a single package cannot exceed 2MB. If the package exceeds this size limit, you will be unable to preview or upload the program. It is recommended that developers host local static resources on a server or utilize subPackages to optimize package size. This directory demonstrates the usage of subPackages.
+- **webviewH5/**: This directory contains examples of how to embed H5 content within a web-view component. The H5 pages can be accessed **offline** or **online**. Additionally, H5 can utilize the JSSDK to call Mini Program APIs, allowing for bidirectional communication between H5 and the Mini Program.
 
 ## Getting Started
 

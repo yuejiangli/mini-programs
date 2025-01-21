@@ -8,7 +8,7 @@
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "TCMPP Mini Program",
+        "navigationBarTitleText": "webviewH5",
         "navigationBarTextStyle": "black"
     },
     "staticPath": ["distH5"]

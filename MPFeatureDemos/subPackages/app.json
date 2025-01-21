@@ -6,7 +6,7 @@
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "TCMPP Mini Program",
+        "navigationBarTitleText": "subPackages",
         "navigationBarTextStyle": "black"
     },
     "subPackages": [

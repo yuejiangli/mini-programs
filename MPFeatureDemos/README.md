@@ -10,6 +10,7 @@ The directory is organized as follows:
 
 - **subPackages/**: In Mini Programs, the size of a single package cannot exceed 2MB. If the package exceeds this size limit, you will be unable to preview or upload the program. It is recommended that developers host local static resources on a server or utilize subPackages to optimize package size. This directory demonstrates the usage of subPackages.
 - **webviewH5/**: This directory contains examples of how to embed H5 content within a web-view component. The H5 pages can be accessed **offline** or **online**. Additionally, H5 can utilize the JSSDK to call Mini Program APIs, allowing for bidirectional communication between H5 and the Mini Program.
+- **loginAndProfile/**: Mini Programs can conveniently obtain user identity identifiers provided by the host app through the standardized login capabilities offered by the official framework, allowing for the rapid establishment of a user system within the Mini Program. Additionally, with user consent, it is possible to retrieve app user information such as profile pictures, nicknames, and phone numbers through Mini Program APIs or components. This directory will demonstrate how to utilize the relevant APIs and components for these functionalities.
 
 ## Getting Started
 

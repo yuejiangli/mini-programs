@@ -116,7 +116,7 @@ export default {
   "已取消订单为空": "Aucune réservation trouvée",
   "时代广场地铁站": "Station Times Square",
   "未入住订单为空": "Aucune réservation trouvée",
-  "本机号码一键登录": "Se connecter avec un numéro local",
+  "手机号码一键登录": "Connexion avec le Numéro de Téléphone",
   "请填写入住人及手机号码": "Le nom du client et son numéro de téléphone portable sont requis.",
   "取消": "Annuler",
   "登录失败": "Échec de la connexion",

@@ -116,7 +116,7 @@ export default {
   "已取消订单为空": "No bookings found",
   "时代广场地铁站": "Times Square station",
   "未入住订单为空": "No bookings found",
-  "本机号码一键登录": "Log in with local number",
+  "手机号码一键登录": "Login with Phone Number",
   "请填写入住人及手机号码": "The guest and mobile number are required.",
   "取消": "Cancel",
   "登录失败": "Login failed",

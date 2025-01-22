@@ -116,7 +116,7 @@ export default {
   "已取消订单为空": "Tidak ditemukan pemesanan",
   "时代广场地铁站": "Stasiun Times Square",
   "未入住订单为空": "Tidak ditemukan pemesanan",
-  "本机号码一键登录": "Login dengan nomor lokal",
+  "手机号码一键登录": "Masuk dengan Nomor Telepon",
   "请填写入住人及手机号码": "Tamu dan nomor ponsel wajib diisi.",
   "取消": "Batal",
   "登录失败": "Gagal login",

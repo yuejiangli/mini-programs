@@ -56,11 +56,12 @@ Page({
 
      initLoginMsg: function () {
           if (app.globalData.userInfo) {
+               const loginQuick = !!app.globalData.userInfo.loginQuick;
                this.setData({
-                    loginQuick: !!app.globalData.userInfo.loginQuick,
+                    loginQuick: loginQuick,
                     isLoginSuccess: true,
                     userHead: app.globalData.userInfo.avatarUrl,
-                    userTitle: app.globalData.userInfo.nickName || app.globalData.userInfo.phoneNumber
+                    userTitle: loginQuick ? app.globalData.userInfo.phoneNumber : app.globalData.userInfo.nickName
                })
           }
      },

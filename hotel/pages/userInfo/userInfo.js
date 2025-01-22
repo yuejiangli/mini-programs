@@ -132,7 +132,7 @@ Page({
           wx.showModal({
             title: 'getPhoneNumber fail',
             confirmText: i18n['确定'],
-            content: errMsg,
+            content: i18n['请确认在APP中已经设置了手机号码'],
             showCancel: false
           })
         }
@@ -187,7 +187,7 @@ Page({
         wx.showModal({
           title: 'getEmailAddress fail',
           confirmText: i18n['确定'],
-          content: errMsg,
+          content: i18n['请确认在APP中已经设置了邮箱'],
           showCancel: false
         })
       }
@@ -199,7 +199,7 @@ Page({
           userHead: `${Config.BASEURL}/default.png`,
           userHeadBase64: '',
           nickName: app.globalData.userInfo.account,
-          phoneNumber: '',
+          phoneNumber: app.globalData.userInfo.loginQuick ? app.globalData.userInfo.phoneNumber : '',
           emailAddress: '',
       })
       this.updateUserInfo('isLoadingReset')

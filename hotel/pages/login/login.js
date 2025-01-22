@@ -176,7 +176,7 @@ Page({
         wx.showModal({
           title: 'getPhoneNumber fail',
           confirmText: i18n['确定'],
-          content: errMsg,
+          content: i18n['请确认在APP中已经设置了手机号码'],
           showCancel: false
         })
       }

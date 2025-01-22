@@ -147,5 +147,7 @@ export default {
   "APP版本过低": "Versi aplikasi terlalu rendah",
   "为了确保您能使用最新功能，请升级到2.1.1及以上版本": "Untuk memastikan Anda dapat menggunakan fitur terbaru, silakan perbarui ke versi 2.1.1 atau yang lebih baru",
   "退出登录": "Keluar dari akun",
-  "仅用于演示，重启小程序后登录态清除": "Hanya untuk tujuan demonstrasi, status login akan dihapus setelah memulai ulang mini program"
+  "仅用于演示，重启小程序后登录态清除": "Hanya untuk tujuan demonstrasi, status login akan dihapus setelah memulai ulang mini program",
+  "请确认在APP中已经设置了手机号码": "Silakan konfirmasi bahwa nomor telepon telah diatur di aplikasi",
+  "请确认在APP中已经设置了邮箱": "Silakan konfirmasi bahwa email telah diatur di aplikasi"
 };

@@ -45,18 +45,28 @@ Page({
         console.log('onChooseAvatar===', e)
         const { avatarUrl } = e.detail
         if(avatarUrl.includes('/tmp')) {
-          const fs = wx.getFileSystemManager();
-          fs.readFile({
-            filePath: avatarUrl,
-            encoding: 'base64',
-            success: (data) => {
-              this.setData({
-                userHeadBase64: 'data:image/png;base64,' + data.data,
-                userHead: 'data:image/png;base64,' + data.data
-              })
+          wx.compressImage({
+            src: avatarUrl,
+            quality: 10,
+            success: (compressRes) => {
+              const fs = wx.getFileSystemManager();
+              fs.readFile({
+                filePath: compressRes.tempFilePath,
+                encoding: 'base64',
+                success: (data) => {
+                  console.log('base64===', data.data.length)
+                  this.setData({
+                    userHeadBase64: 'data:image/png;base64,' + data.data,
+                    userHead: 'data:image/png;base64,' + data.data
+                  })
+                },
+                fail: (err) => {
+                  console.error('readFile error===', err);
+                }
+              });
             },
             fail: (err) => {
-              console.error('readFile error===', err);
+              console.error('compressImage error===', err);
             }
           });
         }
@@ -287,7 +297,9 @@ Page({
       * 生命周期函数--监听页面显示
       */
      onShow: function () {
-          this.initLoginMsg();
+          if(!this.data.userHeadBase64) {
+            this.initLoginMsg();
+          }
      },
 
      /**

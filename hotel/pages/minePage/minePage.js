@@ -61,7 +61,7 @@ Page({
                     loginQuick: loginQuick,
                     isLoginSuccess: true,
                     userHead: app.globalData.userInfo.avatarUrl,
-                    userTitle: loginQuick ? app.globalData.userInfo.phoneNumber : app.globalData.userInfo.nickName
+                    userTitle: app.globalData.userInfo.nickName || app.globalData.userInfo.phoneNumber
                })
           }
      },

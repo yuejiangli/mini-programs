@@ -47,7 +47,7 @@ Page({
         if(avatarUrl.includes('/tmp')) {
           wx.compressImage({
             src: avatarUrl,
-            quality: 10,
+            quality: 5,
             success: (compressRes) => {
               const fs = wx.getFileSystemManager();
               fs.readFile({
@@ -209,7 +209,7 @@ Page({
           userHead: `${Config.BASEURL}/default.png`,
           userHeadBase64: '',
           nickName: app.globalData.userInfo.account,
-          phoneNumber: app.globalData.userInfo.loginQuick ? app.globalData.userInfo.phoneNumber : '',
+          phoneNumber: '',
           emailAddress: '',
       })
       this.updateUserInfo('isLoadingReset')

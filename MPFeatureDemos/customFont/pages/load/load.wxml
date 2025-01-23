@@ -1,0 +1,3 @@
+<view class="container">
+    <view class="global-custom-text font-container">This is a global font loaded via wx.loadFontFace</view>
+</view>

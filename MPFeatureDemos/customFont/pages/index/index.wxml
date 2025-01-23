@@ -5,7 +5,4 @@
     <view class="font-container">
         <button bindtap="loadFontFace">wx.loadFontFace</button>
     </view>
-    <view class="font-container">
-        <button bindtap="toOtherPage">To Other Page</button>
-    </view>
 </view>

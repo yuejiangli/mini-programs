@@ -8,8 +8,8 @@ Page({
     text: 'This is the default font'
   },
   loadFontFace: function() {
+    // Note: This method only takes effect on the current page
     wx.loadFontFace({
-      global: true,
       family: 'APICustomFont',
       source: 'url(https://fonts.gstatic.com/s/jersey15/v2/_6_9EDzuROGsUuk2TWjiZYAgkio_SA.woff2)',
       success: (res) => {
@@ -21,11 +21,6 @@ Page({
       fail: (res) => {
         console.log('loadFontFace Fail===', res)
       }
-    })
-  },
-  toOtherPage: function() {
-    wx.navigateTo({
-      url: '/pages/load/load'
     })
   }
 })

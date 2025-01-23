@@ -1,8 +1,0 @@
-  .font-container {
-      margin-top: 50rpx;
-      text-align: center;
-  }
-
-  .global-custom-text {
-    font-family: 'APICustomFont';
-  }

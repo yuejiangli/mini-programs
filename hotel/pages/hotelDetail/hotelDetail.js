@@ -117,7 +117,11 @@ Page({
           startMonth = app.globalData.startMonth || currentMonth;
           startWeek = app.globalData.startWeek || currentWeek;
 
-          this.initEndDate();
+          if(options.isFromShare) {
+               this.updateEndDate();
+          } else {
+               this.initEndDate();
+          }
           this.setSearchDate();
 
           console.log(options);
@@ -126,7 +130,9 @@ Page({
           var distance = options.distance;
           if (hotelName !== undefined) {
                this.setData({
-                    hotelName: hotelName,
+                    hotelName,
+                    address,
+                    distance,
                     hotelAddress: address + '\n' + i18n['距我'] + distance + i18n['公里']
                });
           }
@@ -182,13 +188,13 @@ Page({
 
      getWeekday: function (week) {
           var weekday = new Array(7)
-          weekday[0] = i18n['周日']
           weekday[1] = i18n['周一']
           weekday[2] = i18n['周二']
           weekday[3] = i18n['周三']
           weekday[4] = i18n['周四']
           weekday[5] = i18n['周五']
           weekday[6] = i18n['周六']
+          weekday[7] = i18n['周日']
 
           return weekday[week];
      },
@@ -231,7 +237,7 @@ Page({
                endYear = startYear;
                if (startDay <= startDayCount) {
                     endMonth = startMonth
-                    endDay = startDay + app.globalData.dayCount || 1;
+                    endDay = startDay + (app.globalData.dayCount || 1);
                } else {
                     endMonth = startMonth + 1;
                     endDay = 1;
@@ -321,6 +327,8 @@ Page({
       * 用户点击右上角分享
       */
      onShareAppMessage: function () {
-
+          return {
+               path: `/pages/hotelDetail/hotelDetail?name=${this.data.hotelName}&address=${this.data.address}&distance=${this.data.distance}&isFromShare=true`
+          }
      }
 })

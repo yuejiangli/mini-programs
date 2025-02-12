@@ -142,6 +142,7 @@ Page({
       */
      onShareAppMessage: function () {
           return {
+               title: `${i18n['登录Hotel个人中心，管理您的订单和会员信息']}`,
                path: '/pages/minePage/minePage'
           }
      }

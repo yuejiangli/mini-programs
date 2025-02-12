@@ -149,5 +149,9 @@ export default {
   "退出登录": "Se déconnecter",
   "仅用于演示，重启小程序后登录态清除": "Uniquement à des fins de démonstration, l'état de connexion sera effacé après le redémarrage du mini programme",
   "请确认在APP中已经设置了手机号码": "Veuillez confirmer que le numéro de téléphone a été configuré dans l'application",
-  "请确认在APP中已经设置了邮箱": "Veuillez confirmer que l'email a été configuré dans l'application"
+  "请确认在APP中已经设置了邮箱": "Veuillez confirmer que l'email a été configuré dans l'application",
+  "您的完美度假选择": "Votre Choix de Vacances Parfait",
+  "欢迎来到Hotel，立即登录体验奢华住宿": "Bienvenue sur Hotel, Connectez-vous Maintenant pour Vivre des Séjours Luxueux",
+  "探索Hotel，发现您的理想住宿": "Explorez Hotel, Découvrez Votre Séjour Idéal",
+  "登录Hotel个人中心，管理您的订单和会员信息": "Connectez-vous au Centre Personnel de l'Hôtel pour Gérer Vos Commandes et Informations d'Adhésion"
 };

@@ -149,5 +149,9 @@ export default {
   "退出登录": "Keluar dari akun",
   "仅用于演示，重启小程序后登录态清除": "Hanya untuk tujuan demonstrasi, status login akan dihapus setelah memulai ulang mini program",
   "请确认在APP中已经设置了手机号码": "Silakan konfirmasi bahwa nomor telepon telah diatur di aplikasi",
-  "请确认在APP中已经设置了邮箱": "Silakan konfirmasi bahwa email telah diatur di aplikasi"
+  "请确认在APP中已经设置了邮箱": "Silakan konfirmasi bahwa email telah diatur di aplikasi",
+  "您的完美度假选择": "Pilihan Liburan Sempurna Anda",
+  "欢迎来到Hotel，立即登录体验奢华住宿": "Selamat Datang di Hotel, Masuk Sekarang untuk Mengalami Penginapan Mewah",
+  "探索Hotel，发现您的理想住宿": "Jelajahi Hotel, Temukan Penginapan Ideal Anda",
+  "登录Hotel个人中心，管理您的订单和会员信息": "Masuk ke Pusat Pribadi Hotel untuk Mengelola Pesanan dan Informasi Keanggotaan"
 };

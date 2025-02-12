@@ -105,6 +105,9 @@ Page({
       * 生命周期函数--监听页面加载
       */
      onLoad: function (options) {
+          wx.onCopyUrl(() => {
+               return { query: `name=${this.data.hotelName}&address=${this.data.address}&distance=${this.data.distance}&isFromShare=true` }
+          })
           wx.setNavigationBarTitle({
                title: i18n['酒店详情']
           })
@@ -306,7 +309,7 @@ Page({
       * 生命周期函数--监听页面卸载
       */
      onUnload: function () {
-
+          wx.offCopyUrl()
      },
 
      /**
@@ -328,6 +331,7 @@ Page({
       */
      onShareAppMessage: function () {
           return {
+               title: `${this.data.hotelName}：${i18n['您的完美度假选择']}`,
                path: `/pages/hotelDetail/hotelDetail?name=${this.data.hotelName}&address=${this.data.address}&distance=${this.data.distance}&isFromShare=true`
           }
      }

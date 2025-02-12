@@ -149,5 +149,9 @@ export default {
   "退出登录": "Log out",
   "仅用于演示，重启小程序后登录态清除": "For demonstration purposes only, the login state will be cleared after restarting the mini program",
   "请确认在APP中已经设置了手机号码": "Please confirm that the phone number has been set in the app",
-  "请确认在APP中已经设置了邮箱": "Please confirm that the email has been set in the app"
+  "请确认在APP中已经设置了邮箱": "Please confirm that the email has been set in the app",
+  "您的完美度假选择": "Your Perfect Vacation Choice",
+  "欢迎来到Hotel，立即登录体验奢华住宿": "Welcome to Hotel, Log in Now to Experience Luxurious Stays",
+  "探索Hotel，发现您的理想住宿": "Explore Hotel, Discover Your Ideal Stay",
+  "登录Hotel个人中心，管理您的订单和会员信息": "Log in to the Hotel Personal Center to Manage Your Orders and Membership Information"
 };

@@ -360,6 +360,7 @@ Page({
       */
      onShareAppMessage: function () {
           return {
+               title: `${i18n['探索Hotel，发现您的理想住宿']}`,
                path: '/pages/homePage/homePage'
           }
      }

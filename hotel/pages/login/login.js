@@ -186,6 +186,7 @@ Page({
      */
     onShareAppMessage: function () {
       return {
+        title: `${i18n['欢迎来到Hotel，立即登录体验奢华住宿']}`,
         path: '/pages/login/login'
       }
     }

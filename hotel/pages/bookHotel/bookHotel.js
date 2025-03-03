@@ -164,24 +164,25 @@ Page({
                })
           } else {
                wx.request({
-                    url: `${Config.BASEURL}/commonOrder`,
+                    url: `${Config.BASEURL}/payOrderV3`,
                     method: 'POST',
                     data: {
                          appid: Config.APPID,
                          attach: "Book a hotel",
                          body: "Hotel pay order",
                          total: this.data.roomPrice,
-                         id: app.globalData.userInfo?.id
+                         id: app.globalData.userInfo?.id,
+                         token: app.globalData.userInfo?.token
                     },
                     success: (res) => {
-                         console.log('/commonOrder request success', res)
+                         console.log('/payOrderV3 request success', res)
                          wx.hideLoading();
                          if(res.data.code === 200){
                               this.requestPayment(res.data)
                          } else {
-                              console.log('/commonOrder request fail', res)
+                              console.log('/payOrderV3 request fail', res)
                               wx.showModal({
-                                   title: '/commonOrder request fail',
+                                   title: '/payOrderV3 request fail',
                                    confirmText: i18n['确定'],
                                    content: 'The returned code is not equal to 200',
                                    showCancel: false
@@ -190,7 +191,7 @@ Page({
                     },
                     fail: (err) => {
                          wx.hideLoading();
-                         console.log('wx.request fail===/commonOrder', err)
+                         console.log('wx.request fail===/payOrderV3', err)
                          wx.showModal({
                               title: 'wx.request fail',
                               confirmText: i18n['确定'],

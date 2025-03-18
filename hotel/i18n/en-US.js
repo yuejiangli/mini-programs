@@ -116,7 +116,7 @@ export default {
   "已取消订单为空": "No bookings found",
   "时代广场地铁站": "Times Square station",
   "未入住订单为空": "No bookings found",
-  "本机号码一键登录": "Log in with local number",
+  "手机号码一键登录": "Login with Phone Number",
   "请填写入住人及手机号码": "The guest and mobile number are required.",
   "取消": "Cancel",
   "登录失败": "Login failed",
@@ -147,5 +147,11 @@ export default {
   "APP版本过低": "The app version is too low",
   "为了确保您能使用最新功能，请升级到2.1.1及以上版本": "To ensure you can use the latest features, please upgrade to version 2.1.1 or above",
   "退出登录": "Log out",
-  "仅用于演示，重启小程序后登录态清除": "For demonstration purposes only, the login state will be cleared after restarting the mini program"
+  "仅用于演示，重启小程序后登录态清除": "For demonstration purposes only, the login state will be cleared after restarting the mini program",
+  "请确认在APP中已经设置了手机号码": "Please confirm that the phone number has been set in the app",
+  "请确认在APP中已经设置了邮箱": "Please confirm that the email has been set in the app",
+  "您的完美度假选择": "Your Perfect Vacation Choice",
+  "欢迎来到Hotel，立即登录体验奢华住宿": "Welcome to Hotel, Log in Now to Experience Luxurious Stays",
+  "探索Hotel，发现您的理想住宿": "Explore Hotel, Discover Your Ideal Stay",
+  "登录Hotel个人中心，管理您的订单和会员信息": "Log in to the Hotel Personal Center to Manage Your Orders and Membership Information"
 };

@@ -116,7 +116,7 @@ export default {
   "已取消订单为空": "Tidak ditemukan pemesanan",
   "时代广场地铁站": "Stasiun Times Square",
   "未入住订单为空": "Tidak ditemukan pemesanan",
-  "本机号码一键登录": "Login dengan nomor lokal",
+  "手机号码一键登录": "Masuk dengan Nomor Telepon",
   "请填写入住人及手机号码": "Tamu dan nomor ponsel wajib diisi.",
   "取消": "Batal",
   "登录失败": "Gagal login",
@@ -147,5 +147,11 @@ export default {
   "APP版本过低": "Versi aplikasi terlalu rendah",
   "为了确保您能使用最新功能，请升级到2.1.1及以上版本": "Untuk memastikan Anda dapat menggunakan fitur terbaru, silakan perbarui ke versi 2.1.1 atau yang lebih baru",
   "退出登录": "Keluar dari akun",
-  "仅用于演示，重启小程序后登录态清除": "Hanya untuk tujuan demonstrasi, status login akan dihapus setelah memulai ulang mini program"
+  "仅用于演示，重启小程序后登录态清除": "Hanya untuk tujuan demonstrasi, status login akan dihapus setelah memulai ulang mini program",
+  "请确认在APP中已经设置了手机号码": "Silakan konfirmasi bahwa nomor telepon telah diatur di aplikasi",
+  "请确认在APP中已经设置了邮箱": "Silakan konfirmasi bahwa email telah diatur di aplikasi",
+  "您的完美度假选择": "Pilihan Liburan Sempurna Anda",
+  "欢迎来到Hotel，立即登录体验奢华住宿": "Selamat Datang di Hotel, Masuk Sekarang untuk Mengalami Penginapan Mewah",
+  "探索Hotel，发现您的理想住宿": "Jelajahi Hotel, Temukan Penginapan Ideal Anda",
+  "登录Hotel个人中心，管理您的订单和会员信息": "Masuk ke Pusat Pribadi Hotel untuk Mengelola Pesanan dan Informasi Keanggotaan"
 };

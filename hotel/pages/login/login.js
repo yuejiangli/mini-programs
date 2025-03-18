@@ -18,11 +18,14 @@ Page({
       i18n
     })
   },
-  // 登录
-  login: function () {
+  handleLogin: function() {
     this.setData({
       isLoading: true
     })
+    this.login('isLoading')
+  },
+  // 登录
+  login: function (loadingName) {
     wx.login({
       success: (res) => {
         console.log('wx.login success===', res)
@@ -37,7 +40,7 @@ Page({
             },
             success: (res) => {
               this.setData({
-                isLoading: false
+                [loadingName]: false
               })
               console.log('wx.request success===', res)
               const { code = -1, data = {} } = res?.data || {};
@@ -48,12 +51,13 @@ Page({
                     duration: 500
                 })
                 app.globalData.userInfo = {
+                  ...app.globalData.userInfo,
                   avatarUrl: data.avatarUrl || '../../res/images/avatar2.png',
                   account: data.account,
                   nickName: data.userName,
                   id: data.id,
                   token: data.token,
-                  phoneNumber: data.phone,
+                  phoneNumber: data.phone || app.globalData?.userInfo?.phoneNumber || '',
                   emailAddress: data.email
                 }
                 setTimeout(() => {
@@ -75,7 +79,7 @@ Page({
             },
             fail: (err) => {
               this.setData({
-                isLoading: false
+                [loadingName]: false
               })
               console.log('wx.request fail', err)
               wx.showModal({
@@ -88,7 +92,7 @@ Page({
           })
         } else {
           this.setData({
-            isLoading: false
+            [loadingName]: false
           })
           console.log('wx.login does not return code', res)
           wx.showModal({
@@ -101,7 +105,7 @@ Page({
       },
       fail: (err) => {
         this.setData({
-          isLoading: false
+          [loadingName]: false
         })
         console.log('wx.login fail===', err)
         wx.showModal({
@@ -131,20 +135,14 @@ Page({
             code,
           },
           success: (res) => {
-            this.setData({
-              isLoadingPhone: false
-            })
             console.log('getPhoneNumber request success===', res)
             const { code = -1, data = {}, msg } = res?.data || {};
             if (code === 200) { // 换取手机号信息成功
               app.globalData.userInfo = {
-                avatarUrl: '../../res/images/avatar.png',
                 phoneNumber: data?.phoneNumber,
                 loginQuick: true
               }
-              wx.navigateBack({
-                delta: 1
-              })
+              this.login('isLoadingPhone')
             } else {
               const msg = res?.data?.data?.msg || res?.data || '/getPhoneNumber request fail'
               const errcode = res?.data?.data?.errcode || code
@@ -178,9 +176,18 @@ Page({
         wx.showModal({
           title: 'getPhoneNumber fail',
           confirmText: i18n['确定'],
-          content: errMsg,
+          content: i18n['请确认在APP中已经设置了手机号码'],
           showCancel: false
         })
       }
     },
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function () {
+      return {
+        title: `${i18n['欢迎来到Hotel，立即登录体验奢华住宿']}`,
+        path: '/pages/login/login'
+      }
+    }
 })

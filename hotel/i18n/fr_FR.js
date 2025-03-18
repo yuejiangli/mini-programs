@@ -116,7 +116,7 @@ export default {
   "已取消订单为空": "Aucune réservation trouvée",
   "时代广场地铁站": "Station Times Square",
   "未入住订单为空": "Aucune réservation trouvée",
-  "本机号码一键登录": "Se connecter avec un numéro local",
+  "手机号码一键登录": "Connexion avec le Numéro de Téléphone",
   "请填写入住人及手机号码": "Le nom du client et son numéro de téléphone portable sont requis.",
   "取消": "Annuler",
   "登录失败": "Échec de la connexion",
@@ -147,5 +147,11 @@ export default {
   "APP版本过低": "La version de l'application est trop ancienne",
   "为了确保您能使用最新功能，请升级到2.1.1及以上版本": "Pour vous assurer de pouvoir utiliser les dernières fonctionnalités, veuillez mettre à jour vers la version 2.1.1 ou supérieure",
   "退出登录": "Se déconnecter",
-  "仅用于演示，重启小程序后登录态清除": "Uniquement à des fins de démonstration, l'état de connexion sera effacé après le redémarrage du mini programme"
+  "仅用于演示，重启小程序后登录态清除": "Uniquement à des fins de démonstration, l'état de connexion sera effacé après le redémarrage du mini programme",
+  "请确认在APP中已经设置了手机号码": "Veuillez confirmer que le numéro de téléphone a été configuré dans l'application",
+  "请确认在APP中已经设置了邮箱": "Veuillez confirmer que l'email a été configuré dans l'application",
+  "您的完美度假选择": "Votre Choix de Vacances Parfait",
+  "欢迎来到Hotel，立即登录体验奢华住宿": "Bienvenue sur Hotel, Connectez-vous Maintenant pour Vivre des Séjours Luxueux",
+  "探索Hotel，发现您的理想住宿": "Explorez Hotel, Découvrez Votre Séjour Idéal",
+  "登录Hotel个人中心，管理您的订单和会员信息": "Connectez-vous au Centre Personnel de l'Hôtel pour Gérer Vos Commandes et Informations d'Adhésion"
 };

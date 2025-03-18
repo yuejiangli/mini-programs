@@ -56,8 +56,9 @@ Page({
 
      initLoginMsg: function () {
           if (app.globalData.userInfo) {
+               const loginQuick = !!app.globalData.userInfo.loginQuick;
                this.setData({
-                    loginQuick: !!app.globalData.userInfo.loginQuick,
+                    loginQuick: loginQuick,
                     isLoginSuccess: true,
                     userHead: app.globalData.userInfo.avatarUrl,
                     userTitle: app.globalData.userInfo.nickName || app.globalData.userInfo.phoneNumber
@@ -140,6 +141,9 @@ Page({
       * 用户点击右上角分享
       */
      onShareAppMessage: function () {
-
+          return {
+               title: `${i18n['登录Hotel个人中心，管理您的订单和会员信息']}`,
+               path: '/pages/minePage/minePage'
+          }
      }
 })

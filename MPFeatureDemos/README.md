@@ -12,6 +12,7 @@ The directory is organized as follows:
 - **webviewH5/**: This directory contains examples of how to embed H5 content within a web-view component. The H5 pages can be accessed **offline** or **online**. Additionally, H5 can utilize the JSSDK to call Mini Program APIs, allowing for bidirectional communication between H5 and the Mini Program.
 - **loginAndProfile/**: Mini Programs can conveniently obtain user identity identifiers provided by the host app through the standardized login capabilities offered by the official framework, allowing for the rapid establishment of a user system within the Mini Program. Additionally, with user consent, it is possible to retrieve app user information such as profile pictures, nicknames, and phone numbers through Mini Program APIs or components. This directory will demonstrate how to utilize the relevant APIs and components for these functionalities.
 - **customFont/**: This directory is dedicated to the implementation of custom fonts within the Mini Program. It contains the necessary font files (e.g., .ttf, .woff) and demonstrates how to properly load and apply these fonts in the application.
+- **i18n/**: This directory demonstrates how to implement multilingual support in Mini Programs. The examples include how to dynamically load text content based on the user's language preferences. This directory aims to help developers understand best practices for internationalization and provides reusable code samples for implementing multilingual support in their own projects.
 
 ## Getting Started
 

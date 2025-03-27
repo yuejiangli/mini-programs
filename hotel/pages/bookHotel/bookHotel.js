@@ -168,9 +168,13 @@ Page({
                     method: 'POST',
                     data: {
                          appid: Config.APPID,
-                         attach: "Book a hotel",
-                         body: "Hotel pay order",
-                         total: this.data.roomPrice,
+                         goods_detail: [{
+                              "merchant_goods_id": Math.random().toString(36).substring(2, 12),
+                              "wechatpay_goods_id": Math.floor(Math.random() * 10000).toString(),
+                              "goods_name" : this.data.roomName,
+                              "quantity" : 1,
+                              "unit_price" : this.data.roomPrice
+                         }],
                          id: app.globalData.userInfo?.id,
                          token: app.globalData.userInfo?.token
                     },

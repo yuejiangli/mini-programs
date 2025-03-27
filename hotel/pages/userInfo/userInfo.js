@@ -94,7 +94,7 @@ Page({
 
       handleGetPhoneNumber(e) {
         console.log('getPhoneNumber success===', e.detail)
-        const { code, errMsg } = e.detail
+        const { code, errMsg, errno } = e.detail
         if (code) {
           //发起网络请求
           wx.request({
@@ -142,7 +142,7 @@ Page({
           wx.showModal({
             title: 'getPhoneNumber fail',
             confirmText: i18n['确定'],
-            content: i18n['请确认在APP中已经设置了手机号码'],
+            content: errno === '200000' ? i18n['请确认在APP中已经设置了手机号码'] : `${errno}: ${errMsg}`,
             showCancel: false
           })
         }
@@ -150,7 +150,7 @@ Page({
 
      handleGetEmailAddress(e) {
       console.log('getEmailAddress success===', e.detail)
-      const { code, errMsg } = e.detail
+      const { code, errMsg, errno } = e.detail
       if (code) {
         //发起网络请求
         wx.request({
@@ -197,7 +197,7 @@ Page({
         wx.showModal({
           title: 'getEmailAddress fail',
           confirmText: i18n['确定'],
-          content: i18n['请确认在APP中已经设置了邮箱'],
+          content: errno === '200000' ? i18n['请确认在APP中已经设置了邮箱'] : `${errno}: ${errMsg}`,
           showCancel: false
         })
       }

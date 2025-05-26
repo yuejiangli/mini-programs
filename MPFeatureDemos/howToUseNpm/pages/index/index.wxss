@@ -6,6 +6,11 @@
 
 .sub-title text {
     font-size: 50rpx;
+    color: #aaaeee;
+}
+
+.sub-title-value text {
+    text-decoration: underline;
 }
 
 .item {

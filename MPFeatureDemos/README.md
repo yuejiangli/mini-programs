@@ -14,6 +14,7 @@ The directory is organized as follows:
 - **customFont/**: This directory is dedicated to the implementation of custom fonts within the Mini Program. It contains the necessary font files (e.g., .ttf, .woff) and demonstrates how to properly load and apply these fonts in the application.
 - **i18n/**: This directory demonstrates how to implement multilingual support in Mini Programs. The examples include how to dynamically load text content based on the user's language preferences. This directory aims to help developers understand best practices for internationalization and provides reusable code samples for implementing multilingual support in their own projects.
 - **howToUseNpm/**: This directory demonstrates how to use npm in miniprogram. just run demo directly and follow the page guidance. in addition you can get a demo show how to encrypte and decrypte data whatever you want with AES-GCM
+- **customTabBar/**: This directory demonstrates show how to use customTabBar in miniprogram
 
 ## Getting Started
 

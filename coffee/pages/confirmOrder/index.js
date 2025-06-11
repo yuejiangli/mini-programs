@@ -1,5 +1,6 @@
 import i18n from '../../i18n/index';
 import { getShoppingCar, getStoreInfo, getUserInfo, saveOrderInfo } from '../../service/storage'
+import { hostUrl, appId } from '../../config/index';
 Page({
     data: {
         phoneNumber: '',
@@ -119,7 +120,6 @@ Page({
             productDetail: this.data.shoppingCar,
             storeInfo: this.data.storeInfo
         }
-        console.log(orderData)
 
         const { query: { noServer } } = wx.getEnterOptionsSync();
         if (`${noServer}` === '1') {
@@ -132,14 +132,20 @@ Page({
             }, orderData)
         } else {
             wx.request({
-                url: 'https://tcmpp.woyaojianfei.club/commonOrder',
+                url: `${hostUrl}/payOrderV3`,
                 method: 'POST',
                 data: {
-                    appid: 'mp72qkrsyxxby6pl',
-                    attach: "Coffee pay order",
-                    body: "Coffee pay order body",
-                    total: this.data.orderTotal,
-                    id: getUserInfo().id,
+                    appid: appId,
+                    goods_detail:
+                        orderData.productDetail.map(item => ({
+                            "merchant_goods_id": Math.random().toString(36).substring(2, 12),
+                            "wechatpay_goods_id": Math.floor(Math.random() * 10000).toString(),
+                            "goods_name": item.productName,
+                            "quantity": item.number,
+                            "unit_price": item.price,
+                        })),
+                    id: orderData.userInfo?.id,
+                    token: orderData.userInfo?.token
                 },
                 success: (res) => {
                     if (res.data.code === 200) {

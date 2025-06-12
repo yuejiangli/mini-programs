@@ -1,7 +1,7 @@
 {
 	"projectid": "touristId_coffee-demo",
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": false,
 		"minified": true,

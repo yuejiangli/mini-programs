@@ -1,6 +1,7 @@
 import i18n from '../../i18n/index';
 import { clearAll, getUserInfo, saveUserInfo } from '../../service/storage';
 import { setTabBar } from '../../utils/i18n';
+import { appId, hostUrl } from '../../config/index';
 Page({
     data: {
         userInfo: null,
@@ -82,10 +83,10 @@ Page({
                 success: ({ code }) => {
                     if (code) {
                         wx.request({
-                            url: 'https://tcmpp.woyaojianfei.club/getUserInfo',
+                            url: `${hostUrl}/getUserInfo`,
                             method: 'POST',
                             data: {
-                                appid: 'mp72qkrsyxxby6pl',
+                                appid: appId,
                                 code: code
                             },
                             success: (res) => {

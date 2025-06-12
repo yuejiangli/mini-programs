@@ -35,6 +35,8 @@
 		"tabSize": 2
 	},
 	"scripts": {},
+	"TCSASappid": "mpo6fr28ygaczdvh",
+	"TCSASLibVersion": "2.2.6",
 	"condition": {
 		"plugin": {
 			"current": -1,

@@ -6,7 +6,7 @@ import { commonPay, getUser } from '../../../utils/fetch';
 import i18n from '../../../i18n/index';
 const app = getApp();
 
-const stripeImg = `https://cdn-we-retail.ym.tencent.com/miniapp/order/stripe.png`;
+const stripeImg = `https://miniprogram.tcsas-superapp.com/miniapp/order/stripe.png`;
 
 Page({
   data: {

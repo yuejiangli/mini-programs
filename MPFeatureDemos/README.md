@@ -1,5 +1,7 @@
 # MPFeatureDemos
 
+English | [日本語](README.ja.md)
+
 ## Overview
 
 The **MPFeatureDemos** directory contains a collection of demonstration projects showcasing various features and functionalities of Mini Programs (MP). Each demo is designed to illustrate specific capabilities, providing developers with practical examples and insights into how to implement these features in their own projects.

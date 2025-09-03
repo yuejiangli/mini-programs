@@ -14,7 +14,8 @@ const MockMap = {
     'zh_CN': Mock.mockData,
     'en_US': Mock.mockData_en,
     'id_ID': Mock.mockData_id,
-    'fr_FR': Mock.mockData_fr
+    'fr_FR': Mock.mockData_fr,
+    'ja_JP': Mock.mockData_en
 }
 let util = {
     request(opt){

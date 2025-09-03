@@ -1,5 +1,7 @@
 # TCMPP Official mini program demo
 
+English | [日本語](README.ja.md)
+
 Tencent Cloud mini program platform, derived from Tencent mini program technology framework, fully follows the development specifications and standards of wechat mini program. It can not only help enterprises to put small programs into their own apps, but also provide enterprises with closed-loop ability to build their own small program ecology.
 
 ## TCMPP Official website

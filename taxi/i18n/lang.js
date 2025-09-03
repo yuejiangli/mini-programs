@@ -2,12 +2,14 @@ import zh_CN from './zh-CN';
 import en_US from './en-US';
 import id_ID from './id_ID';
 import fr_FR from './fr_FR';
+import ja_JP from './ja-JP';
 
 const wordsMap = {
   zh_CN,
   en_US,
   id_ID,
-  fr_FR
+  fr_FR,
+  ja_JP
 };
 
 let localLang = wx.getSystemInfoSync().language;
@@ -17,6 +19,7 @@ const regexZH = /^zh/i;
 const regexEN = /^en/i;
 const regexID = /^id/i;
 const regexFR = /^fr/i;
+const regexJA = /^ja/i;
 
 (() => {
   if(regexZH.test(localLang)) {
@@ -31,6 +34,9 @@ const regexFR = /^fr/i;
   } else if(regexFR.test(localLang)) {
     lang = 'fr_FR';
     i18n = wordsMap['fr_FR'];
+  } else if(regexJA.test(localLang)) {
+    lang = 'ja_JP';
+    i18n = wordsMap['ja_JP'];
   } else {
     lang = 'en_US';
     i18n = wordsMap['en_US'];

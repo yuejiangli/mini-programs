@@ -22,8 +22,7 @@ Tencent Cloud mini program platform, derived from Tencent mini program technolog
 
 ## TCMPP Official website
 
-- **[Global](https://www.tencentcloud.com/products/tcmpp)** 
-- **[China](https://cloud.tencent.com/product/tcmpp)**
+- **[TCSAS Documentation](https://www.tencentcloud.com/document/product/1219)** 
 
 ## Contact US
 - **[document](https://cloud.tencent.com/document/product/1593/100552)**

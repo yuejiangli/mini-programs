@@ -34,7 +34,7 @@ TCSAS は Tencent のミニプログラム技術フレームワークに基づ�
 
 ## 📖 ドキュメント・サポート
 
-* [公式ドキュメント](https://www.tencentcloud.com/document/product/1219/57614)
+* [TCSAS公式ドキュメント](https://www.tencentcloud.com/document/product/1219/57614)
 * サンプルコードに不具合があれば [Issue](../../issues) での報告を歓迎します
 
 ---

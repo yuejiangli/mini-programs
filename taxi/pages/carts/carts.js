@@ -9,7 +9,8 @@ Page({
       {value: 'en_US', name: 'English'},
       {value: 'zh_CN', name: '中文'},
       {value: 'id_ID', name: 'Bahasa Indonesia'},
-      {value: 'fr_FR', name: 'Français'}
+  {value: 'fr_FR', name: 'Français'},
+  {value: 'ja_JP', name: '日本語'}
     ]
   },
   onLoad(e){

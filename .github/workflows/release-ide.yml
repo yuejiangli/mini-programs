@@ -1,0 +1,53 @@
+name: Upload IDE Binary
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release tag (e.g. ide-v2.2.1211)'
+        required: true
+      exe_path:
+        description: 'Path to exe'
+        default: 'ide/TCSAS-Devtools_x64_2.2.1211_202509021611.exe'
+        required: true
+      checksum_path:
+        description: 'Path to checksum file'
+        default: 'ide/TCSAS-Devtools_x64_2.2.1211_202509021611.exe.sha256'
+        required: false
+  push:
+    tags:
+      - 'ide-v*'
+
+permissions:
+  contents: write
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify files exist
+        run: |
+          test -f "${{ github.event.inputs.exe_path || 'ide/TCSAS-Devtools_x64_2.2.1211_202509021611.exe' }}" || (echo 'EXE not found'; exit 1)
+          if [ -n "${{ github.event.inputs.checksum_path }}" ]; then
+            test -f "${{ github.event.inputs.checksum_path }}" || (echo 'Checksum file not found'; exit 1)
+          fi
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Upload assets
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="${{ github.event.inputs.tag || github.ref_name }}"
+          FILE="${{ github.event.inputs.exe_path || 'ide/TCSAS-Devtools_x64_2.2.1211_202509021611.exe' }}"
+          CHECKSUM="${{ github.event.inputs.checksum_path }}"
+          node scripts/upload-ide-release.js --tag "$TAG" --file "$FILE" ${CHECKSUM:+--checksum "$CHECKSUM"} --repo ${{ github.repository }}
+
+      - name: Show release URL
+        run: echo "Check Releases page: https://github.com/${{ github.repository }}/releases/tag/${{ github.event.inputs.tag || github.ref_name }}"

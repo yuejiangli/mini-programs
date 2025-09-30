@@ -65,3 +65,29 @@ Then attach the `.sha256` file to the release too.
 
 ---
 If you need automation (CI pipeline) later, we can add a GitHub Action to draft releases and upload artifacts automatically.
+
+## Automation
+
+### Local Script (Node.js)
+You can use the provided helper script to (create if missing and) upload assets:
+```bash
+export GITHUB_TOKEN=YOUR_TOKEN  # repo scope
+node scripts/upload-ide-release.js \
+  --tag ide-v2.2.1211 \
+  --file ide/TCSAS-Devtools_x64_2.2.1211_202509021611.exe \
+  --checksum ide/TCSAS-Devtools_x64_2.2.1211_202509021611.exe.sha256 \
+  --repo yuejiangli/mini-programs
+```
+
+If the release for the tag does not exist, a draft will be created.
+
+### GitHub Action (Manual Dispatch)
+Navigate to Actions > Upload IDE Binary > Run workflow, fill inputs and run. This uses `.github/workflows/release-ide.yml`.
+
+### GitHub Action (Automatic Tag Push)
+Push a tag matching `ide-v*`:
+```bash
+git tag ide-v2.2.1211
+git push origin ide-v2.2.1211
+```
+The workflow will attempt to attach the binary & checksum.
